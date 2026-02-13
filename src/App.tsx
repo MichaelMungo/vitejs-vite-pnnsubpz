@@ -84,7 +84,7 @@ const VideoCard = ({ project }: any) => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/5 shadow-md"
+      className="group relative overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/5 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-500/30"
     >
       {isHovered ? (
         <iframe
