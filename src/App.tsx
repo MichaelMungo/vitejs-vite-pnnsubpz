@@ -130,9 +130,6 @@ export default function App() {
             <button className="text-white hover:text-blue-400 transition-colors p-1">
               <Menu size={24} />
             </button>
-            <span className="text-white font-black tracking-tighter text-lg hidden sm:block">
-              BUILTLOGIC 3D
-            </span>
           </div>
 
           {/* This div now handles all the alignment to the right */}
