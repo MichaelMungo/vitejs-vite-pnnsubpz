@@ -242,7 +242,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">
-              Featured Projects
+              Portfolio
             </h2>
             <div className="h-1 w-20 bg-blue-600 mx-auto mb-6"></div>
             <p className="text-slate-500 max-w-lg mx-auto text-sm italic">
