@@ -123,8 +123,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
-      {/* 1. NAVIGATION */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
+  {/* 1. NAVIGATION */}
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button className="text-white hover:text-blue-400 transition-colors p-1">
@@ -135,8 +135,9 @@ export default function App() {
             </span>
           </div>
 
-          <div className="flex items-center gap-8">
-            <div className="hidden md:flex items-center gap-6 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+          {/* This div now handles all the alignment to the right */}
+          <div className="flex items-center gap-8 ml-auto">
+            <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
               <a href="#services" className="hover:text-white transition-all">
                 Services
               </a>
@@ -147,9 +148,7 @@ export default function App() {
                 Contact
               </a>
             </div>
-            <button className="bg-blue-600 text-white px-5 py-2 rounded-lg font-bold text-[10px] uppercase tracking-wider hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20">
-              Contact Us
-            </button>
+            {/* The blue button has been removed from here */}
           </div>
         </div>
       </nav>
