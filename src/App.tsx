@@ -1,4 +1,3 @@
-import './index.css';
 import { useState } from 'react';
 import {
   Menu,
@@ -17,7 +16,7 @@ const projects = [
     title: '3D Visualization',
     category: 'Design Integration',
     image: 'https://i.postimg.cc/JhcrybFb/thumb1.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_ID',
+    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_1?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_1&rel=0&playsinline=1',
     description:
       'Transforming 2D architectural intent into high-fidelity 3D structural builds.',
   },
@@ -26,7 +25,7 @@ const projects = [
     title: 'MEPS Conflict Detection',
     category: 'Preconstruction',
     image: 'https://i.postimg.cc/1tm9D8xN/thumb2.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_ID',
+    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_2?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_2&rel=0&playsinline=1',
     description:
       'Advanced spatial coordination to identify and resolve plumbing and electrical clashes.',
   },
@@ -35,7 +34,7 @@ const projects = [
     title: 'Structural Verification',
     category: 'Coordination',
     image: 'https://i.postimg.cc/pTW2KmNh/thumb3.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_ID',
+    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_3?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_3&rel=0&playsinline=1',
     description:
       'Verifying structural shop drawings against the architectural intent.',
   },
@@ -44,7 +43,7 @@ const projects = [
     title: 'Underground As-Builts',
     category: 'Civil',
     image: 'https://i.postimg.cc/Jnr1jswy/thumb4.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_ID',
+    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_4?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_4&rel=0&playsinline=1',
     description:
       'Precision tracking of invert elevations and utility locations.',
   },
@@ -53,7 +52,7 @@ const projects = [
     title: 'Comprehensive RFIs',
     category: 'Communication',
     image: 'https://i.postimg.cc/MT6W1nkf/thumb5.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_ID',
+    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_5?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_5&rel=0&playsinline=1',
     description:
       'Visualizing complex site issues in 3D to keep the job moving.',
   },
@@ -62,7 +61,7 @@ const projects = [
     title: 'The Full Sequence',
     category: 'Management',
     image: 'https://i.postimg.cc/MT6W1nkV/thumb6.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_ID',
+    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_6?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_6&rel=0&playsinline=1',
     description:
       'A comprehensive "peel-back" showing the full integration of all building systems.',
   },
@@ -88,10 +87,11 @@ const VideoCard = ({ project }: any) => {
     >
       {isHovered ? (
         <iframe
-          src={`${project.video}?autoplay=1&mute=1&controls=0`}
+          src={project.video}
           className="absolute inset-0 w-full h-full object-cover"
-          allow="autoplay"
+          allow="autoplay; encrypted-media; picture-in-picture"
           frameBorder="0"
+          title={project.title}
         />
       ) : (
         <img
@@ -123,16 +123,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
-  {/* 1. NAVIGATION */}
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
+      {/* 1. NAVIGATION */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button className="text-white hover:text-blue-400 transition-colors p-1">
               <Menu size={24} />
             </button>
           </div>
-
-          {/* This div now handles all the alignment to the right */}
           <div className="flex items-center gap-8 ml-auto">
             <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
               <a href="#services" className="hover:text-white transition-all">
@@ -145,7 +143,6 @@ export default function App() {
                 Contact
               </a>
             </div>
-            {/* The blue button has been removed from here */}
           </div>
         </div>
       </nav>
@@ -155,7 +152,6 @@ export default function App() {
         onMouseMove={handleMouseMove}
         className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group"
       >
-        {/* Animated Grid Background */}
         <div
           className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
@@ -165,17 +161,14 @@ export default function App() {
             maskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)`,
           }}
         />
-
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
           <div className="mb-12 flex justify-center items-center">
-            {/* IMPROVED LOGO */}
             <img
               src="/logo-main.png"
               alt="BuiltLogic 3D"
               className="relative z-30 w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[900px] h-auto object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)] brightness-150 contrast-150 saturate-125"
             />
           </div>
-
           <div className="relative z-20">
             <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto">
               Precision 3D Construction Models from Architectural and MEP Drawings
@@ -284,7 +277,6 @@ export default function App() {
               </div>
             </div>
           </div>
-
           <div className="bg-slate-900 p-10 rounded-2xl border border-white/5 shadow-2xl">
             <form className="grid grid-cols-2 gap-4">
               <input
