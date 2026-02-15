@@ -51,10 +51,9 @@ const projects = [
     id: 5,
     title: 'Comprehensive RFIs',
     category: 'Communication',
-    image: 'https://i.postimg.cc/MT6W1nkf/thumb5.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_5?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_5&rel=0&playsinline=1',
-    description:
-      'Visualizing complex site issues in 3D to keep the job moving.',
+    image: 'https://i.postimg.cc/MT6W1nkf/thumb5.jpg',  // Keep this—your NYC thumbnail
+    video: 'https://www.youtube.com/embed/RDN-y7ia-kM?autoplay=1&mute=1&controls=0&loop=1&playlist=RDN-y7ia-kM&rel=0&playsinline=1',
+    description: 'Visualizing complex site issues in 3D to keep the job moving.',
   },
   {
     id: 6,
