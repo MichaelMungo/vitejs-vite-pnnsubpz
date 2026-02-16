@@ -74,8 +74,8 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
 const VideoCard = ({ project }: any) => {
   const [isHovered, setIsHovered] = useState(false);
   
-  // This builds your professional embed link automatically
-  const videoLink = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1`;
+  // This builds the link using the youtubeId field
+  const videoSrc = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1`;
 
   return (
     <div
@@ -85,7 +85,7 @@ const VideoCard = ({ project }: any) => {
     >
       {isHovered ? (
         <iframe
-          src={videoLink}
+          src={videoSrc}
           className="absolute inset-0 w-full h-full object-cover"
           allow="autoplay; encrypted-media; picture-in-picture"
           frameBorder="0"
