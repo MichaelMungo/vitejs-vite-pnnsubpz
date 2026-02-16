@@ -39,142 +39,15 @@ const VideoCard = ({ project, onClick }: any) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
-      // CHANGED: 
-      // 1. border-blue-400 (Solid Bright Blue)
-      // 2. shadow-[0_0_30px_rgba(96,165,250,0.3)] (The "Neon Glow" spread)
       className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/10 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)]"
     >
-      {/* ... rest of code ... */}
-      {/* The Video Layer */}
       {isHovered ? (
         <iframe 
           src={videoSrc} 
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-[1.02]" 
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-[1.05]" 
           frameBorder="0" 
         />
       ) : (
         <img 
           src={project.image} 
-          className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" 
-          alt={project.title} 
-        />
-      )}
-
-      {/* The Title Overlay Layer - Fades out on hover */}
-      <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
-        <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">
-          {project.category}
-        </span>
-        <h4 className="text-white font-bold text-sm leading-tight">
-          {project.title}
-        </h4>
-      </div>
-    </div>
-  );
-};
-
-export default function App() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [selectedProject, setSelectedProject] = useState<any>(null);
-
-  const handleMouseMove = (e: any) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
-
-  return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
-      {/* NAVIGATION */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Menu size={24} className="text-white cursor-pointer" />
-          <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            <a href="#services" className="hover:text-white transition-all">Services</a>
-            <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
-            <a href="#contact" className="hover:text-white transition-all">Contact</a>
-          </div>
-        </div>
-      </nav>
-
-      {/* HERO SECTION */}
-      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
-        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ backgroundImage: `linear-gradient(#2563eb 0.5px, transparent 0.5px), linear-gradient(90deg, #2563eb 0.5px, transparent 0.5px)`, backgroundSize: '75px 75px', WebkitMaskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)`, maskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)` }} />
-        <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
-          <img src="/logo-main.png" alt="BuiltLogic 3D" className="relative z-30 w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[900px] mx-auto h-auto object-contain mb-10" />
-          <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-blue-600 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-900/40">Start Your Project</button>
-            <a href="#portfolio" className="bg-white/5 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 transition-all">View Our Work</a>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES SECTION */}
-      <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
-          <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard icon={Building2} title="Architectural 3D" desc="Transform 2D floor plans into detailed 3D visualizations." />
-          <ServiceCard icon={Zap} title="MEP Integration" desc="Modeling of mechanical, electrical, and plumbing systems." />
-          <ServiceCard icon={Ruler} title="BIM Coordination" desc="Ensuring all disciplines work seamlessly together." />
-          <ServiceCard icon={ArrowRight} title="Shop Drawings" desc="Precise fabrication-ready drawings and specs." />
-          <ServiceCard icon={CheckCircle2} title="As-Built Docs" desc="Detailed documentation of existing structures." />
-          <ServiceCard icon={Play} title="Visualization" desc="Photorealistic renders and walkthroughs." />
-        </div>
-      </section>
-
-      {/* PORTFOLIO SECTION */}
-      <section id="portfolio" className="py-24 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Portfolio</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CONTACT SECTION */}
-      <section id="contact" className="bg-slate-950 py-24 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="text-left">
-            <h2 className="text-4xl font-black text-white mb-6 uppercase">Let's Build Together</h2>
-            <div className="flex items-center gap-4 text-white">
-              <Mail size={20} className="text-blue-500" />
-              <a href="mailto:contact@builtlogic3d.com" className="hover:text-blue-400">contact@builtlogic3d.com</a>
-            </div>
-          </div>
-          <div className="bg-slate-900 p-8 rounded-2xl">
-            <form className="grid grid-cols-2 gap-4">
-              <input placeholder="Name" className="bg-slate-800 rounded p-4 text-white text-sm" />
-              <input placeholder="Email" className="bg-slate-800 rounded p-4 text-white text-sm" />
-              <textarea placeholder="Project Details" rows={4} className="bg-slate-800 rounded p-4 text-white text-sm col-span-2" />
-              <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded uppercase text-xs tracking-widest">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* LIGHTBOX MODAL */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4">
-          <button onClick={() => setSelectedProject(null)} className="absolute top-6 right-6 text-white hover:text-blue-400">
-            <X size={40} />
-          </button>
-          <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10">
-            <iframe 
-              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0`} 
-              className="w-full h-full" 
-              frameBorder="0" 
-              allowFullScreen 
-              allow="autoplay; fullscreen"
-            />
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+          className="absolute inset-0 w-full h
