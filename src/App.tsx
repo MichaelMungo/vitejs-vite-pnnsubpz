@@ -3,12 +3,8 @@ import {
   Menu,
   Building2,
   Ruler,
-  ArrowRight,
-  Play,
   Zap,
-  CheckCircle2,
-  Mail,
-  X, // Added for the close button
+  X,
 } from 'lucide-react';
 
 const projects = [
@@ -30,9 +26,34 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
   </div>
 );
 
+// VIDEO CARD COMPONENT
+const VideoCard = ({ project, onClick }: any) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const videoSrc = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1`;
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
+      className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/5 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-500/30"
+    >
+      {isHovered ? (
+        <iframe src={videoSrc} className="absolute inset-0 w-full h-full object-cover pointer-events-none" frameBorder="0" />
+      ) : (
+        <img src={project.image} className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" alt={project.title} />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end">
+        <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">{project.category}</span>
+        <h4 className="text-white font-bold text-sm leading-tight">{project.title}</h4>
+      </div>
+    </div>
+  );
+};
+
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [selectedProject, setSelectedProject] = useState<any>(null); // State for the Lightbox
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const handleMouseMove = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -93,14 +114,14 @@ export default function App() {
               <VideoCard 
                 key={project.id} 
                 project={project} 
-                onClick={() => setSelectedProject(project)} // Trigger lightbox
+                onClick={() => setSelectedProject(project)} 
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. LIGHTBOX MODAL (THE POPUP) */}
+      {/* 5. LIGHTBOX MODAL */}
       {selectedProject && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4 md:p-10">
           <button 
@@ -136,28 +157,3 @@ export default function App() {
     </div>
   );
 }
-
-// VIDEO CARD COMPONENT
-const VideoCard = ({ project, onClick }: any) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const videoSrc = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1`;
-
-  return (
-    <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={onClick} // Handle click to expand
-      className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/5 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-500/30"
-    >
-      {isHovered ? (
-        <iframe src={videoSrc} className="absolute inset-0 w-full h-full object-cover pointer-events-none" frameBorder="0" />
-      ) : (
-        <img src={project.image} className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" alt={project.title} />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end">
-        <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">{project.category}</span>
-        <h4 className="text-white font-bold text-sm leading-tight">{project.title}</h4>
-      </div>
-    </div>
-  );
-};
