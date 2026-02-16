@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
-  Menu, Building2, Ruler, Zap, X, ArrowRight, CheckCircle2,
-  Play, Mail, Phone, MapPin, BarChart3, Clock, ShieldCheck, 
+  Building2, Ruler, Zap, X, CheckCircle2,
+  Play, Mail, Phone, MapPin, Clock, ShieldCheck, 
   Layers, Settings, Video, Send, FileText, Search
 } from 'lucide-react';
 
