@@ -32,7 +32,7 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
 
 const VideoCard = ({ project, onClick }: any) => {
   const [isHovered, setIsHovered] = useState(false);
-  const videoSrc = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1`;
+  const videoSrc = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1&modestbranding=1`;
 
   return (
     <div
@@ -41,14 +41,29 @@ const VideoCard = ({ project, onClick }: any) => {
       onClick={onClick}
       className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/5 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-500/30"
     >
+      {/* The Video Layer */}
       {isHovered ? (
-        <iframe src={videoSrc} className="absolute inset-0 w-full h-full object-cover pointer-events-none" frameBorder="0" />
+        <iframe 
+          src={videoSrc} 
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-[1.02]" 
+          frameBorder="0" 
+        />
       ) : (
-        <img src={project.image} className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" alt={project.title} />
+        <img 
+          src={project.image} 
+          className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" 
+          alt={project.title} 
+        />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end">
-        <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">{project.category}</span>
-        <h4 className="text-white font-bold text-sm leading-tight">{project.title}</h4>
+
+      {/* The Title Overlay Layer - Fades out on hover */}
+      <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
+        <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">
+          {project.category}
+        </span>
+        <h4 className="text-white font-bold text-sm leading-tight">
+          {project.title}
+        </h4>
       </div>
     </div>
   );
