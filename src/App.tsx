@@ -5,6 +5,10 @@ import {
   Ruler,
   Zap,
   X,
+  ArrowRight,
+  CheckCircle2,
+  Play,
+  Mail,
 } from 'lucide-react';
 
 const projects = [
@@ -22,11 +26,10 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
       <Icon size={20} />
     </div>
     <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
-    <p className="text-slate-500 text-xs leading-relaxed">{desc}</p>
+    <p className="text-slate-500 text-[10px] leading-relaxed uppercase tracking-wider font-semibold">{desc}</p>
   </div>
 );
 
-// VIDEO CARD COMPONENT
 const VideoCard = ({ project, onClick }: any) => {
   const [isHovered, setIsHovered] = useState(false);
   const videoSrc = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1`;
@@ -68,7 +71,7 @@ export default function App() {
           <div className="flex items-center gap-4">
             <Menu size={24} className="text-white cursor-pointer" />
           </div>
-          <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+          <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-auto">
             <a href="#services" className="hover:text-white transition-all">Services</a>
             <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
             <a href="#contact" className="hover:text-white transition-all">Contact</a>
@@ -81,7 +84,7 @@ export default function App() {
         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ backgroundImage: `linear-gradient(#2563eb 0.5px, transparent 0.5px), linear-gradient(90deg, #2563eb 0.5px, transparent 0.5px)`, backgroundSize: '75px 75px', WebkitMaskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)`, maskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)` }} />
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
           <img src="/logo-main.png" alt="BuiltLogic 3D" className="relative z-30 w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[900px] mx-auto h-auto object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)] brightness-150 contrast-150 saturate-125 mb-10" />
-          <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto">Precision 3D Construction Models from Architectural and MEP Drawings</p>
+          <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <button className="bg-blue-600 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-900/40">Start Your Project</button>
             <a href="#portfolio" className="bg-white/5 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 transition-all">View Our Work</a>
@@ -93,12 +96,16 @@ export default function App() {
       <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
-          <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
+          <div className="h-1 w-20 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-slate-500 max-w-xl mx-auto italic text-sm">Comprehensive 3D modeling services that ensure accuracy and clarity across every trade.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ServiceCard icon={Building2} title="Architectural 3D" desc="Transform 2D floor plans into detailed 3D visualizations." />
           <ServiceCard icon={Zap} title="MEP Integration" desc="Modeling of mechanical, electrical, and plumbing systems." />
           <ServiceCard icon={Ruler} title="BIM Coordination" desc="Ensuring all disciplines work seamlessly together." />
+          <ServiceCard icon={ArrowRight} title="Shop Drawings" desc="Precise fabrication-ready drawings and specs." />
+          <ServiceCard icon={CheckCircle2} title="As-Built Docs" desc="Detailed documentation of existing structures." />
+          <ServiceCard icon={Play} title="Visualization" desc="Photorealistic renders and walkthroughs." />
         </div>
       </section>
 
@@ -111,49 +118,33 @@ export default function App() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <VideoCard 
-                key={project.id} 
-                project={project} 
-                onClick={() => setSelectedProject(project)} 
-              />
+              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. LIGHTBOX MODAL */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4 md:p-10">
-          <button 
-            onClick={() => setSelectedProject(null)} 
-            className="absolute top-6 right-6 text-white hover:text-blue-400 transition-colors"
-          >
-            <X size={40} />
-          </button>
-          
-          <div className="w-full max-w-6xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-            <iframe
-              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0&controls=1`}
-              className="w-full h-full"
-              allow="autoplay; encrypted-media; fullscreen"
-              frameBorder="0"
-            />
+      {/* 5. CONTACT SECTION */}
+      <section id="contact" className="bg-slate-950 py-24 px-6 relative">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10 items-start text-left">
+          <div>
+            <span className="text-blue-500 font-bold uppercase tracking-widest text-[10px]">Get In Touch</span>
+            <h2 className="text-4xl font-black text-white mt-4 mb-6 leading-tight uppercase">Let's Build Together</h2>
+            <p className="text-slate-400 mb-8 max-w-md">Ready to visualize your next project in high-fidelity 3D? Reach out for a consultation.</p>
+            <div className="flex items-center gap-4 text-white">
+              <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-blue-500"><Mail size={20} /></div>
+              <a href="mailto:contact@builtlogic3d.com" className="text-sm hover:text-blue-400 transition-colors font-medium tracking-wider">contact@builtlogic3d.com</a>
+            </div>
           </div>
-          
-          <div className="absolute bottom-10 text-center">
-            <h3 className="text-white text-2xl font-bold mb-2">{selectedProject.title}</h3>
-            <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">{selectedProject.category}</p>
+          <div className="bg-slate-900 p-10 rounded-2xl border border-white/5 shadow-2xl">
+            <form className="grid grid-cols-2 gap-4">
+              <input placeholder="Name" className="bg-slate-800 rounded-lg p-4 text-white text-sm col-span-1 outline-none focus:ring-2 focus:ring-blue-500" />
+              <input placeholder="Email" className="bg-slate-800 rounded-lg p-4 text-white text-sm col-span-1 outline-none focus:ring-2 focus:ring-blue-500" />
+              <textarea placeholder="Project Details" rows={4} className="bg-slate-800 rounded-lg p-4 text-white text-sm col-span-2 outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+              <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded-lg text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20">Send Message</button>
+            </form>
           </div>
-        </div>
-      )}
-
-      {/* 6. CONTACT SECTION */}
-      <section id="contact" className="bg-slate-950 py-24 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-black text-white mb-6">Let's Build Together</h2>
-          <a href="mailto:contact@builtlogic3d.com" className="text-blue-500 font-bold hover:text-blue-400 transition-colors">contact@builtlogic3d.com</a>
         </div>
       </section>
-    </div>
-  );
-}
+
+      {/*
