@@ -65,6 +65,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
+      {/* NAVIGATION */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Menu size={24} className="text-white cursor-pointer" />
@@ -76,6 +77,7 @@ export default function App() {
         </div>
       </nav>
 
+      {/* HERO SECTION */}
       <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ backgroundImage: `linear-gradient(#2563eb 0.5px, transparent 0.5px), linear-gradient(90deg, #2563eb 0.5px, transparent 0.5px)`, backgroundSize: '75px 75px', WebkitMaskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)`, maskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)` }} />
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
@@ -88,6 +90,7 @@ export default function App() {
         </div>
       </section>
 
+      {/* SERVICES SECTION */}
       <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
@@ -103,7 +106,56 @@ export default function App() {
         </div>
       </section>
 
+      {/* PORTFOLIO SECTION */}
       <section id="portfolio" className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Portfolio</h2>
-          <div className="grid grid-cols-1 md:grid-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section id="contact" className="bg-slate-950 py-24 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="text-left">
+            <h2 className="text-4xl font-black text-white mb-6 uppercase">Let's Build Together</h2>
+            <div className="flex items-center gap-4 text-white">
+              <Mail size={20} className="text-blue-500" />
+              <a href="mailto:contact@builtlogic3d.com" className="hover:text-blue-400">contact@builtlogic3d.com</a>
+            </div>
+          </div>
+          <div className="bg-slate-900 p-8 rounded-2xl">
+            <form className="grid grid-cols-2 gap-4">
+              <input placeholder="Name" className="bg-slate-800 rounded p-4 text-white text-sm" />
+              <input placeholder="Email" className="bg-slate-800 rounded p-4 text-white text-sm" />
+              <textarea placeholder="Project Details" rows={4} className="bg-slate-800 rounded p-4 text-white text-sm col-span-2" />
+              <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded uppercase text-xs tracking-widest">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* LIGHTBOX MODAL */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4">
+          <button onClick={() => setSelectedProject(null)} className="absolute top-6 right-6 text-white hover:text-blue-400">
+            <X size={40} />
+          </button>
+          <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10">
+            <iframe 
+              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0`} 
+              className="w-full h-full" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; fullscreen"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
