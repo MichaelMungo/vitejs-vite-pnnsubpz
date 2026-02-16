@@ -39,9 +39,12 @@ const VideoCard = ({ project, onClick }: any) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
-      // Added: hover:shadow-blue-500/20 and hover:border-blue-500/50
-      className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/10 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-900/20 hover:border-blue-500/50"
+      // CHANGED: 
+      // 1. border-blue-400 (Solid Bright Blue)
+      // 2. shadow-[0_0_30px_rgba(96,165,250,0.3)] (The "Neon Glow" spread)
+      className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/10 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)]"
     >
+      {/* ... rest of code ... */}
       {/* The Video Layer */}
       {isHovered ? (
         <iframe 
