@@ -39,7 +39,8 @@ const VideoCard = ({ project, onClick }: any) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
-      className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/5 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-500/30"
+      // Added: hover:shadow-blue-500/20 and hover:border-blue-500/50
+      className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/10 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-900/20 hover:border-blue-500/50"
     >
       {/* The Video Layer */}
       {isHovered ? (
