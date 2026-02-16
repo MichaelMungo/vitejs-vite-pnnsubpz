@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Building2, Ruler, Zap, X, CheckCircle2,
+  Menu, Building2, Ruler, Zap, X, CheckCircle2,
   Play, Mail, Phone, MapPin, Clock, ShieldCheck, 
   Layers, Settings, Video, Send, FileText, Search
 } from 'lucide-react';
