@@ -13,56 +13,51 @@ import {
 const projects = [
   {
     id: 1,
-    title: '3D Visualization',
+    title: 'Visualization from 2D Arch to 3D',
     category: 'Design Integration',
     image: 'https://i.postimg.cc/JhcrybFb/thumb1.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_1?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_1&rel=0&playsinline=1',
-    description:
-      'Transforming 2D architectural intent into high-fidelity 3D structural builds.',
+    youtubeId: 'h32x8DYk9EI',
+    description: 'Transforming 2D architectural intent into high-fidelity 3D structural builds.',
   },
   {
     id: 2,
-    title: 'MEPS Conflict Detection',
+    title: 'MEPS Conflict Detection - Preconstruction',
     category: 'Preconstruction',
     image: 'https://i.postimg.cc/1tm9D8xN/thumb2.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_2?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_2&rel=0&playsinline=1',
-    description:
-      'Advanced spatial coordination to identify and resolve plumbing and electrical clashes.',
+    youtubeId: 'tM7fMjEDLT0',
+    description: 'Advanced spatial coordination to identify and resolve plumbing and electrical clashes.',
   },
   {
     id: 3,
-    title: 'Structural Verification',
+    title: 'Structural Shop Drawing Verification',
     category: 'Coordination',
     image: 'https://i.postimg.cc/pTW2KmNh/thumb3.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_3?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_3&rel=0&playsinline=1',
-    description:
-      'Verifying structural shop drawings against the architectural intent.',
+    youtubeId: 'xcvKuq5h8qU',
+    description: 'Verifying structural shop drawings against the architectural intent.',
   },
   {
     id: 4,
-    title: 'Underground As-Builts',
+    title: 'Underground Utility & MEP Locations',
     category: 'Civil',
     image: 'https://i.postimg.cc/Jnr1jswy/thumb4.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_4?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_4&rel=0&playsinline=1',
-    description:
-      'Precision tracking of invert elevations and utility locations.',
+    youtubeId: 'CUA5iqHpqfM',
+    description: 'Precision tracking of invert elevations and utility locations.',
   },
   {
     id: 5,
     title: 'Comprehensive RFIs',
     category: 'Communication',
-    image: 'https://i.postimg.cc/MT6W1nkf/thumb5.jpg',  // Keep this—your NYC thumbnail
-    video: 'https://www.youtube.com/embed/RDN-y7ia-kM?autoplay=1&mute=1&controls=0&loop=1&playlist=RDN-y7ia-kM&rel=0&playsinline=1',
+    image: 'https://i.postimg.cc/MT6W1nkf/thumb5.jpg',
+    youtubeId: 'Kj4-hlNzTtY',
     description: 'Visualizing complex site issues in 3D to keep the job moving.',
   },
   {
     id: 6,
-    title: 'The Full Sequence',
+    title: 'Full Build Sequencing',
     category: 'Management',
     image: 'https://i.postimg.cc/MT6W1nkV/thumb6.jpg',
-    video: 'https://www.youtube.com/embed/YOUR_VIDEO_ID_6?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUR_VIDEO_ID_6&rel=0&playsinline=1',
-    description:
-      'A comprehensive "peel-back" showing the full integration of all building systems.',
+    youtubeId: 'J09RphNYcOQ',
+    description: 'A comprehensive "peel-back" showing the full integration of all building systems.',
   },
 ];
 
@@ -78,6 +73,10 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
 
 const VideoCard = ({ project }: any) => {
   const [isHovered, setIsHovered] = useState(false);
+  
+  // This builds your professional embed link automatically
+  const videoLink = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1`;
+
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
@@ -86,7 +85,7 @@ const VideoCard = ({ project }: any) => {
     >
       {isHovered ? (
         <iframe
-          src={project.video}
+          src={videoLink}
           className="absolute inset-0 w-full h-full object-cover"
           allow="autoplay; encrypted-media; picture-in-picture"
           frameBorder="0"
@@ -103,7 +102,7 @@ const VideoCard = ({ project }: any) => {
         <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">
           {project.category}
         </span>
-        <h4 className="text-white font-bold text-sm">{project.title}</h4>
+        <h4 className="text-white font-bold text-sm leading-tight">{project.title}</h4>
       </div>
     </div>
   );
