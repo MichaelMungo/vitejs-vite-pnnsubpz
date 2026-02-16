@@ -36,7 +36,7 @@ const VideoCard = ({ project, onClick }: any) => {
   const [isHovered, setIsHovered] = useState(false);
   const videoSrc = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1&modestbranding=1`;
   
-  // Refactored logic to prevent syntax errors
+  // Logic to determine opacity class
   const overlayClass = isHovered ? 'opacity-0' : 'opacity-100';
 
   return (
@@ -156,16 +156,4 @@ export default function App() {
 
       {/* CONTACT SECTION */}
       <section id="contact" className="bg-slate-950 py-24 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="text-left">
-            <h2 className="text-4xl font-black text-white mb-6 uppercase">Let's Build Together</h2>
-            <div className="flex items-center gap-4 text-white">
-              <Mail size={20} className="text-blue-500" />
-              <a href="mailto:contact@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide">contact@builtlogic3d.com</a>
-            </div>
-          </div>
-          <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
-            <form className="grid grid-cols-2 gap-4">
-              <input placeholder="Name" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
-              <input placeholder="Email" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
-              <textarea placeholder="Project Details" rows
+        <div className="max-w-6
