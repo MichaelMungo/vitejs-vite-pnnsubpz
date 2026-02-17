@@ -1,3 +1,4 @@
+// v2.1-final-build
 import { useState } from 'react';
 import {
   Menu, Building2, Ruler, Zap, X, ShieldCheck, 
