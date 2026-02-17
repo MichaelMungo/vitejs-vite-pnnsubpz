@@ -1,162 +1,191 @@
 import { useState } from 'react';
 import {
-  Menu, Building2, Ruler, Zap, ShieldCheck, 
-  Clock, Send, ChevronRight, X
+  Menu,
+  Building2,
+  Ruler,
+  Zap,
+  X,
+  ArrowRight,
+  CheckCircle2,
+  Play,
+  Mail,
 } from 'lucide-react';
 
+// --- DATA ---
 const projects = [
-  { id: 1, title: 'Visualization from 2D Arch to 3D', category: 'Design', image: 'https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80' },
-  { id: 2, title: 'MEPS Conflict Detection', category: 'Engineering', image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80' },
-  { id: 3, title: 'Structural Shop Drawing', category: 'Construction', image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80' },
-  { id: 4, title: 'Underground Utility Locations', category: 'Civil', image: 'https://images.unsplash.com/photo-1590483734724-383b853b3178?auto=format&fit=crop&q=80' },
-  { id: 5, title: 'Comprehensive RFIs', category: 'Communication', image: 'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&q=80' },
-  { id: 6, title: 'Full Build Sequencing', category: 'Management', image: 'https://images.unsplash.com/photo-1531834685032-c7446445339c?auto=format&fit=crop&q=80' },
+  { id: 1, title: 'Visualization from 2D Arch to 3D', category: 'Design Integration', image: 'https://i.postimg.cc/JhcrybFb/thumb1.jpg', youtubeId: 'h32x8DYk9EI' },
+  { id: 2, title: 'MEPS Conflict Detection - Preconstruction', category: 'Preconstruction', image: 'https://i.postimg.cc/1tm9D8xN/thumb2.jpg', youtubeId: 'tM7fMjEDLT0' },
+  { id: 3, title: 'Structural Shop Drawing Verification', category: 'Coordination', image: 'https://i.postimg.cc/pTW2KmNh/thumb3.jpg', youtubeId: 'xcvKuq5h8qU' },
+  { id: 4, title: 'Underground Utility & MEP Locations', category: 'Civil', image: 'https://i.postimg.cc/Jnr1jswy/thumb4.jpg', youtubeId: 'CUA5iqHpqfM' },
+  { id: 5, title: 'Comprehensive RFIs', category: 'Communication', image: 'https://i.postimg.cc/MT6W1nkf/thumb5.jpg', youtubeId: 'Kj4-hINzTtY' },
+  { id: 6, title: 'Full Build Sequencing', category: 'Management', image: 'https://i.postimg.cc/MT6W1nkV/thumb6.jpg', youtubeId: 'J09RphNYcOQ' },
 ];
 
+// --- COMPONENTS ---
 const ServiceCard = ({ icon: Icon, title, desc }: any) => (
-  <div className="bg-slate-900/50 p-8 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
-    <div className="w-12 h-12 bg-blue-600/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-      <Icon className="text-blue-500 group-hover:text-white" size={24} />
+  <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
+    <div className="bg-blue-100 w-10 h-10 rounded-lg flex items-center justify-center text-blue-600 mb-4">
+      <Icon size={20} />
     </div>
-    <h3 className="text-xl font-bold text-white mb-4 uppercase italic">{title}</h3>
-    <p className="text-slate-400 leading-relaxed text-sm">{desc}</p>
+    <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
+    <p className="text-slate-500 text-[10px] leading-relaxed uppercase tracking-wider font-semibold">{desc}</p>
   </div>
 );
 
-export default function App() {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+const VideoCard = ({ project, onClick }: any) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const videoSrc = "https://www.youtube.com/embed/" + project.youtubeId + "?autoplay=1&mute=1&controls=0&loop=1&playlist=" + project.youtubeId + "&rel=0&playsinline=1&modestbranding=1";
 
   return (
-    <div className="min-h-screen bg-slate-950 font-sans text-slate-300 selection:bg-blue-500/30">
-      {/* NAVIGATION */}
-      <nav className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5 h-20 flex items-center">
-        <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-          <div className="flex items-center gap-3">
-             <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center font-black text-white italic text-xl">B</div>
-             <div className="flex flex-col">
-               <span className="text-white font-bold tracking-tighter text-xl uppercase leading-none">BuiltLogic<span className="text-blue-500 italic font-black">3D</span></span>
-               <span className="text-[8px] text-blue-400 font-bold tracking-[0.3em] uppercase opacity-80 mt-1">VDC & BIM Excellence</span>
-             </div>
-          </div>
-          <div className="flex gap-8 items-center">
-            <div className="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
-              <a href="#services" className="hover:text-blue-400 transition-colors">Services</a>
-              <a href="#portfolio" className="hover:text-blue-400 transition-colors">Portfolio</a>
-            </div>
-            <a href="#contact" className="hidden sm:block text-white bg-blue-600 px-5 py-2.5 rounded font-black italic uppercase text-[10px] tracking-widest hover:bg-blue-500 transition-all">Get Quote</a>
-            <Menu size={28} className="text-white hover:text-blue-500 cursor-pointer ml-2" />
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
+      className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-900 aspect-video w-full border border-white/10 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)]"
+    >
+      {isHovered ? (
+        <iframe 
+          src={videoSrc} 
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-[1.05]" 
+          frameBorder="0" 
+        />
+      ) : (
+        <img 
+          src={project.image} 
+          className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" 
+          alt={project.title} 
+        />
+      )}
+
+      <div className={isHovered ? "absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end transition-opacity duration-500 opacity-0" : "absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end transition-opacity duration-500 opacity-100"}>
+        <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">
+          {project.category}
+        </span>
+        <h4 className="text-white font-bold text-sm leading-tight">
+          {project.title}
+        </h4>
+      </div>
+    </div>
+  );
+};
+
+export default function App() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+
+  const handleMouseMove = (e: any) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const heroGridStyle = {
+    backgroundImage: 'linear-gradient(#2563eb 0.5px, transparent 0.5px), linear-gradient(90deg, #2563eb 0.5px, transparent 0.5px)',
+    backgroundSize: '75px 75px',
+    WebkitMaskImage: 'radial-gradient(circle 185px at ' + mousePos.x + 'px ' + mousePos.y + 'px, black 30%, transparent 100%)',
+    maskImage: 'radial-gradient(circle 185px at ' + mousePos.x + 'px ' + mousePos.y + 'px, black 30%, transparent 100%)'
+  };
+
+  return (
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
+      <style>
+        {`
+          @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+          }
+          .animate-float {
+            animation: float 5s ease-in-out infinite;
+          }
+        `}
+      </style>
+
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Menu size={24} className="text-white cursor-pointer" />
+          <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+            <a href="#services" className="hover:text-white transition-all">Services</a>
+            <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
+            <a href="#contact" className="hover:text-white transition-all">Contact</a>
           </div>
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
-        <div className="absolute inset-0 bg-slate-950" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <div className="mb-8 inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full">
-            <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-            <span className="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Now Accepting Phase II</span>
-          </div>
-          <h1 className="text-7xl md:text-9xl font-black text-white mb-8 tracking-tighter uppercase italic leading-[0.85]">
-            Build <span className="text-blue-600">Twice</span><br />Move Once
-          </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-medium">
-            Eliminating field conflicts through high-fidelity BIM coordination and precision 3D sequencing.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a href="#contact" className="group bg-blue-600 text-white px-10 py-5 rounded-lg font-black italic uppercase tracking-widest hover:bg-blue-500 transition-all flex items-center gap-2">
-              Start Project <ChevronRight size={18} />
-            </a>
-            <a href="#portfolio" className="text-white px-10 py-5 rounded-lg font-black italic uppercase tracking-widest hover:bg-white/5 border border-white/10 transition-all">View Work</a>
+      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
+        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
+        <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
+          <img 
+            src="/logo-main.png" 
+            alt="BuiltLogic 3D" 
+            className="animate-float relative z-30 w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[900px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
+          />
+          <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button className="bg-blue-600 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-900/40">Start Your Project</button>
+            <a href="#portfolio" className="bg-white/5 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 transition-all">View Our Work</a>
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="py-32 bg-slate-950 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4">Core Services</h2>
-          <div className="w-20 h-1 bg-blue-600 mb-20" />
-          <div className="grid md:grid-cols-3 gap-8">
-            <ServiceCard icon={Building2} title="BIM Coordination" desc="Full-scale clash detection and coordination between architectural and MEP systems." />
-            <ServiceCard icon={Ruler} title="Quantity Takeoffs" desc="Highly accurate material estimations derived directly from detailed 3D models." />
-            <ServiceCard icon={Zap} title="VDC Strategy" desc="Virtual Design planning to optimize site logistics and build sequencing." />
-          </div>
+      <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
+          <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard icon={Building2} title="Architectural 3D" desc="Transform 2D floor plans into detailed 3D visualizations." />
+          <ServiceCard icon={Zap} title="MEP Integration" desc="Modeling of mechanical, electrical, and plumbing systems." />
+          <ServiceCard icon={Ruler} title="BIM Coordination" desc="Ensuring all disciplines work seamlessly together." />
+          <ServiceCard icon={ArrowRight} title="Shop Drawings" desc="Precise fabrication-ready drawings and specs." />
+          <ServiceCard icon={CheckCircle2} title="As-Built Docs" desc="Detailed documentation of existing structures." />
+          <ServiceCard icon={Play} title="Visualization" desc="Photorealistic renders and walkthroughs." />
         </div>
       </section>
 
-      {/* PORTFOLIO */}
-      <section id="portfolio" className="py-32 bg-slate-900/20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4 text-right">Selected Works</h2>
-          <div className="w-20 h-1 bg-blue-600 ml-auto mb-20" />
-          <div className="grid md:grid-cols-3 gap-6">
-            {projects.map((p) => (
-              <div key={p.id} onClick={() => setSelectedProject(p)} className="group relative cursor-pointer overflow-hidden rounded-2xl bg-slate-800">
-                <img src={p.image} className="w-full h-96 object-cover opacity-50 group-hover:opacity-100 transition-all duration-700" alt={p.title} />
-                <div className="absolute bottom-0 p-8 w-full bg-gradient-to-t from-slate-950 to-transparent">
-                  <span className="text-blue-500 text-[10px] font-bold uppercase mb-2 block">{p.category}</span>
-                  <h3 className="text-xl font-bold text-white uppercase italic">{p.title}</h3>
-                </div>
-              </div>
+      <section id="portfolio" className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Portfolio</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ADVANTAGES */}
-      <section className="py-32 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4 text-center">Strategic Advantages</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-20" />
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="flex gap-6 p-8 rounded-2xl bg-white/5 border border-white/5">
-               <ShieldCheck className="text-blue-600 shrink-0" size={40} />
-               <div>
-                  <h4 className="text-white font-bold uppercase italic mb-2">Error Mitigation</h4>
-                  <p className="text-slate-400 text-sm">Detect conflicts in the virtual world before they become expensive physical problems.</p>
-               </div>
+      <section id="contact" className="bg-slate-950 py-24 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="text-left">
+            <h2 className="text-4xl font-black text-white mb-6 uppercase">Let's Build Together</h2>
+            <div className="flex items-center gap-4 text-white">
+              <Mail size={20} className="text-blue-500" />
+              <a href="mailto:contact@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide">contact@builtlogic3d.com</a>
             </div>
-            <div className="flex gap-6 p-8 rounded-2xl bg-white/5 border border-white/5">
-               <Clock className="text-blue-600 shrink-0" size={40} />
-               <div>
-                  <h4 className="text-white font-bold uppercase italic mb-2">Accelerated Timeline</h4>
-                  <p className="text-slate-400 text-sm">Streamline workflows and reduce RFI wait times through clear 3D protocols.</p>
-               </div>
-            </div>
+          </div>
+          <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
+            <form className="grid grid-cols-2 gap-4">
+              <input placeholder="Name" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+              <input placeholder="Email" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+              <textarea placeholder="Project Details" rows={4} className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm col-span-2 outline-none focus:border-blue-500 transition-colors"></textarea>
+              <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded uppercase text-xs tracking-widest hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20">Send Message</button>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="py-32 bg-blue-600 text-center">
-        <h2 className="text-6xl md:text-8xl font-black text-white uppercase italic mb-8">Ready to Build?</h2>
-        <a href="mailto:contact@builtlogic3d.com" className="inline-flex items-center gap-4 bg-white text-blue-600 px-12 py-6 rounded-xl font-black italic uppercase tracking-widest hover:bg-slate-100 transition-all">
-          <Send size={24} /> Email Us Today
-        </a>
-      </section>
-
-      <footer className="py-12 border-t border-white/5 text-center">
-        <span className="text-slate-600 text-[10px] font-bold uppercase tracking-[0.3em]">© 2026 BuiltLogic 3D. Precision in Every Polygon.</span>
-      </footer>
-
-      {/* MODAL WINDOW */}
       {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/98 backdrop-blur-xl p-4 md:p-12" onClick={() => setSelectedProject(null)}>
-          <button className="absolute top-8 right-8 text-white hover:text-blue-500 transition-colors">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4">
+          <button onClick={() => setSelectedProject(null)} className="absolute top-6 right-6 text-white hover:text-blue-400 transition-colors z-[110]">
             <X size={40} />
           </button>
-          <div className="max-w-6xl w-full" onClick={e => e.stopPropagation()}>
-            <img src={selectedProject.image} className="w-full h-[50vh] md:h-[70vh] object-cover rounded-3xl mb-8 border border-white/10 shadow-2xl shadow-blue-500/20" alt={selectedProject.title} />
-            <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-              <div>
-                <span className="text-blue-500 font-bold uppercase tracking-widest text-sm">{selectedProject.category}</span>
-                <h3 className="text-4xl md:text-6xl font-black text-white uppercase italic leading-tight">{selectedProject.title}</h3>
-              </div>
-              <p className="text-slate-400 text-lg md:text-xl max-w-md">
-                High-fidelity 3D coordination for complex environments. We ensure every bolt and beam is accounted for before breaking ground.
-              </p>
-            </div>
+          <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.2)]">
+            <iframe 
+              src={"https://www.youtube.com/embed/" + selectedProject.youtubeId + "?autoplay=1&rel=0&modestbranding=1"} 
+              className="w-full h-full" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; fullscreen"
+            />
           </div>
         </div>
       )}
