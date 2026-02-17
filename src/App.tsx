@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
-  Menu, Building2, Ruler, Zap, X, ArrowRight, CheckCircle2,
-  Play, Mail, Phone, MapPin, BarChart3, Clock, ShieldCheck, 
+  Menu, Building2, Ruler, Zap, X, CheckCircle2,
+  Play, Mail, Phone, MapPin, Clock, ShieldCheck, 
   Layers, Settings, Video, Send, FileText, Search
 } from 'lucide-react';
 
@@ -71,13 +71,14 @@ export default function App() {
 
       <nav className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5 h-16 flex items-center">
         <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-          <div className="flex items-center gap-2">
-             <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center font-black text-white italic">B</div>
-             <span className="text-white font-bold tracking-tighter text-xl uppercase">BuiltLogic<span className="text-blue-500 italic font-black">3D</span></span>
+          {/* Left Side: Hamburger Only */}
+          <div className="text-white cursor-pointer hover:text-blue-500 transition-colors">
+            <Menu size={28} />
           </div>
-          <div className="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+
+          {/* Right Side: Navigation Links */}
+          <div className="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400 items-center">
             <a href="#services" className="hover:text-blue-400 transition-colors">Services</a>
-            <a href="#process" className="hover:text-blue-400 transition-colors">Process</a>
             <a href="#portfolio" className="hover:text-blue-400 transition-colors">Portfolio</a>
             <a href="#contact" className="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition-all">Get Quote</a>
           </div>
