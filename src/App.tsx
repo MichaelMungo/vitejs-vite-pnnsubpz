@@ -1,4 +1,4 @@
-// v2.1-final-build
+// FORCE REDEPLOY V3 - CLEAN BUILD
 import { useState } from 'react';
 import {
   Menu, Building2, Ruler, Zap, X, ShieldCheck, 
@@ -29,7 +29,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 font-sans text-slate-300 selection:bg-blue-500/30">
-      {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5 h-20 flex items-center">
         <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -50,7 +49,6 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-slate-950" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -73,7 +71,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Services */}
       <section id="services" className="py-32 bg-slate-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4">Core Services</h2>
@@ -86,7 +83,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Portfolio */}
       <section id="portfolio" className="py-32 bg-slate-900/20">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4 text-right">Selected Works</h2>
@@ -105,7 +101,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Strategic Advantages */}
       <section className="py-32 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4 text-center">Strategic Advantages</h2>
@@ -129,7 +124,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Contact */}
       <section id="contact" className="py-32 bg-blue-600 text-center">
         <h2 className="text-6xl md:text-8xl font-black text-white uppercase italic mb-8">Ready to Build?</h2>
         <a href="mailto:contact@builtlogic3d.com" className="inline-flex items-center gap-4 bg-white text-blue-600 px-12 py-6 rounded-xl font-black italic uppercase tracking-widest hover:bg-slate-100 transition-all">
@@ -141,7 +135,6 @@ export default function App() {
         <span className="text-slate-600 text-[10px] font-bold uppercase tracking-[0.3em]">© 2026 BuiltLogic 3D. Precision in Every Polygon.</span>
       </footer>
 
-      {/* Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/98 backdrop-blur-xl p-6" onClick={() => setSelectedProject(null)}>
           <div className="max-w-5xl w-full" onClick={e => e.stopPropagation()}>
