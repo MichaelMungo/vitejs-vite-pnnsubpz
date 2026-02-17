@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
   Menu, Building2, Ruler, Zap, ShieldCheck, 
-  Clock, Send, ChevronRight
+  Clock, Send, ChevronRight, X
 } from 'lucide-react';
 
 const projects = [
@@ -28,6 +28,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 font-sans text-slate-300 selection:bg-blue-500/30">
+      {/* NAVIGATION */}
       <nav className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5 h-20 flex items-center">
         <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -48,6 +49,7 @@ export default function App() {
         </div>
       </nav>
 
+      {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-slate-950" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -70,6 +72,7 @@ export default function App() {
         </div>
       </section>
 
+      {/* SERVICES */}
       <section id="services" className="py-32 bg-slate-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4">Core Services</h2>
@@ -82,6 +85,7 @@ export default function App() {
         </div>
       </section>
 
+      {/* PORTFOLIO */}
       <section id="portfolio" className="py-32 bg-slate-900/20">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4 text-right">Selected Works</h2>
@@ -90,7 +94,7 @@ export default function App() {
             {projects.map((p) => (
               <div key={p.id} onClick={() => setSelectedProject(p)} className="group relative cursor-pointer overflow-hidden rounded-2xl bg-slate-800">
                 <img src={p.image} className="w-full h-96 object-cover opacity-50 group-hover:opacity-100 transition-all duration-700" alt={p.title} />
-                <div className="absolute bottom-0 p-8">
+                <div className="absolute bottom-0 p-8 w-full bg-gradient-to-t from-slate-950 to-transparent">
                   <span className="text-blue-500 text-[10px] font-bold uppercase mb-2 block">{p.category}</span>
                   <h3 className="text-xl font-bold text-white uppercase italic">{p.title}</h3>
                 </div>
@@ -100,6 +104,7 @@ export default function App() {
         </div>
       </section>
 
+      {/* ADVANTAGES */}
       <section className="py-32 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter mb-4 text-center">Strategic Advantages</h2>
@@ -123,6 +128,7 @@ export default function App() {
         </div>
       </section>
 
+      {/* CONTACT */}
       <section id="contact" className="py-32 bg-blue-600 text-center">
         <h2 className="text-6xl md:text-8xl font-black text-white uppercase italic mb-8">Ready to Build?</h2>
         <a href="mailto:contact@builtlogic3d.com" className="inline-flex items-center gap-4 bg-white text-blue-600 px-12 py-6 rounded-xl font-black italic uppercase tracking-widest hover:bg-slate-100 transition-all">
@@ -134,12 +140,23 @@ export default function App() {
         <span className="text-slate-600 text-[10px] font-bold uppercase tracking-[0.3em]">© 2026 BuiltLogic 3D. Precision in Every Polygon.</span>
       </footer>
 
+      {/* MODAL WINDOW */}
       {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/98 backdrop-blur-xl p-6" onClick={() => setSelectedProject(null)}>
-          <div className="max-w-5xl w-full" onClick={e => e.stopPropagation()}>
-            <img src={selectedProject.image} className="w-full h-[60vh] object-cover rounded-3xl mb-8 border border-white/10" alt={selectedProject.title} />
-            <h3 className="text-5xl font-black text-white uppercase italic">{selectedProject.title}</h3>
-            <p className="text-slate-400 text-xl mt-4">Precision VDC modeling for complex construction environments.</p>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/98 backdrop-blur-xl p-4 md:p-12" onClick={() => setSelectedProject(null)}>
+          <button className="absolute top-8 right-8 text-white hover:text-blue-500 transition-colors">
+            <X size={40} />
+          </button>
+          <div className="max-w-6xl w-full" onClick={e => e.stopPropagation()}>
+            <img src={selectedProject.image} className="w-full h-[50vh] md:h-[70vh] object-cover rounded-3xl mb-8 border border-white/10 shadow-2xl shadow-blue-500/20" alt={selectedProject.title} />
+            <div className="flex flex-col md:flex-row justify-between items-start gap-6">
+              <div>
+                <span className="text-blue-500 font-bold uppercase tracking-widest text-sm">{selectedProject.category}</span>
+                <h3 className="text-4xl md:text-6xl font-black text-white uppercase italic leading-tight">{selectedProject.title}</h3>
+              </div>
+              <p className="text-slate-400 text-lg md:text-xl max-w-md">
+                High-fidelity 3D coordination for complex environments. We ensure every bolt and beam is accounted for before breaking ground.
+              </p>
+            </div>
           </div>
         </div>
       )}
