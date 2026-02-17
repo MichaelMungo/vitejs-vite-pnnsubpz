@@ -1,4 +1,4 @@
-// BUILD FIX: Removed unused 'X' icon and 'useState' hook
+import { useState } from 'react';
 import {
   Menu, Building2, Ruler, Zap, ShieldCheck, 
   Clock, Send, ChevronRight
@@ -24,6 +24,8 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
 );
 
 export default function App() {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+
   return (
     <div className="min-h-screen bg-slate-950 font-sans text-slate-300 selection:bg-blue-500/30">
       <nav className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5 h-20 flex items-center">
@@ -86,7 +88,7 @@ export default function App() {
           <div className="w-20 h-1 bg-blue-600 ml-auto mb-20" />
           <div className="grid md:grid-cols-3 gap-6">
             {projects.map((p) => (
-              <div key={p.id} className="group relative cursor-pointer overflow-hidden rounded-2xl bg-slate-800">
+              <div key={p.id} onClick={() => setSelectedProject(p)} className="group relative cursor-pointer overflow-hidden rounded-2xl bg-slate-800">
                 <img src={p.image} className="w-full h-96 object-cover opacity-50 group-hover:opacity-100 transition-all duration-700" alt={p.title} />
                 <div className="absolute bottom-0 p-8">
                   <span className="text-blue-500 text-[10px] font-bold uppercase mb-2 block">{p.category}</span>
@@ -131,6 +133,16 @@ export default function App() {
       <footer className="py-12 border-t border-white/5 text-center">
         <span className="text-slate-600 text-[10px] font-bold uppercase tracking-[0.3em]">© 2026 BuiltLogic 3D. Precision in Every Polygon.</span>
       </footer>
+
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/98 backdrop-blur-xl p-6" onClick={() => setSelectedProject(null)}>
+          <div className="max-w-5xl w-full" onClick={e => e.stopPropagation()}>
+            <img src={selectedProject.image} className="w-full h-[60vh] object-cover rounded-3xl mb-8 border border-white/10" alt={selectedProject.title} />
+            <h3 className="text-5xl font-black text-white uppercase italic">{selectedProject.title}</h3>
+            <p className="text-slate-400 text-xl mt-4">Precision VDC modeling for complex construction environments.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
