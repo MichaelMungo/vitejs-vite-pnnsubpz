@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import {
-  Menu, Building2, Ruler, Zap, X, CheckCircle2,
-  Play, Mail, Phone, MapPin, Clock, ShieldCheck, 
-  Layers, Settings, Video, Send, FileText, Search
+  Menu, Building2, Ruler, Zap, X, ShieldCheck, 
+  Clock, Send
 } from 'lucide-react';
 
 // --- DATA ---
@@ -29,7 +28,7 @@ function App() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
   return (
-    <div className="min-h-screen bg-slate-950 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-slate-950 font-sans selection:bg-blue-500/30 text-slate-300">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5 h-16 flex items-center">
         <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
@@ -111,7 +110,7 @@ function App() {
         </div>
       </section>
 
-      {/* Strategic Advantages Section (Moved here) */}
+      {/* Strategic Advantages Section - MOVED BELOW PORTFOLIO */}
       <section id="advantages" className="py-32 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-20">
@@ -155,7 +154,7 @@ function App() {
 
       {/* Footer */}
       <footer className="py-12 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:row justify-between items-center gap-8">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <span className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">© 2026 BuiltLogic 3D. All rights reserved.</span>
           <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-500">
              <a href="#" className="hover:text-blue-500 transition-colors">Instagram</a>
