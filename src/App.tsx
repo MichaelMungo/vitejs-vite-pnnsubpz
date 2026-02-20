@@ -121,11 +121,52 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
+      {/* NAV */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Menu size={24} className="text-white cursor-pointer" />
+          <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+            <a href="#services" className="hover:text-white transition-all">Services</a>
+            <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
+            <a href="#contact" className="hover:text-white transition-all">Contact</a>
+          </div>
+        </div>
+      </nav>
 
-      {/* NAV + HERO + SERVICES (unchanged) */}
-      {/* ... [your existing nav, hero, and services section remain exactly the same] ... */}
+      {/* HERO */}
+      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
+        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
+        <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
+          <img 
+            src="/logo-main.png" 
+            alt="BuiltLogic 3D" 
+            className="animate-float relative z-30 w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[900px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
+          />
+          <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button className="bg-blue-600 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-900/40">Start Your Project</button>
+            <a href="#portfolio" className="bg-white/5 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 transition-all">View Our Work</a>
+          </div>
+        </div>
+      </section>
 
-      {/* === NEW STRATEGIC ADVANTAGES SECTION (DARK) === */}
+      {/* SERVICES */}
+      <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
+          <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard icon={Building2} title="Architectural 3D" desc="Transform 2D floor plans into detailed 3D visualizations." />
+          <ServiceCard icon={Zap} title="MEP Integration" desc="Modeling of mechanical, electrical, and plumbing systems." />
+          <ServiceCard icon={Ruler} title="BIM Coordination" desc="Ensuring all disciplines work seamlessly together." />
+          <ServiceCard icon={ArrowRight} title="Shop Drawings" desc="Precise fabrication-ready drawings and specs." />
+          <ServiceCard icon={CheckCircle2} title="As-Built Docs" desc="Detailed documentation of existing structures." />
+          <ServiceCard icon={Play} title="Visualization" desc="Photorealistic renders and walkthroughs." />
+        </div>
+      </section>
+
+      {/* STRATEGIC ADVANTAGES (NEW DARK SECTION) */}
       <section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -140,7 +181,7 @@ export default function App() {
             Our 3D construction models deliver measurable benefits across every phase of your project—from client presentations to field execution—ensuring fewer conflicts, reduced costs, and superior outcomes.
           </p>
 
-          {/* Stats Row */}
+          {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div className="text-center">
               <div className="text-7xl font-black text-white mb-2">90%</div>
@@ -165,14 +206,66 @@ export default function App() {
         </div>
       </section>
 
-      {/* PORTFOLIO SECTION (now follows the new section) */}
+      {/* PORTFOLIO */}
       <section id="portfolio" className="py-24 bg-slate-50">
-        {/* ... your existing portfolio code ... */}
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Portfolio</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* CONTACT + MODAL (unchanged) */}
-      {/* ... rest of your code ... */}
+      {/* CONTACT */}
+      <section id="contact" className="bg-slate-950 py-24 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="text-left">
+            <h2 className="text-4xl font-black text-white mb-6 uppercase">Let's Build Together</h2>
+            <div className="flex items-center gap-4 text-white">
+              <Mail size={20} className="text-blue-500" />
+              <a href="mailto:contact@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide">contact@builtlogic3d.com</a>
+            </div>
+          </div>
+          <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
+            <form className="grid grid-cols-2 gap-4">
+              <input placeholder="Name" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+              <input placeholder="Email" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+              <textarea placeholder="Project Details" rows={4} className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm col-span-2 outline-none focus:border-blue-500 transition-colors"></textarea>
+              <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded uppercase text-xs tracking-widest hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
 
+      {/* MODAL */}
+      {selectedProject && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <button 
+            onClick={() => setSelectedProject(null)}
+            className="absolute top-6 right-6 text-white hover:text-blue-400 transition-colors z-[110]"
+          >
+            <X size={40} />
+          </button>
+          <div 
+            className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.2)]"
+            onClick={e => e.stopPropagation()}
+          >
+            <iframe 
+              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0&modestbranding=1&controls=1`}
+              className="w-full h-full" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; fullscreen"
+              title={selectedProject.title}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
