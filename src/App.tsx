@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Menu,
   Building2,
@@ -34,7 +34,7 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
 
 const VideoCard = ({ project, onClick }: any) => {
   const [isHovered, setIsHovered] = useState(false);
-  const videoSrc = "https://www.youtube.com/embed/" + project.youtubeId + "?autoplay=1&mute=1&controls=0&loop=1&playlist=" + project.youtubeId + "&rel=0&playsinline=1&modestbranding=1";
+  const videoSrc = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&rel=0&playsinline=1&modestbranding=1`;
 
   return (
     <div
@@ -48,6 +48,7 @@ const VideoCard = ({ project, onClick }: any) => {
           src={videoSrc} 
           className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-[1.05]" 
           frameBorder="0" 
+          title={project.title}
         />
       ) : (
         <img 
@@ -57,7 +58,7 @@ const VideoCard = ({ project, onClick }: any) => {
         />
       )}
 
-      <div className={isHovered ? "absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end transition-opacity duration-500 opacity-0" : "absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end transition-opacity duration-500 opacity-100"}>
+      <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent p-4 flex flex-col justify-end transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
         <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">
           {project.category}
         </span>
@@ -78,11 +79,20 @@ export default function App() {
     setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
+  // Close modal with Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedProject(null);
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
+
   const heroGridStyle = {
     backgroundImage: 'linear-gradient(#2563eb 0.5px, transparent 0.5px), linear-gradient(90deg, #2563eb 0.5px, transparent 0.5px)',
     backgroundSize: '75px 75px',
-    WebkitMaskImage: 'radial-gradient(circle 185px at ' + mousePos.x + 'px ' + mousePos.y + 'px, black 30%, transparent 100%)',
-    maskImage: 'radial-gradient(circle 185px at ' + mousePos.x + 'px ' + mousePos.y + 'px, black 30%, transparent 100%)'
+    WebkitMaskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)`,
+    maskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)`
   };
 
   return (
@@ -173,18 +183,30 @@ export default function App() {
         </div>
       </section>
 
+      {/* FULL-SCREEN VIDEO MODAL */}
       {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4">
-          <button onClick={() => setSelectedProject(null)} className="absolute top-6 right-6 text-white hover:text-blue-400 transition-colors z-[110]">
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <button 
+            onClick={() => setSelectedProject(null)}
+            className="absolute top-6 right-6 text-white hover:text-blue-400 transition-colors z-[110]"
+          >
             <X size={40} />
           </button>
-          <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.2)]">
+
+          <div 
+            className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.2)]"
+            onClick={e => e.stopPropagation()}
+          >
             <iframe 
-              src={"https://www.youtube.com/embed/" + selectedProject.youtubeId + "?autoplay=1&rel=0&modestbranding=1"} 
+              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0&modestbranding=1&controls=1`}
               className="w-full h-full" 
               frameBorder="0" 
               allowFullScreen 
               allow="autoplay; fullscreen"
+              title={selectedProject.title}
             />
           </div>
         </div>
