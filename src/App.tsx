@@ -121,6 +121,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
+
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -166,34 +167,34 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES (NEW DARK SECTION) */}
+      {/* STRATEGIC ADVANTAGES - REFINED */}
       <section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-blue-400 font-bold uppercase tracking-widest text-sm">VALUE PROPOSITION</span>
-            <h2 className="text-4xl md:text-5xl font-black text-white mt-4 leading-tight">
+            <h2 className="text-5xl md:text-6xl font-black text-white mt-4 leading-none tracking-tighter">
               Strategic Advantages<br />
               <span className="text-blue-500">for Your Projects</span>
             </h2>
           </div>
 
-          <p className="max-w-3xl mx-auto text-slate-400 text-lg text-center mb-20">
-            Our 3D construction models deliver measurable benefits across every phase of your project—from client presentations to field execution—ensuring fewer conflicts, reduced costs, and superior outcomes.
+          <p className="max-w-3xl mx-auto text-slate-400 text-lg text-center mb-20 leading-relaxed">
+            Our 3D construction models deliver measurable benefits across every phase of your project — from client presentations to field execution — ensuring fewer conflicts, reduced costs, and superior outcomes.
           </p>
 
-          {/* Stats */}
+          {/* Prominent Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div className="text-center">
-              <div className="text-7xl font-black text-white mb-2">90%</div>
-              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold">Fewer Field Conflicts</div>
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Fewer Field Conflicts</div>
             </div>
-            <div className="text-center">
-              <div className="text-7xl font-black text-white mb-2">50%</div>
-              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold">Faster RFI Resolution</div>
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">50<span className="text-4xl align-super font-normal">%</span></div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Faster RFI Resolution</div>
             </div>
-            <div className="text-center">
-              <div className="text-7xl font-black text-white mb-2">$</div>
-              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold">Significant Cost Savings</div>
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">$</div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Significant Cost Savings</div>
             </div>
           </div>
 
