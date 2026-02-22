@@ -20,7 +20,7 @@ import {
 // --- DATA ---
 const projects = [
   { id: 1, title: 'Visualization from 2D Arch to 3D', category: 'Design Integration', image: 'https://i.postimg.cc/JhcrybFb/thumb1.jpg', youtubeId: 'h32x8DYk9EI' },
-  { id: 2, title: 'MEPS Conflict Detection - Preconstruction', category: 'Preconstruction', image: 'https://i.postimg.cc/1tm9D8xN/thumb2.jpg', youtubeId: 'p1s2s_jUVgc' }, // ← NEW MEPS VIDEO
+  { id: 2, title: 'MEPS Conflict Detection - Preconstruction', category: 'Preconstruction', image: 'https://i.postimg.cc/1tm9D8xN/thumb2.jpg', youtubeId: 'tM7fMjEDLT0' },
   { id: 3, title: 'Structural Shop Drawing Verification', category: 'Coordination', image: 'https://i.postimg.cc/pTW2KmNh/thumb3.jpg', youtubeId: 'xcvKuq5h8qU' },
   { id: 4, title: 'Underground Utility & MEP Locations', category: 'Civil', image: 'https://i.postimg.cc/Jnr1jswy/thumb4.jpg', youtubeId: 'CUA5iqHpqfM' },
   { id: 5, title: 'Comprehensive RFIs', category: 'Communication', image: 'https://i.postimg.cc/MT6W1nkf/thumb5.jpg', youtubeId: 'Kj4-hINzTtY' },
@@ -167,7 +167,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES */}
+      {/* STRATEGIC ADVANTAGES - REFINED */}
       <section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -182,6 +182,7 @@ export default function App() {
             Our 3D construction models deliver measurable benefits across every phase of your project — from client presentations to field execution — ensuring fewer conflicts, reduced costs, and superior outcomes.
           </p>
 
+          {/* Prominent Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div className="text-center group">
               <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
@@ -197,6 +198,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
               <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
@@ -211,4 +213,60 @@ export default function App() {
           <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <VideoCard key={project.id}
+              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="bg-slate-950 py-24 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="text-left">
+            <h2 className="text-4xl font-black text-white mb-6 uppercase">Let's Build Together</h2>
+            <div className="flex items-center gap-4 text-white">
+              <Mail size={20} className="text-blue-500" />
+              <a href="mailto:contact@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide">contact@builtlogic3d.com</a>
+            </div>
+          </div>
+          <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
+            <form className="grid grid-cols-2 gap-4">
+              <input placeholder="Name" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+              <input placeholder="Email" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+              <textarea placeholder="Project Details" rows={4} className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm col-span-2 outline-none focus:border-blue-500 transition-colors"></textarea>
+              <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded uppercase text-xs tracking-widest hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* MODAL */}
+      {selectedProject && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <button 
+            onClick={() => setSelectedProject(null)}
+            className="absolute top-6 right-6 text-white hover:text-blue-400 transition-colors z-[110]"
+          >
+            <X size={40} />
+          </button>
+          <div 
+            className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.2)]"
+            onClick={e => e.stopPropagation()}
+          >
+            <iframe 
+              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0&modestbranding=1&controls=1`}
+              className="w-full h-full" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; fullscreen"
+              title={selectedProject.title}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
