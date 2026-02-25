@@ -9,8 +9,6 @@ import {
   CheckCircle2,
   Play,
   Mail,
-  Phone,    // Added for the new number
-  Youtube,  // Added for the channel link
   UserCheck,
   Clock,
   Shield,
@@ -127,13 +125,7 @@ export default function App() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Menu size={24} className="text-white cursor-pointer" />
-            <div className="hidden lg:flex gap-4 text-[10px] font-bold uppercase tracking-widest text-blue-400">
-               <a href="mailto:team@builtlogic3d.com">team@builtlogic3d.com</a>
-               <a href="tel:3474941068">(347) 494-1068</a>
-            </div>
-          </div>
+          <Menu size={24} className="text-white cursor-pointer" />
           <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
             <a href="#services" className="hover:text-white transition-all">Services</a>
             <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
@@ -175,7 +167,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES */}
+      {/* STRATEGIC ADVANTAGES - REFINED */}
       <section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -186,6 +178,11 @@ export default function App() {
             </h2>
           </div>
 
+          <p className="max-w-3xl mx-auto text-slate-400 text-lg text-center mb-20 leading-relaxed">
+            Our 3D construction models deliver measurable benefits across every phase of your project — from client presentations to field execution — ensuring fewer conflicts, reduced costs, and superior outcomes.
+          </p>
+
+          {/* Prominent Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div className="text-center group">
               <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
@@ -201,6 +198,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
               <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
@@ -225,20 +223,10 @@ export default function App() {
       <section id="contact" className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="text-left">
-            <h2 className="text-4xl font-black text-white mb-6 uppercase italic">Let's Build Together</h2>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4 text-white">
-                <Mail size={20} className="text-blue-500" />
-                <a href="mailto:team@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide">team@builtlogic3d.com</a>
-              </div>
-              <div className="flex items-center gap-4 text-white">
-                <Phone size={20} className="text-blue-500" />
-                <a href="tel:3474941068" className="hover:text-blue-400 font-medium tracking-wide">(347) 494-1068</a>
-              </div>
-              <div className="flex items-center gap-4 text-white">
-                <Youtube size={20} className="text-blue-500" />
-                <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="hover:text-blue-400 font-medium tracking-wide">YouTube Channel</a>
-              </div>
+            <h2 className="text-4xl font-black text-white mb-6 uppercase">Let's Build Together</h2>
+            <div className="flex items-center gap-4 text-white">
+              <Mail size={20} className="text-blue-500" />
+              <a href="mailto:contact@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide">contact@builtlogic3d.com</a>
             </div>
           </div>
           <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
@@ -251,11 +239,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="py-12 bg-slate-950 border-t border-white/5 text-center">
-        <span className="text-slate-600 text-[10px] font-bold uppercase tracking-[0.3em]">© 2026 BuiltLogic 3D | Queens, NY & National</span>
-      </footer>
 
       {/* MODAL */}
       {selectedProject && (
@@ -270,4 +253,20 @@ export default function App() {
             <X size={40} />
           </button>
           <div 
-            className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(3
+            className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.2)]"
+            onClick={e => e.stopPropagation()}
+          >
+            <iframe 
+              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0&modestbranding=1&controls=1`}
+              className="w-full h-full" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; fullscreen"
+              title={selectedProject.title}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
