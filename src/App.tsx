@@ -181,43 +181,57 @@ export default function App() {
         </div>
       </section>
 
-     {/* SERVICES SECTION */}
-<section id="services" className="py-24 px-6 max-w-6xl mx-auto">
-  <div className="text-center mb-16">
-    <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
-    <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
-  </div>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <ServiceCard 
-      icon={Building2} 
-      title="Architectural 3D" 
-      desc="3D visualization bridges the gap between architectural intent and field execution." 
-    />
-    <ServiceCard 
-      icon={Zap} 
-      title="Proactive MEPS Integration" 
-      desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." 
-    />
-    <ServiceCard 
-      icon={Play} 
-      title="Multi-Format Visualization" 
-      desc="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment." 
-    />
-    <ServiceCard 
-      icon={UserCheck} 
-      title="White-Label Professionalism" 
-      desc="Impress clients with 3D models and videos branded to your company. We provide the high-tech visuals that make your firm look like the most sophisticated team on the bid." 
-    />
-    <ServiceCard 
-      icon={Database} 
-      title="Digital 3-Dimensional As-Builts" 
-      desc="Transition from construction to operations with a 1:1 digital twin. We provide a precise 3D 'as-built' model that serves as a permanent, navigable manual." 
-    />
-    <ServiceCard 
-      icon={ClipboardCheck} 
-      title="Precision Procurement" 
-      desc="Leverage model accuracy to buy what you need, not what you *think* you need." 
-    />
+      {/* Services Section */}
+<section id="services" className="py-20 bg-slate-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Services</h2>
+      <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Card 1 */}
+      <ServiceCard 
+        icon={<Building2 className="w-8 h-8 text-blue-600" />}
+        title="Architectural 3D"
+        description="3D visualization bridges the gap between architectural intent and field execution."
+      />
+      
+      {/* Card 2 */}
+      <ServiceCard 
+        icon={<Zap className="w-8 h-8 text-blue-600" />}
+        title="Proactive MEPS Integration"
+        description="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job."
+      />
+      
+      {/* Card 3 */}
+      <ServiceCard 
+        icon={<Play className="w-8 h-8 text-blue-600" />}
+        title="Multi-Format Visualization"
+        description="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment."
+      />
+      
+      {/* Card 4 */}
+      <ServiceCard 
+        icon={<UserCheck className="w-8 h-8 text-blue-600" />}
+        title="White-Label Professionalism"
+        description="Impress clients with 3D models and videos branded to your company. We provide the high-tech visuals that make your firm look like the most sophisticated team on the bid."
+      />
+      
+      {/* Card 5 */}
+      <ServiceCard 
+        icon={<Database className="w-8 h-8 text-blue-600" />}
+        title="Digital 3-Dimensional As-Builts"
+        description="Transition from construction to operations with a 1:1 digital twin. We provide a precise 3D 'as-built' model that serves as a permanent, navigable manual."
+      />
+      
+      {/* Card 6 */}
+      <ServiceCard 
+        icon={<ClipboardCheck className="w-8 h-8 text-blue-600" />}
+        title="Precision Procurement"
+        description="Leverage model accuracy to buy what you need, not what you *think* you need."
+      />
+    </div>
   </div>
 </section>
 
