@@ -210,7 +210,7 @@ export default function App() {
       {/* PORTFOLIO */}
       <section id="portfolio" className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Portfolio</h2>
+          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Featured Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
