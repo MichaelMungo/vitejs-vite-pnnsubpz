@@ -100,7 +100,7 @@ const VideoCard = ({ project, onClick }: any) => {
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // NEW: Menu State
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMouseMove = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -119,4 +119,169 @@ export default function App() {
   }, []);
 
   const heroGridStyle = {
-    backgroundImage: 'linear-gradient(#
+    backgroundImage: 'linear-gradient(#2563eb 0.5px, transparent 0.5px), linear-gradient(90deg, #2563eb 0.5px, transparent 0.5px)',
+    backgroundSize: '75px 75px',
+    WebkitMaskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)`,
+    maskImage: `radial-gradient(circle 185px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 100%)`
+  };
+
+  return (
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10 scroll-smooth">
+      <style>{`html { scroll-behavior: smooth; }`}</style>
+
+      {/* NAVIGATION BAR */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Menu 
+            size={24} 
+            className="text-white cursor-pointer md:hidden" 
+            onClick={() => setIsMenuOpen(true)}
+          />
+          <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+            <a href="#services" className="hover:text-white transition-all">Services</a>
+            <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
+            <a href="#contact" className="hover:text-white transition-all">Contact</a>
+          </div>
+          <div className="w-6 md:hidden"></div> 
+        </div>
+      </nav>
+
+      {/* MOBILE DRAWER */}
+      <div className={`fixed inset-0 z-[60] bg-slate-950/95 backdrop-blur-xl transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}>
+        <div className="flex flex-col h-full p-8">
+          <div className="flex justify-end">
+            <X size={32} className="text-white cursor-pointer" onClick={() => setIsMenuOpen(false)} />
+          </div>
+          <div className="flex flex-col gap-8 mt-12 text-2xl font-black text-white uppercase tracking-tighter">
+            <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
+            <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+          </div>
+        </div>
+      </div>
+
+      {/* HERO SECTION */}
+      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
+        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
+        <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
+          <img 
+            src="/logo-main.png" 
+            alt="BuiltLogic 3D" 
+            className="animate-float relative z-30 w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[900px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
+          />
+          <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a href="#portfolio" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
+              View Portfolio
+            </a>
+            <a href="mailto:team@builtlogic3d.com" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
+              Connect With Our Team
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES SECTION */}
+      <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
+          <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard icon={Building2} title="Architectural 3D" desc="Transform 2D floor plans into detailed 3D visualizations." />
+          <ServiceCard icon={Zap} title="MEP Integration" desc="Modeling of mechanical, electrical, and plumbing systems." />
+          <ServiceCard icon={Ruler} title="BIM Coordination" desc="Ensuring all disciplines work seamlessly together." />
+          <ServiceCard icon={ArrowRight} title="Shop Drawings" desc="Precise fabrication-ready drawings and specs." />
+          <ServiceCard icon={CheckCircle2} title="As-Built Docs" desc="Detailed documentation of existing structures." />
+          <ServiceCard icon={Play} title="Visualization" desc="Photorealistic renders and walkthroughs." />
+        </div>
+      </section>
+
+      {/* STRATEGIC ADVANTAGES */}
+      <section className="bg-slate-950 py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-blue-400 font-bold uppercase tracking-widest text-sm">VALUE PROPOSITION</span>
+            <h2 className="text-5xl md:text-6xl font-black text-white mt-4 leading-none tracking-tighter">
+              Strategic Advantages<br />
+              <span className="text-blue-500">for Your Projects</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Fewer Field Conflicts</div>
+            </div>
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">50<span className="text-4xl align-super font-normal">%</span></div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Faster RFI Resolution</div>
+            </div>
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">$</div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Significant Cost Savings</div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((b, i) => (
+              <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO SECTION */}
+      <section id="portfolio" className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Featured Portfolio</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-black text-white mb-4 uppercase italic tracking-tighter">
+            Connect with BuiltLogic 3D
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <a href="mailto:team@builtlogic3d.com" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
+              <Mail className="mx-auto mb-6 text-blue-500" size={28} />
+              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Email Us</h3>
+              <p className="text-blue-400 font-medium break-all text-sm">team@builtlogic3d.com</p>
+            </a>
+            <a href="tel:3474941068" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
+              <Phone className="mx-auto mb-6 text-blue-500" size={28} />
+              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Call Directly</h3>
+              <p className="text-blue-400 font-medium text-sm">(347) 494-1068</p>
+            </a>
+            <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
+              <Youtube className="mx-auto mb-6 text-blue-500" size={28} />
+              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Watch Strategy</h3>
+              <p className="text-blue-400 font-medium text-sm">YouTube Channel</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* MODAL SECTION */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4" onClick={() => setSelectedProject(null)}>
+          <button className="absolute top-6 right-6 text-white" onClick={() => setSelectedProject(null)}><X size={40} /></button>
+          <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden" onClick={e => e.stopPropagation()}>
+            <iframe 
+              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1`}
+              className="w-full h-full" 
+              frameBorder="0" 
+              allowFullScreen 
+              title="Project Video"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
