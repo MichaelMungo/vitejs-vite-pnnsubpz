@@ -159,14 +159,14 @@ export default function App() {
         </div>
       </div>
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION - LOGO NOW 1.25× BIGGER */}
       <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
           <img 
             src="/logo-main.png" 
             alt="BuiltLogic 3D" 
-            className="animate-float relative z-30 w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[900px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
+            className="animate-float relative z-30 w-full sm:w-[95%] md:w-[87.5%] lg:w-[75%] max-w-[1125px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
           />
           <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -180,7 +180,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - UPDATED FROM EXCEL */}
+      {/* SERVICES SECTION - UPDATED FROM YOUR EXCEL */}
       <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
