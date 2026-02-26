@@ -219,7 +219,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT - FIXED FOR WINDOWS 11 */}
+      {/* CONTACT - UPDATED */}
       <section id="contact" className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="text-left">
@@ -228,21 +228,7 @@ export default function App() {
             <div className="space-y-6 text-white">
               <div className="flex items-center gap-4">
                 <Mail size={22} className="text-blue-500 flex-shrink-0" />
-                <a 
-                  href="mailto:team@builtlogic3d.com"
-                  className="hover:text-blue-400 font-medium tracking-wide text-lg"
-                >
-                  team@builtlogic3d.com
-                </a>
-                <button 
-                  onClick={() => {
-                    navigator.clipboard.writeText('team@builtlogic3d.com');
-                    alert('✅ Email copied to clipboard! Just paste it into your email app.');
-                  }}
-                  className="ml-2 text-xs bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded font-medium transition-colors"
-                >
-                  Copy
-                </button>
+                <a href="mailto:team@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide text-lg">team@builtlogic3d.com</a>
               </div>
 
               <div className="flex items-center gap-4">
