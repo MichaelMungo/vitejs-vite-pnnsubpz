@@ -127,7 +127,7 @@ export default function App() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <img src="/logo-main.png" alt="Logo" className="h-8 w-auto opacity-80" />
+          <Menu size={24} className="text-white cursor-pointer" />
           <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
             <a href="#services" className="hover:text-white transition-all">Services</a>
             <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
@@ -145,4 +145,166 @@ export default function App() {
             alt="BuiltLogic 3D" 
             className="animate-float relative z-30 w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[900px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
           />
-          <p className="text-blue-400/90 text-sm md:text-xl font-
+          <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button className="bg-blue-600 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-900/40">Start Your Project</button>
+            <a href="#portfolio" className="bg-white/5 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 transition-all">View Our Work</a>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
+          <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard icon={Building2} title="Architectural 3D" desc="Transform 2D floor plans into detailed 3D visualizations." />
+          <ServiceCard icon={Zap} title="MEP Integration" desc="Modeling of mechanical, electrical, and plumbing systems." />
+          <ServiceCard icon={Ruler} title="BIM Coordination" desc="Ensuring all disciplines work seamlessly together." />
+          <ServiceCard icon={ArrowRight} title="Shop Drawings" desc="Precise fabrication-ready drawings and specs." />
+          <ServiceCard icon={CheckCircle2} title="As-Built Docs" desc="Detailed documentation of existing structures." />
+          <ServiceCard icon={Play} title="Visualization" desc="Photorealistic renders and walkthroughs." />
+        </div>
+      </section>
+
+      {/* STRATEGIC ADVANTAGES */}
+      <section className="bg-slate-950 py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-blue-400 font-bold uppercase tracking-widest text-sm">VALUE PROPOSITION</span>
+            <h2 className="text-5xl md:text-6xl font-black text-white mt-4 leading-none tracking-tighter">
+              Strategic Advantages<br />
+              <span className="text-blue-500">for Your Projects</span>
+            </h2>
+          </div>
+
+          <p className="max-w-3xl mx-auto text-slate-400 text-lg text-center mb-20 leading-relaxed">
+            Our 3D construction models deliver measurable benefits across every phase of your project — from client presentations to field execution — ensuring fewer conflicts, reduced costs, and superior outcomes.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Fewer Field Conflicts</div>
+            </div>
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">50<span className="text-4xl align-super font-normal">%</span></div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Faster RFI Resolution</div>
+            </div>
+            <div className="text-center group">
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">$</div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Significant Cost Savings</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((b, i) => (
+              <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section id="portfolio" className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Featured Portfolio</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+{/* CONTACT SECTION */}
+<section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-4xl font-black text-white mb-4 uppercase italic tracking-tighter">
+      Connect with BuiltLogic 3D
+    </h2>
+    <p className="text-slate-400 mb-16 max-w-2xl mx-auto">
+      Stop building the rework. Reach out directly to discuss your project coordination, 
+      request a 3D walkthrough, or get a precision takeoff.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* EMAIL CARD */}
+      <a 
+        href="mailto:team@builtlogic3d.com" 
+        className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all hover:-translate-y-2"
+      >
+        <div className="bg-blue-500/10 w-14 h-14 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+          <Mail size={28} />
+        </div>
+        <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Email Us</h3>
+        <p className="text-blue-400 font-medium break-all">team@builtlogic3d.com</p>
+      </a>
+
+      {/* PHONE CARD */}
+      <a 
+        href="tel:3474941068" 
+        className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all hover:-translate-y-2"
+      >
+        <div className="bg-blue-500/10 w-14 h-14 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+          <Phone size={28} />
+        </div>
+        <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Call Directly</h3>
+        <p className="text-blue-400 font-medium">(347) 494-1068</p>
+      </a>
+
+      {/* YOUTUBE CARD */}
+      <a 
+        href="https://youtube.com/@BuiltLogic3D" 
+        target="_blank" 
+        rel="noreferrer" 
+        className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all hover:-translate-y-2"
+      >
+        <div className="bg-blue-500/10 w-14 h-14 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+          <Youtube size={28} />
+        </div>
+        <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Watch Strategy</h3>
+        <p className="text-blue-400 font-medium">YouTube Channel</p>
+      </a>
+    </div>
+
+    <div className="mt-16 inline-block bg-white/5 px-6 py-3 rounded-full border border-white/10">
+      <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em]">
+        Serving Projects Nationwide
+      </p>
+    </div>
+  </div>
+</section>
+
+      {/* MODAL */}
+      {selectedProject && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <button 
+            onClick={() => setSelectedProject(null)}
+            className="absolute top-6 right-6 text-white hover:text-blue-400 transition-colors z-[110]"
+          >
+            <X size={40} />
+          </button>
+          <div 
+            className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.2)]"
+            onClick={e => e.stopPropagation()}
+          >
+            <iframe 
+              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0&modestbranding=1&controls=1`}
+              className="w-full h-full" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; fullscreen"
+              title={selectedProject.title}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
