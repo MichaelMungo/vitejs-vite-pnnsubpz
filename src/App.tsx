@@ -17,6 +17,8 @@ import {
   Users,
   Target,
   PlayCircle,
+  Database,
+  ClipboardCheck,
 } from 'lucide-react';
 
 // --- DATA ---
@@ -100,7 +102,6 @@ const VideoCard = ({ project, onClick }: any) => {
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMouseMove = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -109,10 +110,7 @@ export default function App() {
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setSelectedProject(null);
-        setIsMenuOpen(false);
-      }
+      if (e.key === 'Escape') setSelectedProject(null);
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
@@ -126,41 +124,21 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10 scroll-smooth">
-      <style>{`html { scroll-behavior: smooth; }`}</style>
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
 
-      {/* NAVIGATION BAR */}
+      {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Menu 
-            size={24} 
-            className="text-white cursor-pointer md:hidden" 
-            onClick={() => setIsMenuOpen(true)}
-          />
+          <Menu size={24} className="text-white cursor-pointer" />
           <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
             <a href="#services" className="hover:text-white transition-all">Services</a>
             <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
             <a href="#contact" className="hover:text-white transition-all">Contact</a>
           </div>
-          <div className="w-6 md:hidden"></div> 
         </div>
       </nav>
 
-      {/* MOBILE DRAWER */}
-      <div className={`fixed inset-0 z-[60] bg-slate-950/95 backdrop-blur-xl transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}>
-        <div className="flex flex-col h-full p-8">
-          <div className="flex justify-end">
-            <X size={32} className="text-white cursor-pointer" onClick={() => setIsMenuOpen(false)} />
-          </div>
-          <div className="flex flex-col gap-8 mt-12 text-2xl font-black text-white uppercase tracking-tighter">
-            <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
-            <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
-            <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
-          </div>
-        </div>
-      </div>
-
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
@@ -171,29 +149,25 @@ export default function App() {
           />
           <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="#portfolio" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
-              View Portfolio
-            </a>
-            <a href="mailto:team@builtlogic3d.com" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
-              Connect With Our Team
-            </a>
+            <button className="bg-blue-600 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-900/40">Start Your Project</button>
+            <a href="#portfolio" className="bg-white/5 text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 transition-all">View Our Work</a>
           </div>
         </div>
       </section>
 
-      {/* SERVICES SECTION */}
+      {/* SERVICES - UPDATED TITLES & DESCRIPTIONS */}
       <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
           <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard icon={Building2} title="Architectural 3D" desc="Transform 2D floor plans into detailed 3D visualizations." />
-          <ServiceCard icon={Zap} title="MEP Integration" desc="Modeling of mechanical, electrical, and plumbing systems." />
-          <ServiceCard icon={Ruler} title="BIM Coordination" desc="Ensuring all disciplines work seamlessly together." />
-          <ServiceCard icon={ArrowRight} title="Shop Drawings" desc="Precise fabrication-ready drawings and specs." />
-          <ServiceCard icon={CheckCircle2} title="As-Built Docs" desc="Detailed documentation of existing structures." />
-          <ServiceCard icon={Play} title="Visualization" desc="Photorealistic renders and walkthroughs." />
+          <ServiceCard icon={Building2} title="Architectural 3D" desc="3D visualization bridges the gap between architectural intent and field execution." />
+          <ServiceCard icon={Zap} title="Proactive MEPS Integration" desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." />
+          <ServiceCard icon={Play} title="Multi-Format Visualization" desc="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment." />
+          <ServiceCard icon={UserCheck} title="White-Label Professionalism" desc="Impress clients with 3D models and videos branded to your company. We provide the high-tech visuals that make your firm look like the most sophisticated team on the bid." />
+          <ServiceCard icon={Database} title="Digital 3-Dimensional As-Builts" desc="Transition from construction to operations with a 1:1 digital twin. We provide a precise 3D 'as-built' model that serves as a permanent, navigable manual." />
+          <ServiceCard icon={ClipboardCheck} title="Precision Procurement" desc="Leverage model accuracy to buy what you need, not what you *think* you need." />
         </div>
       </section>
 
@@ -207,6 +181,11 @@ export default function App() {
               <span className="text-blue-500">for Your Projects</span>
             </h2>
           </div>
+
+          <p className="max-w-3xl mx-auto text-slate-400 text-lg text-center mb-20 leading-relaxed">
+            Our 3D construction models deliver measurable benefits across every phase of your project — from client presentations to field execution — ensuring fewer conflicts, reduced costs, and superior outcomes.
+          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div className="text-center group">
               <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
@@ -221,6 +200,7 @@ export default function App() {
               <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Significant Cost Savings</div>
             </div>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
               <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
@@ -229,10 +209,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* PORTFOLIO SECTION */}
+      {/* PORTFOLIO */}
       <section id="portfolio" className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Featured Portfolio</h2>
+          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
@@ -241,43 +221,78 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT SECTION */}
-      <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-black text-white mb-4 uppercase italic tracking-tighter">
-            Connect with BuiltLogic 3D
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <a href="mailto:team@builtlogic3d.com" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
-              <Mail className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Email Us</h3>
-              <p className="text-blue-400 font-medium break-all text-sm">team@builtlogic3d.com</p>
-            </a>
-            <a href="tel:3474941068" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
-              <Phone className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Call Directly</h3>
-              <p className="text-blue-400 font-medium text-sm">(347) 494-1068</p>
-            </a>
-            <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
-              <Youtube className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Watch Strategy</h3>
-              <p className="text-blue-400 font-medium text-sm">YouTube Channel</p>
-            </a>
+      {/* CONTACT */}
+      <section id="contact" className="bg-slate-950 py-24 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="text-left">
+            <h2 className="text-4xl font-black text-white mb-8 uppercase">Let's Build Together</h2>
+            
+            <div className="space-y-6 text-white">
+              <div className="flex items-center gap-4">
+                <Mail size={22} className="text-blue-500 flex-shrink-0" />
+                <a 
+                  href="mailto:team@builtlogic3d.com"
+                  className="hover:text-blue-400 font-medium tracking-wide text-lg"
+                >
+                  team@builtlogic3d.com
+                </a>
+                <button 
+                  onClick={() => {
+                    navigator.clipboard.writeText('team@builtlogic3d.com');
+                    alert('✅ Email copied to clipboard! Just paste it into your email app.');
+                  }}
+                  className="ml-2 text-xs bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded font-medium transition-colors"
+                >
+                  Copy
+                </button>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <Phone size={22} className="text-blue-500 flex-shrink-0" />
+                <a href="tel:+13474941068" className="hover:text-blue-400 font-medium tracking-wide text-lg">(347) 494-1068</a>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <Youtube size={22} className="text-blue-500 flex-shrink-0" />
+                <a href="https://www.youtube.com/@builtlogic3d" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 font-medium tracking-wide text-lg">Watch our work on YouTube</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
+            <form className="grid grid-cols-2 gap-4">
+              <input placeholder="Name" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+              <input placeholder="Email" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+              <textarea placeholder="Project Details" rows={4} className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm col-span-2 outline-none focus:border-blue-500 transition-colors"></textarea>
+              <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded uppercase text-xs tracking-widest hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20">Send Message</button>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* MODAL SECTION */}
+      {/* MODAL */}
       {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4" onClick={() => setSelectedProject(null)}>
-          <button className="absolute top-6 right-6 text-white" onClick={() => setSelectedProject(null)}><X size={40} /></button>
-          <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden" onClick={e => e.stopPropagation()}>
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <button 
+            onClick={() => setSelectedProject(null)}
+            className="absolute top-6 right-6 text-white hover:text-blue-400 transition-colors z-[110]"
+          >
+            <X size={40} />
+          </button>
+          <div 
+            className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(37,99,235,0.2)]"
+            onClick={e => e.stopPropagation()}
+          >
             <iframe 
-              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1`}
+              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&rel=0&modestbranding=1&controls=1`}
               className="w-full h-full" 
               frameBorder="0" 
               allowFullScreen 
-              title="Project Video"
+              allow="autoplay; fullscreen"
+              title={selectedProject.title}
             />
           </div>
         </div>
