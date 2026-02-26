@@ -272,7 +272,7 @@ export default function App() {
 
     <div className="mt-16 inline-block bg-white/5 px-6 py-3 rounded-full border border-white/10">
       <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em]">
-        Serving NYC Metro & Projects Nationwide
+        Serving Projects Nationwide
       </p>
     </div>
   </div>
