@@ -9,6 +9,8 @@ import {
   CheckCircle2,
   Play,
   Mail,
+  Phone,
+  Youtube,
   UserCheck,
   Clock,
   Shield,
@@ -167,7 +169,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES - REFINED */}
+      {/* STRATEGIC ADVANTAGES */}
       <section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -182,7 +184,6 @@ export default function App() {
             Our 3D construction models deliver measurable benefits across every phase of your project — from client presentations to field execution — ensuring fewer conflicts, reduced costs, and superior outcomes.
           </p>
 
-          {/* Prominent Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div className="text-center group">
               <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
@@ -198,7 +199,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
               <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
@@ -219,16 +219,30 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT */}
+      {/* CONTACT - UPDATED */}
       <section id="contact" className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="text-left">
-            <h2 className="text-4xl font-black text-white mb-6 uppercase">Let's Build Together</h2>
-            <div className="flex items-center gap-4 text-white">
-              <Mail size={20} className="text-blue-500" />
-              <a href="mailto:contact@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide">contact@builtlogic3d.com</a>
+            <h2 className="text-4xl font-black text-white mb-8 uppercase">Let's Build Together</h2>
+            
+            <div className="space-y-6 text-white">
+              <div className="flex items-center gap-4">
+                <Mail size={22} className="text-blue-500 flex-shrink-0" />
+                <a href="mailto:team@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide text-lg">team@builtlogic3d.com</a>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <Phone size={22} className="text-blue-500 flex-shrink-0" />
+                <a href="tel:+13474941068" className="hover:text-blue-400 font-medium tracking-wide text-lg">(347) 494-1068</a>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <Youtube size={22} className="text-blue-500 flex-shrink-0" />
+                <a href="https://www.youtube.com/@builtlogic3d" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 font-medium tracking-wide text-lg">Watch our work on YouTube</a>
+              </div>
             </div>
           </div>
+
           <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
             <form className="grid grid-cols-2 gap-4">
               <input placeholder="Name" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
