@@ -91,11 +91,3 @@ const VideoCard = ({ project, onClick }: any) => {
         </span>
         <h4 className="text-white font-bold text-sm leading-tight">
           {project.title}
-        </h4>
-      </div>
-    </div>
-  );
-};
-
-export default function App() {
-  const [mousePos, setMousePos] = useState({ x: 0, y
