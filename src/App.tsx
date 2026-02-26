@@ -2,11 +2,8 @@ import { useState, useEffect } from 'react';
 import {
   Menu,
   Building2,
-  Ruler,
   Zap,
   X,
-  ArrowRight,
-  CheckCircle2,
   Play,
   Mail,
   Phone,
@@ -17,6 +14,8 @@ import {
   Users,
   Target,
   PlayCircle,
+  Database,
+  ClipboardCheck,
 } from 'lucide-react';
 
 // --- DATA ---
@@ -181,19 +180,19 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES SECTION */}
+      {/* SERVICES SECTION - UPDATED FROM EXCEL */}
       <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
           <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard icon={Building2} title="Architectural 3D" desc="Transform 2D floor plans into detailed 3D visualizations." />
-          <ServiceCard icon={Zap} title="MEP Integration" desc="Modeling of mechanical, electrical, and plumbing systems." />
-          <ServiceCard icon={Ruler} title="BIM Coordination" desc="Ensuring all disciplines work seamlessly together." />
-          <ServiceCard icon={ArrowRight} title="Shop Drawings" desc="Precise fabrication-ready drawings and specs." />
-          <ServiceCard icon={CheckCircle2} title="As-Built Docs" desc="Detailed documentation of existing structures." />
-          <ServiceCard icon={Play} title="Visualization" desc="Photorealistic renders and walkthroughs." />
+          <ServiceCard icon={Building2} title="Architectural 3D" desc="3D visualization bridges the gap between architectural intent and field execution." />
+          <ServiceCard icon={Zap} title="Proactive MEPS Integration" desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." />
+          <ServiceCard icon={Play} title="Multi-Format Visualization" desc="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment." />
+          <ServiceCard icon={UserCheck} title="White-Label Professionalism" desc="Impress clients with 3D models and videos branded to your company. We provide the high-tech visuals that make your firm look like the most sophisticated team on the bid." />
+          <ServiceCard icon={Database} title="Digital 3-Dimensional As-Builts" desc="Transition from construction to operations with a 1:1 digital twin. We provide a precise 3D 'as-built' model that serves as a permanent, navigable manual." />
+          <ServiceCard icon={ClipboardCheck} title="Precision Procurement" desc="Leverage model accuracy to buy what you need, not what you think you need." />
         </div>
       </section>
 
