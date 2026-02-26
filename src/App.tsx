@@ -219,51 +219,60 @@ export default function App() {
         </div>
       </section>
 
-{/* CONTACT */}
-<section id="contact" className="bg-slate-950 py-24 px-6">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-    <div className="text-left">
-      <h2 className="text-4xl font-black text-white mb-6 uppercase italic">Let's Build Together</h2>
-      <div className="space-y-6">
-        <div className="flex items-center gap-4 text-white">
-          <Mail size={24} className="text-blue-500" />
-          <div>
-            <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Email Us</p>
-            <a href="mailto:team@builtlogic3d.com" className="text-xl hover:text-blue-400 font-medium tracking-wide transition-colors">team@builtlogic3d.com</a>
-          </div>
+{/* CONTACT SECTION */}
+<section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-4xl font-black text-white mb-4 uppercase italic tracking-tighter">
+      Connect with BuiltLogic 3D
+    </h2>
+    <p className="text-slate-400 mb-16 max-w-2xl mx-auto">
+      Stop building the rework. Reach out directly to discuss your project coordination, 
+      request a 3D walkthrough, or get a precision takeoff.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* EMAIL CARD */}
+      <a 
+        href="mailto:team@builtlogic3d.com" 
+        className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all hover:-translate-y-2"
+      >
+        <div className="bg-blue-500/10 w-14 h-14 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+          <Mail size={28} />
         </div>
-        <div className="flex items-center gap-4 text-white">
-          <Phone size={24} className="text-blue-500" />
-          <div>
-            <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Call Directly</p>
-            <a href="tel:3474941068" className="text-xl hover:text-blue-400 font-medium tracking-wide transition-colors">(347) 494-1068</a>
-          </div>
+        <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Email Us</h3>
+        <p className="text-blue-400 font-medium break-all">team@builtlogic3d.com</p>
+      </a>
+
+      {/* PHONE CARD */}
+      <a 
+        href="tel:3474941068" 
+        className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all hover:-translate-y-2"
+      >
+        <div className="bg-blue-500/10 w-14 h-14 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+          <Phone size={28} />
         </div>
-        <div className="flex items-center gap-4 text-white">
-          <Youtube size={24} className="text-blue-500" />
-          <div>
-            <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Watch Our Work</p>
-            <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="text-xl hover:text-blue-400 font-medium tracking-wide transition-colors">YouTube Channel</a>
-          </div>
+        <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Call Directly</h3>
+        <p className="text-blue-400 font-medium">(347) 494-1068</p>
+      </a>
+
+      {/* YOUTUBE CARD */}
+      <a 
+        href="https://youtube.com/@BuiltLogic3D" 
+        target="_blank" 
+        rel="noreferrer" 
+        className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all hover:-translate-y-2"
+      >
+        <div className="bg-blue-500/10 w-14 h-14 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+          <Youtube size={28} />
         </div>
-      </div>
+        <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Watch Strategy</h3>
+        <p className="text-blue-400 font-medium">YouTube Channel</p>
+      </a>
     </div>
 
-    {/* CTA BOX */}
-    <div className="bg-blue-600 p-10 rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center">
-      <h3 className="text-2xl font-black text-white mb-4 uppercase">Request a Quote</h3>
-      <p className="text-blue-100 mb-8 text-sm leading-relaxed">
-        Ready to de-risk your project? Send your 2D plans or MEP drawings to our team for a custom 3D coordination proposal.
-      </p>
-      <a 
-        href="mailto:team@builtlogic3d.com?subject=Project Inquiry - [Your Project Name]&body=Please attach your 2D or 3D project files for review."
-        className="w-full bg-white text-blue-600 font-black py-5 rounded-xl uppercase text-sm tracking-[0.2em] hover:bg-slate-100 transition-all shadow-xl shadow-blue-900/40 flex items-center justify-center gap-3"
-      >
-        <Mail size={18} />
-        Email Your Drawings
-      </a>
-      <p className="mt-4 text-blue-200 text-[10px] uppercase font-bold tracking-widest">
-        Average response time: Under 2 hours
+    <div className="mt-16 inline-block bg-white/5 px-6 py-3 rounded-full border border-white/10">
+      <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em]">
+        Serving NYC Metro & Projects Nationwide
       </p>
     </div>
   </div>
