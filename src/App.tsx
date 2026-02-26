@@ -219,40 +219,45 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT - UPDATED */}
-      <section id="contact" className="bg-slate-950 py-24 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="text-left">
-            <h2 className="text-4xl font-black text-white mb-8 uppercase">Let's Build Together</h2>
-            
-            <div className="space-y-6 text-white">
-              <div className="flex items-center gap-4">
-                <Mail size={22} className="text-blue-500 flex-shrink-0" />
-                <a href="mailto:team@builtlogic3d.com" className="hover:text-blue-400 font-medium tracking-wide text-lg">team@builtlogic3d.com</a>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <Phone size={22} className="text-blue-500 flex-shrink-0" />
-                <a href="tel:+13474941068" className="hover:text-blue-400 font-medium tracking-wide text-lg">(347) 494-1068</a>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <Youtube size={22} className="text-blue-500 flex-shrink-0" />
-                <a href="https://www.youtube.com/@builtlogic3d" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 font-medium tracking-wide text-lg">Watch our work on YouTube</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
-            <form className="grid grid-cols-2 gap-4">
-              <input placeholder="Name" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
-              <input placeholder="Email" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
-              <textarea placeholder="Project Details" rows={4} className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm col-span-2 outline-none focus:border-blue-500 transition-colors"></textarea>
-              <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded uppercase text-xs tracking-widest hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20">Send Message</button>
-            </form>
-          </div>
+ {/* CONTACT - UPDATED */}
+<section id="contact" className="bg-slate-950 py-24 px-6">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <div className="text-left">
+      <h2 className="text-4xl font-black text-white mb-8 uppercase">Let's Build Together</h2>
+      
+      <div className="space-y-6 text-white">
+        <div className="flex items-center gap-4">
+          <Mail size={22} className="text-blue-500 flex-shrink-0" />
+          <a 
+            href="mailto:team@builtlogic3d.com?subject=Project Inquiry - BuiltLogic 3D&body=Hi Team,%0D%0A%0D%0AI'm interested in discussing a project with you.%0D%0A%0D%0ABest regards,"
+            className="hover:text-blue-400 font-medium tracking-wide text-lg"
+          >
+            team@builtlogic3d.com
+          </a>
         </div>
-      </section>
+
+        <div className="flex items-center gap-4">
+          <Phone size={22} className="text-blue-500 flex-shrink-0" />
+          <a href="tel:+13474941068" className="hover:text-blue-400 font-medium tracking-wide text-lg">(347) 494-1068</a>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <Youtube size={22} className="text-blue-500 flex-shrink-0" />
+          <a href="https://www.youtube.com/@builtlogic3d" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 font-medium tracking-wide text-lg">Watch our work on YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 shadow-2xl">
+      <form className="grid grid-cols-2 gap-4">
+        <input placeholder="Name" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+        <input placeholder="Email" className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm outline-none focus:border-blue-500 transition-colors" />
+        <textarea placeholder="Project Details" rows={4} className="bg-slate-800 border border-white/5 rounded p-4 text-white text-sm col-span-2 outline-none focus:border-blue-500 transition-colors"></textarea>
+        <button type="button" className="col-span-2 bg-blue-600 text-white font-bold py-4 rounded uppercase text-xs tracking-widest hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
 
       {/* MODAL */}
       {selectedProject && (
