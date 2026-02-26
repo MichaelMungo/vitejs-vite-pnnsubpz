@@ -2,11 +2,8 @@ import { useState, useEffect } from 'react';
 import {
   Menu,
   Building2,
-  Ruler,
   Zap,
   X,
-  ArrowRight,
-  CheckCircle2,
   Play,
   Mail,
   Phone,
@@ -155,7 +152,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES - UPDATED TITLES & DESCRIPTIONS */}
+      {/* SERVICES - NEW TITLES & DESCRIPTIONS */}
       <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
