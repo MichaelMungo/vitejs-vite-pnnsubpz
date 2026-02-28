@@ -266,21 +266,31 @@ export default function App() {
         </div>
       </section>
 
-      {/* MODAL SECTION */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4" onClick={() => setSelectedProject(null)}>
-          <button className="absolute top-6 right-6 text-white" onClick={() => setSelectedProject(null)}><X size={40} /></button>
-          <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden" onClick={e => e.stopPropagation()}>
-            <iframe 
-              src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1`}
-              className="w-full h-full" 
-              frameBorder="0" 
-              allowFullScreen 
-              title="Project Video"
-            />
-          </div>
-        </div>
-      )}
+ {/* MODAL SECTION - FIXED */}
+{selectedProject && (
+  <div 
+    className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4" 
+    onClick={() => setSelectedProject(null)}
+  >
+    <button 
+      className="absolute top-6 right-6 text-white z-10" 
+      onClick={() => setSelectedProject(null)}
+    >
+      <X size={40} />
+    </button>
+    
+    <div 
+      className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden" 
+      onClick={e => e.stopPropagation()}
+    >
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${selectedProject.youtubeId}?autoplay=1&modestbranding=1&rel=0&playsinline=1&fs=1`}
+        className="w-full h-full"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+        allowFullScreen
+        title={selectedProject.title}
+      />
     </div>
-  );
-}
+  </div>
+)}
