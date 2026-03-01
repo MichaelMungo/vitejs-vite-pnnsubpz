@@ -266,6 +266,27 @@ export default function App() {
         </div>
       </section>
 
+{/* NATIONWIDE FOOTER */}
+<footer className="bg-slate-950 text-white py-12 border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-black italic tracking-tighter text-blue-500">
+                BUILTLOGIC 3D, LLC
+              </h3>
+              <p className="text-slate-400 text-[10px] mt-1 uppercase tracking-[0.2em] font-bold">
+                Precision Construction Modeling • BIM Coordination
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center md:items-end text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em]">
+              <p>© 2026 BUILTLOGIC 3D, LLC. ALL RIGHTS RESERVED.</p>
+              <p className="mt-2 text-blue-500/40 tracking-[0.4em]">NATIONWIDE SERVICE</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
       {/* MODAL SECTION - FIXED (fullscreen + no YouTube redirect) */}
       {selectedProject && (
         <div 
