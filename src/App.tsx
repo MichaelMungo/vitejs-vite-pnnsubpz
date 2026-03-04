@@ -180,21 +180,31 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - UPDATED FROM YOUR EXCEL */}
-      <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
-          <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard icon={Building2} title="Architectural 3D" desc="3D visualization bridges the gap between architectural intent and field execution." />
-          <ServiceCard icon={Zap} title="Proactive MEPS Integration" desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." />
-          <ServiceCard icon={Play} title="Multi-Format Visualization" desc="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment." />
-          <ServiceCard icon={UserCheck} title="White-Label Professionalism" desc="Impress clients with 3D models and videos branded to your company. We provide the high-tech visuals that make your firm look like the most sophisticated team on the bid." />
-          <ServiceCard icon={Database} title="Digital 3-Dimensional As-Builts" desc="Transition from construction to operations with a 1:1 digital twin. We provide a precise 3D 'as-built' model that serves as a permanent, navigable manual." />
-          <ServiceCard icon={ClipboardCheck} title="Precision Procurement" desc="Leverage model accuracy to buy what you need, not what you think you need." />
-        </div>
-      </section>
+ {/* --- NATIONWIDE SERVICES SECTION --- */}
+<section id="services" className="py-20 bg-white">
+  <div className="container mx-auto px-6">
+    <h2 className="text-4xl font-black text-slate-900 mb-4 uppercase tracking-tighter italic">
+      Nationwide 3D Services
+    </h2>
+    <p className="text-slate-600 mb-12 max-w-2xl text-lg border-l-4 border-blue-600 pl-4">
+      From coast to coast, we provide high-precision BIM and 3D visualization for developers, architects, and contractors across the United States.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="p-8 border border-slate-100 rounded-2xl hover:shadow-xl transition-all bg-slate-50 hover:-translate-y-1">
+        <h3 className="text-xl font-bold mb-3 text-blue-700">National MEP Coordination</h3>
+        <p className="text-slate-600">Expert mechanical, electrical, and plumbing coordination for complex commercial projects in any US state.</p>
+      </div>
+      <div className="p-8 border border-slate-100 rounded-2xl hover:shadow-xl transition-all bg-slate-50 hover:-translate-y-1">
+        <h3 className="text-xl font-bold mb-3 text-blue-700">Architectural VDC</h3>
+        <p className="text-slate-600">Virtual Design and Construction services tailored for developers nationwide seeking precision and speed.</p>
+      </div>
+      <div className="p-8 border border-slate-100 rounded-2xl hover:shadow-xl transition-all bg-slate-50 hover:-translate-y-1">
+        <h3 className="text-xl font-bold mb-3 text-blue-700">3D Laser Scanning</h3>
+        <p className="text-slate-600">As-built documentation and reality capture services available for job sites from New York to California.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* STRATEGIC ADVANTAGES */}
       <section className="bg-slate-950 py-24 px-6">
