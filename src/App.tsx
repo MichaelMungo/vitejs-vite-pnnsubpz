@@ -253,7 +253,7 @@ export default function App() {
           
           {/* This form is visually ready. Plumbing (Formspree ID) goes in the 'action' below */}
           <form 
-            action="https://formspree.io/f/PLACEHOLDER" 
+            action="https://formspree.io/f/mkovdyvd" 
             method="POST"
             className="space-y-4"
           >
