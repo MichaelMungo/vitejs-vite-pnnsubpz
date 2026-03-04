@@ -159,7 +159,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* HERO SECTION - LOGO NOW 1.25× BIGGER */}
+      {/* HERO SECTION */}
       <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
@@ -180,7 +180,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - UPDATED FROM YOUR EXCEL */}
+      {/* SERVICES SECTION */}
       <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
@@ -251,7 +251,6 @@ export default function App() {
             </p>
           </div>
           
-          {/* This form is visually ready. Plumbing (Formspree ID) goes in the 'action' below */}
           <form 
             action="https://formspree.io/f/mkovdyvd" 
             method="POST"
@@ -308,8 +307,8 @@ export default function App() {
         </div>
       </section>
 
-{/* NATIONWIDE FOOTER */}
-<footer className="bg-slate-950 text-white py-12 border-t border-white/10">
+      {/* FOOTER */}
+      <footer className="bg-slate-950 text-white py-12 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="text-center md:text-left">
@@ -323,13 +322,12 @@ export default function App() {
             
             <div className="flex flex-col items-center md:items-end text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em]">
               <p>© 2026 BUILTLOGIC 3D, LLC. ALL RIGHTS RESERVED.</p>
-              <p className="mt-2 text-blue-500/40 tracking-[0.4em]">NATIONWIDE SERVICE</p>
             </div>
           </div>
         </div>
       </footer>
 
-      {/* MODAL SECTION - FIXED (fullscreen + no YouTube redirect) */}
+      {/* MODAL SECTION */}
       {selectedProject && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4" 
