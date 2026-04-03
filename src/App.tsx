@@ -128,20 +128,29 @@ export default function App() {
     <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10 scroll-smooth">
       <style>{`html { scroll-behavior: smooth; }`}</style>
 
-      {/* NAVIGATION BAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Menu 
-            size={24} 
-            className="text-white cursor-pointer md:hidden" 
-            onClick={() => setIsMenuOpen(true)}
-          />
-          <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            <a href="#services" className="hover:text-white transition-all">Services</a>
-            <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
-            <a href="#contact" className="hover:text-white transition-all">Contact</a>
+  {/* NAVIGATION */}
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center font-black text-white text-sm">B</div>
+            <span className="text-white font-bold tracking-tighter text-lg">BUILTLOGIC<span className="text-blue-500">3D</span></span>
           </div>
-          <div className="w-6 md:hidden"></div> 
+          
+          <div className="hidden md:flex items-center gap-10">
+            {['Services', 'Portfolio', 'Contact'].map((item) => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase()}`} 
+                className="text-[11px] font-black uppercase tracking-[0.25em] text-slate-400 hover:text-[#60a5fa] transition-colors duration-300"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+
+          <button className="md:hidden text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+          </button>
         </div>
       </nav>
 
