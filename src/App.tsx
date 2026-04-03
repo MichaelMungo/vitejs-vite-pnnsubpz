@@ -159,16 +159,23 @@ export default function App() {
         </div>
       </div>
 
-      {/* HERO SECTION */}
-      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
-        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
+    {/* HERO SECTION */}
+    <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
+        <div 
+          className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
+          style={heroGridStyle} 
+        />
+        
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
-          <img 
+        <img 
             src="/logo-main.png" 
             alt="BuiltLogic 3D" 
-            className="animate-float relative z-30 w-full sm:w-[95%] md:w-[87.5%] lg:w-[75%] max-w-[1125px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
-          />
-          <p className="text-blue-400/90 text-sm md:text-xl font-medium mb-10 tracking-wide max-w-2xl mx-auto italic">Precision 3D Construction Models from Architectural and MEP Drawings</p>
+            className="animate-float relative z-30 w-[110%] -ml-[5%] md:ml-auto md:w-[85%] lg:w-[75%] max-w-[1200px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]"          />
+        
+          <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90 leading-relaxed">
+            Precision 3D Construction Models from Architectural and MEP Drawings
+          </p>
+
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="#portfolio" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
               View Portfolio
