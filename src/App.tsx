@@ -130,10 +130,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-900 selection:bg-cyan-500/30 scroll-smooth">
+    <div className="min-h-screen bg-slate-950 text-slate-900 selection:bg-cyan-500/30 scroll-smooth font-sans">
       <style>{`html { scroll-behavior: smooth; }`}</style>
 
-      {/* NAVIGATION BAR - DARK */}
+      {/* NAVIGATION BAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-cyan-500/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Menu size={28} className="text-cyan-400 cursor-pointer md:hidden" onClick={() => setIsMenuOpen(true)} />
@@ -160,7 +160,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* HERO SECTION - DARK */}
+      {/* HERO SECTION */}
       <section onMouseMove={handleMouseMove} className="relative min-h-screen flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center mt-10">
@@ -179,32 +179,102 @@ export default function App() {
         </div>
       </section>
 
-      {/* MISSION STATEMENT - LIGHT */}
-      <section id="mission" className="py-32 px-6 bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto relative z-10">
-          <SectionHeader title="Our Mission" dark={false} />
-          <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-10 text-center uppercase tracking-tighter">
-            Field-First <span className="text-orange-600">Clarity</span>
-          </h2>
-          <div className="space-y-8 text-slate-600 text-base md:text-lg font-medium leading-relaxed bg-white p-8 md:p-12 rounded-xl shadow-sm border border-slate-100">
-            <p>
-              <strong className="text-slate-900 font-black">BuiltLogic 3D</strong> was born from forty years of grit, grease, and high-stakes management. Since 1985, we have navigated the complexities of multimillion-dollar commercial projects from New York to Miami.
-            </p>
-            <p>
-              Through those decades, I discovered a universal truth: <span className="text-orange-600 font-bold bg-orange-50 px-2 py-1 rounded">the most expensive mile in construction is the distance between the architect's desk and the field office.</span>
-            </p>
-            <p>
-              We exist to bridge that gap. By translating traditional architectural drawings into <strong className="text-cyan-700 font-black">high-fidelity 3D models</strong>, we empower hardworking field teams to build the original intent the first time. Our mission is to eliminate the <strong className="text-orange-600 font-black">cycle of rework</strong> and enhance the existing professionalism of General Contractors through state-of-the-art visualization.
-            </p>
-            <p className="text-center font-black text-slate-900 uppercase tracking-widest text-sm pt-6 border-t border-slate-100 mt-8">
-              We don't just model buildings; we support the people who build them.
-            </p>
+      {/* MISSION BROCHURE SECTION */}
+      <section id="mission" className="bg-slate-950 py-32 px-6 relative overflow-hidden border-y border-cyan-500/20">
+        {/* Subtle Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #22d3ee 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 blur-[100px] rounded-full"></div>
+        
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* CONTENT COLUMN (Brochure Left) */}
+          <div className="lg:col-span-7 order-2 lg:order-1 relative">
+            {/* The "Grit" Tab Decorator */}
+            <div className="absolute -left-10 top-0 hidden xl:block">
+              <div className="h-40 w-1 bg-gradient-to-b from-orange-600 via-orange-600/50 to-transparent"></div>
+              <p className="[writing-mode:vertical-lr] rotate-180 py-4 text-[10px] font-black text-orange-600 uppercase tracking-[0.5em] whitespace-nowrap">EST. 1985 • FORTY YEARS OF EXPERIENCE</p>
+            </div>
+
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-sm mb-8 backdrop-blur-sm">
+               <div className="w-2 h-2 rounded-full bg-orange-600 animate-pulse"></div>
+               <span className="text-white text-[11px] font-black uppercase tracking-[0.4em]">Mission Statement</span>
+            </div>
+
+            <h2 className="text-6xl md:text-8xl font-black text-white mb-10 leading-[0.85] tracking-tighter uppercase italic">
+              FIELD-FIRST <br />
+              <span className="text-cyan-400">CLARITY</span>
+            </h2>
+            
+            <div className="space-y-8 max-w-2xl">
+              <p className="text-slate-300 text-lg md:text-xl font-medium leading-relaxed border-l-2 border-cyan-500/30 pl-8">
+                <strong className="text-white font-black">BuiltLogic 3D</strong> was born from forty years of grit, grease, and high-stakes management. Since 1985, we have navigated the complexities of multimillion-dollar commercial projects from New York to Miami.
+              </p>
+              
+              <div className="bg-orange-600/10 border border-orange-600/20 p-8 rounded-sm relative overflow-hidden group">
+                <div className="absolute top-0 left-0 w-1 h-full bg-orange-600"></div>
+                <p className="text-white text-lg font-bold italic leading-relaxed relative z-10">
+                  "Through those decades, I discovered a universal truth: <span className="text-orange-500 underline decoration-orange-500/40 underline-offset-8">the most expensive mile in construction is the distance between the architect's desk and the field office.</span>"
+                </p>
+              </div>
+
+              <p className="text-slate-400 text-base md:text-lg leading-relaxed pl-8">
+                By translating traditional architectural drawings into <span className="text-cyan-400 font-bold italic underline decoration-cyan-400/20 underline-offset-4">high-fidelity 3D models</span>, we empower hardworking field teams to build the original intent the first time. We eliminate the <strong className="text-white uppercase tracking-wider">cycle of rework</strong>.
+              </p>
+            </div>
+
+            <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center gap-8">
+              <div className="flex -space-x-3">
+                 {[1,2,3,4].map(i => <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-[10px] font-black text-cyan-400">0{i}</div>)}
+              </div>
+              <p className="text-xs font-black text-slate-500 uppercase tracking-[0.3em]">
+                WE DON'T JUST MODEL BUILDINGS; <span className="text-orange-600 ml-2">WE SUPPORT THE PEOPLE WHO BUILD THEM.</span>
+              </p>
+            </div>
+          </div>
+
+          {/* VISUAL COLUMN (Brochure Right - Isometric Drawing Aesthetic) */}
+          <div className="lg:col-span-5 order-1 lg:order-2 relative group">
+            <div className="aspect-square relative flex items-center justify-center">
+              {/* Spinning technical rings background */}
+              <div className="absolute inset-0 border-[1px] border-cyan-500/20 rounded-full animate-[spin_20s_linear_infinite]"></div>
+              <div className="absolute inset-8 border-[1px] border-dashed border-cyan-500/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+              
+              {/* THE HUB */}
+              <div className="relative z-20 w-72 h-72 md:w-80 md:h-80 bg-slate-900 border-2 border-cyan-500/50 rounded-2xl shadow-[0_0_60px_rgba(34,211,238,0.15)] flex items-center justify-center overflow-hidden rotate-3 group-hover:rotate-0 transition-transform duration-700">
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, #22d3ee 1px, transparent 1px), linear-gradient(-45deg, #22d3ee 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                <Building2 size={100} className="text-cyan-400 relative z-10 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]" />
+              </div>
+
+              {/* FLOATING BROCHURE LABELS */}
+              {/* Label 1: CLARITY */}
+              <div className="absolute -top-4 left-0 md:-left-10 flex flex-col items-end">
+                <div className="bg-slate-950 border border-cyan-500/50 px-4 py-2 rounded-sm shadow-2xl backdrop-blur-md">
+                   <span className="text-cyan-400 font-black text-[10px] tracking-[0.4em] uppercase">CLARITY</span>
+                </div>
+                <div className="h-16 w-px bg-gradient-to-b from-cyan-500/50 to-transparent mr-6"></div>
+              </div>
+
+              {/* Label 2: PRECISION */}
+              <div className="absolute top-1/2 -right-10 flex items-center">
+                <div className="w-16 h-px bg-gradient-to-r from-transparent to-orange-600/50"></div>
+                <div className="bg-slate-950 border border-orange-600/50 px-4 py-2 rounded-sm shadow-2xl backdrop-blur-md">
+                   <span className="text-orange-600 font-black text-[10px] tracking-[0.4em] uppercase">PRECISION</span>
+                </div>
+              </div>
+
+              {/* Label 3: FIELD SUPPORT */}
+              <div className="absolute -bottom-4 left-1/4 flex flex-col items-center">
+                <div className="h-16 w-px bg-gradient-to-t from-white/30 to-transparent"></div>
+                <div className="bg-slate-950 border border-white/20 px-4 py-2 rounded-sm shadow-2xl backdrop-blur-md">
+                   <span className="text-white font-black text-[10px] tracking-[0.4em] uppercase">FIELD SUPPORT</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SERVICES SECTION - DARK */}
+      {/* SERVICES SECTION */}
       <section id="services" className="py-32 px-6 bg-slate-950 relative border-t border-cyan-500/20">
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#22d3ee 1px, transparent 1px), linear-gradient(90deg, #22d3ee 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         <div className="max-w-7xl mx-auto relative z-10">
@@ -220,7 +290,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES - LIGHT */}
+      {/* ROI / ADVANTAGES SECTION */}
       <section className="bg-slate-50 py-32 px-6 border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
@@ -251,7 +321,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* PORTFOLIO SECTION - DARK */}
+      {/* PORTFOLIO SECTION */}
       <section id="portfolio" className="py-32 bg-slate-950 border-b border-cyan-500/20 relative">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionHeader title="Visual Intelligence Portfolio" dark={true} />
@@ -263,7 +333,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* INQUIRY SECTION - LIGHT */}
+      {/* INQUIRY SECTION */}
       <section id="inquiry" className="bg-slate-50 py-32 px-6">
         <div className="max-w-3xl mx-auto bg-white p-10 md:p-16 rounded-2xl shadow-xl border border-slate-200">
           <SectionHeader title="Initiate Project Setup" dark={false} />
@@ -283,7 +353,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT SECTION - DARK */}
+      {/* CONTACT SECTION */}
       <section id="contact" className="bg-slate-950 py-32 px-6 border-t border-cyan-500/20">
         <div className="max-w-5xl mx-auto text-center">
           <SectionHeader title="Direct Access" dark={true} />
@@ -310,18 +380,14 @@ export default function App() {
         </div>
       </section>
 
-      {/* FOOTER - DARK */}
+      {/* FOOTER */}
       <footer className="bg-slate-950 text-white py-12 border-t border-slate-900">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-4">
             <div className="w-8 h-8 rounded bg-cyan-900/30 border border-cyan-500/30 flex items-center justify-center">
               <Building2 size={16} className="text-cyan-400" />
             </div>
-            <div>
-              <h3 className="text-lg font-black tracking-widest text-slate-100 uppercase">
-                BUILTLOGIC 3D, LLC
-              </h3>
-            </div>
+            <h3 className="text-lg font-black tracking-widest text-slate-100 uppercase">BUILTLOGIC 3D, LLC</h3>
           </div>
           <div className="text-[10px] text-slate-500 font-black uppercase tracking-[0.3em] text-center md:text-right">
             <p>Precision Construction Modeling</p>
