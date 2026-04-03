@@ -212,16 +212,19 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES */}
-      <section className="bg-slate-950 py-24 px-6">
+{/* STRATEGIC ADVANTAGES */}
+<section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-blue-400 font-bold uppercase tracking-widest text-sm">VALUE PROPOSITION</span>
-            <h2 className="text-5xl md:text-6xl font-black text-white mt-4 leading-none tracking-tighter">
-              Strategic Advantages<br />
-              <span className="text-blue-500">for Your Projects</span>
+          
+          {/* BRACKETED HEADER */}
+          <div className="flex flex-col items-center mb-16 w-full text-center">
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-white leading-none">
+              Strategic Advantages
             </h2>
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div className="text-center group">
               <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
