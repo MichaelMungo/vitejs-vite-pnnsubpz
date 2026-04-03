@@ -268,47 +268,6 @@ export default function App() {
   </div>
 </section>
 
-      {/* INQUIRY SECTION */}
-      <section id="inquiry" className="bg-slate-50 py-24 px-6 border-t border-slate-200">
-        <div className="max-w-xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter italic">Start a Project</h2>
-            <div className="h-1 w-12 bg-blue-600 mx-auto mt-2 mb-4"></div>
-            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em]">
-              Instant Notification Sent to Our Modeling Team
-            </p>
-          </div>
-          
-          <form 
-            action="https://formspree.io/f/mkovdyvd" 
-            method="POST"
-            className="space-y-4"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input 
-                type="text" name="name" placeholder="NAME" required
-                className="w-full p-4 bg-white rounded-lg border border-slate-200 focus:border-blue-600 outline-none text-[11px] font-bold tracking-widest uppercase transition-all"
-              />
-              <input 
-                type="email" name="email" placeholder="EMAIL" required
-                className="w-full p-4 bg-white rounded-lg border border-slate-200 focus:border-blue-600 outline-none text-[11px] font-bold tracking-widest uppercase transition-all"
-              />
-            </div>
-            <textarea 
-              name="message" placeholder="TELL US ABOUT YOUR PROJECT (LOCATION, SCOPE, TIMELINE...)" required
-              rows={5}
-              className="w-full p-4 bg-white rounded-lg border border-slate-200 focus:border-blue-600 outline-none text-[11px] font-bold tracking-widest uppercase transition-all leading-relaxed"
-            ></textarea>
-            <button 
-              type="submit"
-              className="w-full bg-slate-950 hover:bg-blue-600 text-white font-black py-5 rounded-lg uppercase tracking-[0.3em] text-[10px] transition-all shadow-xl"
-            >
-              Submit Inquiry
-            </button>
-          </form>
-        </div>
-      </section>
-
       {/* CONNECT & INQUIRY SECTION (Replaces old Inquiry + old Contact) */}
       <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
