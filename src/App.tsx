@@ -19,6 +19,8 @@ import {
 } from 'lucide-react';
 
 // --- DATA ---
+const logo = "/logo-main.png";
+
 const projects = [
   { id: 1, title: 'Visualization from 2D Arch to 3D', category: 'Design Integration', image: 'https://i.postimg.cc/JhcrybFb/thumb1.jpg', youtubeId: 'h32x8DYk9EI' },
   { id: 2, title: 'MEPS Conflict Detection - Preconstruction', category: 'Preconstruction', image: 'https://i.postimg.cc/T1rFT58F/MEPS-Conflict-Detection-Preconstruction-(Thumbnail-2).jpg', youtubeId: 'p1s2s_jUVgc' },
@@ -38,13 +40,28 @@ const benefits = [
 ];
 
 // --- COMPONENTS ---
+const SectionHeader = ({ title, subtitle }: { title: string; subtitle?: string }) => (
+  <div className="flex flex-col items-center mb-16 text-center">
+    <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#60a5fa]/50 to-transparent mb-6" />
+    <h2 className="text-[#60a5fa] text-xs font-black tracking-[0.4em] uppercase">
+      {title}
+    </h2>
+    <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#60a5fa]/50 to-transparent mt-6" />
+    {subtitle && (
+      <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mt-4">
+        {subtitle}
+      </p>
+    )}
+  </div>
+);
+
 const ServiceCard = ({ icon: Icon, title, desc }: any) => (
-  <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-    <div className="bg-blue-100 w-10 h-10 rounded-lg flex items-center justify-center text-blue-600 mb-4">
-      <Icon size={20} />
+  <div className="bg-slate-900/50 p-8 rounded-xl border border-white/5 hover:border-blue-500/30 transition-all hover:-translate-y-1 backdrop-blur-sm group">
+    <div className="bg-blue-500/10 w-12 h-12 rounded-lg flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500/20 transition-colors">
+      <Icon size={24} />
     </div>
-    <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
-    <p className="text-slate-500 text-[10px] leading-relaxed uppercase tracking-wider font-semibold">{desc}</p>
+    <h3 className="text-lg font-bold text-white mb-3 tracking-tight">{title}</h3>
+    <p className="text-slate-400 text-xs leading-relaxed font-medium">{desc}</p>
   </div>
 );
 
@@ -125,11 +142,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10 scroll-smooth">
+    <div className="min-h-screen bg-slate-950 text-white selection:bg-blue-600/10 scroll-smooth">
       <style>{`html { scroll-behavior: smooth; }`}</style>
 
-  {/* NAVIGATION */}
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+      {/* NAVIGATION */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center font-black text-white text-sm">B</div>
@@ -148,8 +165,8 @@ export default function App() {
             ))}
           </div>
 
-          <button className="md:hidden text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+          <button className="md:hidden text-white" onClick={() => setIsMenuOpen(true)}>
+            <Menu size={24} />
           </button>
         </div>
       </nav>
@@ -168,18 +185,19 @@ export default function App() {
         </div>
       </div>
 
-    {/* HERO SECTION */}
-    <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
+      {/* HERO SECTION */}
+      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
         <div 
           className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
           style={heroGridStyle} 
         />
         
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
-        <img 
-            src="/logo-main.png" 
+          <img 
+            src={logo} 
             alt="BuiltLogic 3D" 
-            className="animate-float relative z-30 w-[110%] -ml-[5%] md:ml-auto md:w-[85%] lg:w-[75%] max-w-[1200px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]"          />
+            className="animate-float relative z-30 w-[110%] -ml-[5%] md:ml-auto md:w-[85%] lg:w-[75%] max-w-[1200px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]"
+          />
         
           <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90 leading-relaxed">
             Precision 3D Construction Models from Architectural and MEP Drawings
@@ -196,74 +214,46 @@ export default function App() {
         </div>
       </section>
 
-     {/* SERVICES SECTION */}
-     <section id="services" className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center mb-20">
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#60a5fa]/50 to-transparent mb-6" />
-          <h2 className="text-[#60a5fa] text-xs font-black tracking-[0.4em] uppercase">
-            Our Services
-          </h2>
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#60a5fa]/50 to-transparent mt-6" />
-        </div>
+      {/* SERVICES SECTION */}
+      <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
+        <SectionHeader title="Our Services" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard 
-            icon={Building2} 
-            title="Architectural 3D" 
-            desc="3D visualization bridges the gap between architectural intent and field execution." 
-          />
-          <ServiceCard 
-            icon={Zap} 
-            title="Proactive MEPS Integration" 
-            desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." 
-          />
-          <ServiceCard 
-            icon={Play} 
-            title="Multi-Format Visualization" 
-            desc="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment." 
-          />
-          <ServiceCard 
-            icon={UserCheck} 
-            title="White-Label Professionalism" 
-            desc="Impress clients with 3D models and videos branded to your company. We provide the high-tech visuals that make your firm look like the most sophisticated team on the bid." 
-          />
-          <ServiceCard 
-            icon={Database} 
-            title="Digital 3-Dimensional As-Builts" 
-            desc="Transition from construction to operations with a 1:1 digital twin. We provide a precise 3D 'as-built' model that serves as a permanent, navigable manual." 
-          />
-          <ServiceCard 
-            icon={ClipboardCheck} 
-            title="Precision Procurement" 
-            desc="Leverage model accuracy to buy what you need, not what you think you need." 
-          />
+          <ServiceCard icon={Building2} title="Architectural 3D" desc="3D visualization bridges the gap between architectural intent and field execution." />
+          <ServiceCard icon={Zap} title="Proactive MEPS Integration" desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." />
+          <ServiceCard icon={Play} title="Multi-Format Visualization" desc="Export your project as high-definition images, video sequences, or a navigable environment." />
+          <ServiceCard icon={UserCheck} title="White-Label Professionalism" desc="Impress clients with 3D models and videos branded to your company. Make your firm look like the most sophisticated team." />
+          <ServiceCard icon={Database} title="Digital 3D As-Builts" desc="Transition to operations with a 1:1 digital twin. Precise models that serve as a permanent, navigable manual." />
+          <ServiceCard icon={ClipboardCheck} title="Precision Procurement" desc="Leverage model accuracy to buy what you need, not what you think you need." />
         </div>
       </section>
 
       {/* STRATEGIC ADVANTAGES */}
-      <section className="bg-slate-950 py-24 px-6">
+      <section className="bg-slate-900/30 py-32 px-6 border-y border-white/5">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <span className="text-blue-400 font-bold uppercase tracking-widest text-sm">VALUE PROPOSITION</span>
             <h2 className="text-5xl md:text-6xl font-black text-white mt-4 leading-none tracking-tighter">
               Strategic Advantages<br />
               <span className="text-blue-500">for Your Projects</span>
             </h2>
           </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div className="text-center group">
-              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">90<span className="text-4xl align-super font-normal">%</span></div>
-              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Fewer Field Conflicts</div>
-            </div>
-            <div className="text-center group">
-              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">50<span className="text-4xl align-super font-normal">%</span></div>
-              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Faster RFI Resolution</div>
-            </div>
-            <div className="text-center group">
-              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">$</div>
-              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Significant Cost Savings</div>
-            </div>
+            {[
+              { val: "90", unit: "%", label: "Fewer Field Conflicts" },
+              { val: "50", unit: "%", label: "Faster RFI Resolution" },
+              { val: "$", unit: "", label: "Significant Cost Savings" }
+            ].map((stat, i) => (
+              <div key={i} className="text-center group">
+                <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">
+                  {stat.val}<span className="text-4xl align-super font-normal">{stat.unit}</span>
+                </div>
+                <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">{stat.label}</div>
+              </div>
+            ))}
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
               <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
@@ -273,52 +263,30 @@ export default function App() {
       </section>
 
       {/* PORTFOLIO SECTION */}
-      <section id="portfolio" className="py-24 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Featured Portfolio</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
-            ))}
-          </div>
+      <section id="portfolio" className="py-32 px-6">
+        <SectionHeader title="Featured Portfolio" />
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+          ))}
         </div>
       </section>
 
       {/* INQUIRY SECTION */}
-      <section id="inquiry" className="bg-slate-50 py-24 px-6 border-t border-slate-200">
+      <section id="inquiry" className="py-32 px-6 border-t border-white/5 bg-slate-900/20">
         <div className="max-w-xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter italic">Start a Project</h2>
-            <div className="h-1 w-12 bg-blue-600 mx-auto mt-2 mb-4"></div>
-            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em]">
-              Instant Notification Sent to Our Modeling Team
-            </p>
-          </div>
+          <SectionHeader 
+            title="Start a Project" 
+            subtitle="Instant Notification Sent to Our Modeling Team" 
+          />
           
-          <form 
-            action="https://formspree.io/f/mkovdyvd" 
-            method="POST"
-            className="space-y-4"
-          >
+          <form action="https://formspree.io/f/mkovdyvd" method="POST" className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input 
-                type="text" name="name" placeholder="NAME" required
-                className="w-full p-4 bg-white rounded-lg border border-slate-200 focus:border-blue-600 outline-none text-[11px] font-bold tracking-widest uppercase transition-all"
-              />
-              <input 
-                type="email" name="email" placeholder="EMAIL" required
-                className="w-full p-4 bg-white rounded-lg border border-slate-200 focus:border-blue-600 outline-none text-[11px] font-bold tracking-widest uppercase transition-all"
-              />
+              <input type="text" name="name" placeholder="NAME" required className="w-full p-5 bg-slate-900 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-[11px] font-bold tracking-widest uppercase transition-all text-white" />
+              <input type="email" name="email" placeholder="EMAIL" required className="w-full p-5 bg-slate-900 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-[11px] font-bold tracking-widest uppercase transition-all text-white" />
             </div>
-            <textarea 
-              name="message" placeholder="TELL US ABOUT YOUR PROJECT (LOCATION, SCOPE, TIMELINE...)" required
-              rows={5}
-              className="w-full p-4 bg-white rounded-lg border border-slate-200 focus:border-blue-600 outline-none text-[11px] font-bold tracking-widest uppercase transition-all leading-relaxed"
-            ></textarea>
-            <button 
-              type="submit"
-              className="w-full bg-slate-950 hover:bg-blue-600 text-white font-black py-5 rounded-lg uppercase tracking-[0.3em] text-[10px] transition-all shadow-xl"
-            >
+            <textarea name="message" placeholder="PROJECT SCOPE & TIMELINE..." required rows={5} className="w-full p-5 bg-slate-900 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-[11px] font-bold tracking-widest uppercase transition-all text-white leading-relaxed"></textarea>
+            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-5 rounded-lg uppercase tracking-[0.3em] text-[11px] transition-all shadow-xl shadow-blue-900/20">
               Submit Inquiry
             </button>
           </form>
@@ -326,25 +294,23 @@ export default function App() {
       </section>
 
       {/* CONTACT SECTION */}
-      <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
+      <section id="contact" className="py-32 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-black text-white mb-4 uppercase italic tracking-tighter">
-            Connect with BuiltLogic 3D
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <a href="mailto:team@builtlogic3d.com" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
+          <h2 className="text-3xl font-black text-white mb-16 uppercase tracking-tight">Connect with BuiltLogic 3D</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a href="mailto:team@builtlogic3d.com" className="group bg-slate-900/50 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
               <Mail className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Email Us</h3>
+              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-[10px]">Email Us</h3>
               <p className="text-blue-400 font-medium break-all text-sm">team@builtlogic3d.com</p>
             </a>
-            <a href="tel:3474941068" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
+            <a href="tel:3474941068" className="group bg-slate-900/50 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
               <Phone className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Call Directly</h3>
+              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-[10px]">Call Directly</h3>
               <p className="text-blue-400 font-medium text-sm">(347) 494-1068</p>
             </a>
-            <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
+            <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="group bg-slate-900/50 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
               <Youtube className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Watch Strategy</h3>
+              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-[10px]">Watch Strategy</h3>
               <p className="text-blue-400 font-medium text-sm">YouTube Channel</p>
             </a>
           </div>
@@ -352,50 +318,22 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-slate-950 text-white py-12 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-center md:text-left">
-              <h3 className="text-xl font-black italic tracking-tighter text-blue-500">
-                BUILTLOGIC 3D, LLC
-              </h3>
-              <p className="text-slate-400 text-[10px] mt-1 uppercase tracking-[0.2em] font-bold">
-                Precision Construction Modeling • BIM Coordination
-              </p>
-            </div>
-            
-            <div className="flex flex-col items-center md:items-end text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em]">
-              <p>© 2026 BUILTLOGIC 3D, LLC. ALL RIGHTS RESERVED.</p>
-            </div>
+      <footer className="py-20 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-center md:text-left">
+            <h3 className="text-xl font-black tracking-tighter text-blue-500 uppercase">BUILTLOGIC 3D, LLC</h3>
+            <p className="text-slate-500 text-[10px] mt-1 uppercase tracking-[0.2em] font-bold">Precision Construction Modeling • BIM Coordination</p>
           </div>
+          <p className="text-[9px] text-slate-600 font-bold uppercase tracking-[0.2em]">© 2026 BUILTLOGIC 3D, LLC. ALL RIGHTS RESERVED.</p>
         </div>
       </footer>
 
       {/* MODAL SECTION */}
       {selectedProject && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4" 
-          onClick={() => setSelectedProject(null)}
-        >
-          <button 
-            className="absolute top-6 right-6 text-white z-10" 
-            onClick={() => setSelectedProject(null)}
-          >
-            <X size={40} />
-          </button>
-          
-          <div 
-            className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden" 
-            onClick={e => e.stopPropagation()}
-          >
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${selectedProject.youtubeId}?autoplay=1&modestbranding=1&rel=0&playsinline=1&fs=1`}
-              className="w-full h-full"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-              allowFullScreen
-              title={selectedProject.title}
-            />
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4" onClick={() => setSelectedProject(null)}>
+          <button className="absolute top-6 right-6 text-white z-10" onClick={() => setSelectedProject(null)}><X size={40} /></button>
+          <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden" onClick={e => e.stopPropagation()}>
+            <iframe src={`https://www.youtube-nocookie.com/embed/${selectedProject.youtubeId}?autoplay=1&modestbranding=1&rel=0&playsinline=1&fs=1`} className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen title={selectedProject.title} />
           </div>
         </div>
       )}
