@@ -347,16 +347,16 @@ export default function App() {
       </section>
 
 {/* FOOTER */}
-<footer className="bg-slate-950 text-white py-12 border-t border-white/10">
+<footer className="bg-slate-950 text-white py-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
               
-              {/* LOGO - Doubled to h-32 */}
+              {/* LOGO - Large scale but with negative margins to "eat" the empty background space */}
               <img 
                 src="/logo-main.png" 
                 alt="BuiltLogic 3D" 
-                className="h-32 w-auto object-contain mb-4" 
+                className="h-32 w-auto object-contain -my-10" 
               />
 
               <p className="text-slate-400 text-[10px] mt-1 uppercase tracking-[0.2em] font-bold">
