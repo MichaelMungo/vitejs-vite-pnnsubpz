@@ -168,9 +168,10 @@ export default function App() {
             alt="BuiltLogic 3D" 
             className="animate-float relative z-30 w-full sm:w-[95%] md:w-[87.5%] lg:w-[75%] max-w-[1125px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
           />
-          <p className="text-[#f47b20] text-lg md:text-2xl font-black tracking-[0.2em] uppercase max-w-4xl mx-auto mb-10 drop-shadow-md">
-  Precision 3D Construction Models from Architectural and MEP Drawings
-</p>
+          <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90">
+            Precision 3D Construction Models from Architectural and MEP Drawings
+          </p>
+
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="#portfolio" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
               View Portfolio
