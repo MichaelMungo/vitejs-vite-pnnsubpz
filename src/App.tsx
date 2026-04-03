@@ -346,15 +346,26 @@ export default function App() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-slate-950 text-white py-12 border-t border-white/10">
+{/* FOOTER */}
+<footer className="bg-slate-950 text-white py-12 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-black italic tracking-tighter text-blue-500">
-                BUILTLOGIC 3D, LLC
-              </h3>
-              <p className="text-slate-400 text-[10px] mt-1 uppercase tracking-[0.2em] font-bold">
+              {/* LOGO REPLACEMENT WITH SUBTLE BRACKETS */}
+              <div className="flex flex-col items-center md:items-start mb-2">
+                <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent md:from-blue-500/40 md:to-transparent mb-3" />
+                
+                <img 
+                  src="/logo-main.png" 
+                  alt="BuiltLogic 3D" 
+                  className="h-8 w-auto object-contain brightness-110" 
+                />
+                
+                <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent md:from-blue-500/40 md:to-transparent mt-3" />
+              </div>
+
+              <p className="text-slate-400 text-[9px] mt-2 uppercase tracking-[0.2em] font-bold">
                 Precision Construction Modeling • BIM Coordination
               </p>
             </div>
