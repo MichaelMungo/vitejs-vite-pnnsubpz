@@ -244,17 +244,29 @@ export default function App() {
         </div>
       </section>
 
-      {/* PORTFOLIO SECTION */}
-      <section id="portfolio" className="py-24 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase tracking-tight">Featured Portfolio</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
-            ))}
-          </div>
-        </div>
-      </section>
+     {/* PORTFOLIO SECTION */}
+<section id="portfolio" className="py-24 bg-slate-50">
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    
+    <div className="flex flex-col items-center mb-16 w-full">
+      {/* Top Bracket Line */}
+      <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
+      
+      <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
+        Featured Portfolio
+      </h2>
+      
+      {/* Bottom Bracket Line */}
+      <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* INQUIRY SECTION */}
       <section id="inquiry" className="bg-slate-50 py-24 px-6 border-t border-slate-200">
