@@ -11,7 +11,6 @@ import {
   UserCheck,
   Clock,
   Shield,
-  Users,
   Target,
   PlayCircle,
   Database,
@@ -50,7 +49,6 @@ const SectionHeader = ({ title, dark = false }: { title: string; dark?: boolean 
   </div>
 );
 
-// Cyber/Blueprint style card for Dark Sections
 const ServiceCard = ({ icon: Icon, title, desc }: any) => (
   <div className="bg-slate-900/40 p-8 rounded-xl border border-cyan-500/10 hover:border-cyan-400/50 hover:bg-slate-900/80 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden backdrop-blur-sm shadow-[0_0_15px_rgba(34,211,238,0.02)] hover:shadow-[0_0_25px_rgba(34,211,238,0.1)]">
     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/0 to-transparent group-hover:via-cyan-400 transition-all duration-700"></div>
@@ -62,7 +60,6 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
   </div>
 );
 
-// Clean, structured card for Light Sections
 const BenefitCard = ({ icon: Icon, title, desc }: any) => (
   <div className="bg-white p-8 rounded-xl border border-slate-200 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1 group shadow-sm hover:shadow-md">
     <div className="w-14 h-14 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-orange-600 mb-6 group-hover:bg-orange-50 transition-colors duration-300">
@@ -184,15 +181,12 @@ export default function App() {
 
       {/* MISSION STATEMENT - LIGHT */}
       <section id="mission" className="py-32 px-6 bg-slate-50 relative overflow-hidden">
-        {/* Subtle background element */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-        
         <div className="max-w-4xl mx-auto relative z-10">
           <SectionHeader title="Our Mission" dark={false} />
           <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-10 text-center uppercase tracking-tighter">
             Field-First <span className="text-orange-600">Clarity</span>
           </h2>
-          
           <div className="space-y-8 text-slate-600 text-base md:text-lg font-medium leading-relaxed bg-white p-8 md:p-12 rounded-xl shadow-sm border border-slate-100">
             <p>
               <strong className="text-slate-900 font-black">BuiltLogic 3D</strong> was born from forty years of grit, grease, and high-stakes management. Since 1985, we have navigated the complexities of multimillion-dollar commercial projects from New York to Miami.
@@ -212,9 +206,7 @@ export default function App() {
 
       {/* SERVICES SECTION - DARK */}
       <section id="services" className="py-32 px-6 bg-slate-950 relative border-t border-cyan-500/20">
-        {/* Blueprint grid background for dark section */}
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#22d3ee 1px, transparent 1px), linear-gradient(90deg, #22d3ee 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-        
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionHeader title="Technical Execution" dark={true} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -237,7 +229,6 @@ export default function App() {
               The ROI of <span className="text-orange-600">Precision</span>
             </h2>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-32">
             <div className="text-center p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
               <div className="text-[80px] md:text-[100px] font-black text-slate-900 leading-none tracking-tighter">90<span className="text-4xl align-super font-bold text-orange-500">%</span></div>
@@ -252,7 +243,6 @@ export default function App() {
               <div className="text-slate-500 text-[11px] uppercase tracking-[0.3em] font-black mt-6">Ambiguity in the Field</div>
             </div>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((b, i) => (
               <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
@@ -280,27 +270,13 @@ export default function App() {
           <p className="text-slate-500 text-[11px] font-black uppercase tracking-[0.3em] text-center -mt-6 mb-12 opacity-80">
             Provide specs for an immediate technical review
           </p>
-          
           <form action="https://formspree.io/f/mkovdyvd" method="POST" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input 
-                type="text" name="name" placeholder="PROJECT CONTACT" required
-                className="w-full p-5 bg-slate-50 rounded-sm border border-slate-300 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none text-[12px] font-black tracking-widest uppercase transition-all"
-              />
-              <input 
-                type="email" name="email" placeholder="EMAIL ADDRESS" required
-                className="w-full p-5 bg-slate-50 rounded-sm border border-slate-300 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none text-[12px] font-black tracking-widest uppercase transition-all"
-              />
+              <input type="text" name="name" placeholder="PROJECT CONTACT" required className="w-full p-5 bg-slate-50 rounded-sm border border-slate-300 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none text-[12px] font-black tracking-widest uppercase transition-all" />
+              <input type="email" name="email" placeholder="EMAIL ADDRESS" required className="w-full p-5 bg-slate-50 rounded-sm border border-slate-300 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none text-[12px] font-black tracking-widest uppercase transition-all" />
             </div>
-            <textarea 
-              name="message" placeholder="PROJECT SCOPE (LOCATION, DRAWING STATUS, TIMELINE...)" required
-              rows={5}
-              className="w-full p-5 bg-slate-50 rounded-sm border border-slate-300 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none text-[12px] font-black tracking-widest uppercase transition-all leading-relaxed"
-            ></textarea>
-            <button 
-              type="submit"
-              className="w-full bg-orange-600 hover:bg-orange-500 text-white font-black py-6 rounded-sm uppercase tracking-[0.4em] text-[12px] transition-all shadow-lg hover:shadow-orange-500/30 flex justify-center items-center gap-3"
-            >
+            <textarea name="message" placeholder="PROJECT SCOPE (LOCATION, DRAWING STATUS, TIMELINE...)" required rows={5} className="w-full p-5 bg-slate-50 rounded-sm border border-slate-300 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none text-[12px] font-black tracking-widest uppercase transition-all leading-relaxed"></textarea>
+            <button type="submit" className="w-full bg-orange-600 hover:bg-orange-500 text-white font-black py-6 rounded-sm uppercase tracking-[0.4em] text-[12px] transition-all shadow-lg hover:shadow-orange-500/30 flex justify-center items-center gap-3">
               Submit Requirements <ArrowRight size={18} />
             </button>
           </form>
@@ -314,7 +290,6 @@ export default function App() {
           <h2 className="text-4xl md:text-6xl font-black text-white mb-20 uppercase tracking-tighter">
             Connect With <span className="text-cyan-400">BuiltLogic 3D</span>
           </h2>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <a href="mailto:team@builtlogic3d.com" className="group bg-slate-900/40 p-10 rounded-xl border border-cyan-500/10 hover:border-orange-500/50 transition-all duration-300">
               <Mail className="mx-auto mb-6 text-cyan-400 group-hover:text-orange-500 transition-colors" size={36} />
@@ -357,29 +332,12 @@ export default function App() {
 
       {/* MODAL SECTION */}
       {selectedProject && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md" 
-          onClick={() => setSelectedProject(null)}
-        >
-          <button 
-            className="absolute top-8 right-8 text-slate-400 z-10 hover:text-cyan-400 transition-colors" 
-            onClick={() => setSelectedProject(null)}
-          >
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md" onClick={() => setSelectedProject(null)}>
+          <button className="absolute top-8 right-8 text-slate-400 z-10 hover:text-cyan-400 transition-colors" onClick={() => setSelectedProject(null)}>
             <X size={40} />
           </button>
-          
-          <div 
-            className="w-full max-w-6xl aspect-video rounded-xl overflow-hidden shadow-[0_0_50px_rgba(34,211,238,0.1)] border border-cyan-500/30 bg-black" 
-            onClick={e => e.stopPropagation()}
-          >
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${selectedProject.youtubeId}?autoplay=1&modestbranding=1&rel=0&playsinline=1&fs=1`}
-              className="w-full h-full"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-              allowFullScreen
-              title={selectedProject.title}
-            />
+          <div className="w-full max-w-6xl aspect-video rounded-xl overflow-hidden shadow-[0_0_50px_rgba(34,211,238,0.1)] border border-cyan-500/30 bg-black" onClick={e => e.stopPropagation()}>
+            <iframe src={`https://www.youtube-nocookie.com/embed/${selectedProject.youtubeId}?autoplay=1&modestbranding=1&rel=0&playsinline=1&fs=1`} className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen title={selectedProject.title} />
           </div>
         </div>
       )}
