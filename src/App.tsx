@@ -167,10 +167,10 @@ export default function App() {
         />
         
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
-          <img 
+        <img 
             src="/logo-main.png" 
             alt="BuiltLogic 3D" 
-            className="animate-float relative z-30 h-32 md:h-auto md:w-[87.5%] lg:w-[75%] max-w-[1125px] mx-auto w-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
+            className="animate-float relative z-30 w-[85%] h-auto md:w-[87.5%] lg:w-[75%] max-w-[1125px] mx-auto mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
           />
           
           <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90 leading-relaxed">
