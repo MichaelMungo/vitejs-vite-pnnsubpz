@@ -1,19 +1,9 @@
 import { useState, useEffect } from 'react';
 import {
-  Menu,
   Building2,
   Zap,
-  X,
   Play,
-  Mail,
-  Phone,
-  Youtube,
   UserCheck,
-  Clock,
-  Shield,
-  Users,
-  Target,
-  PlayCircle,
   Database,
   ClipboardCheck,
 } from 'lucide-react';
@@ -74,7 +64,7 @@ const VideoCard = ({ project, onClick }: any) => {
     >
       <div className="absolute inset-0 z-10 border-[1px] border-white/5 pointer-events-none group-hover:border-blue-500/50 transition-colors" />
       {isHovered ? (
-        <iframe src={videoSrc} className="absolute inset-0 w-full h-full object-cover scale-110" frameBorder="0" />
+        <iframe src={videoSrc} className="absolute inset-0 w-full h-full object-cover scale-110" frameBorder="0" title={project.title} />
       ) : (
         <img src={project.image} className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 opacity-80" alt={project.title} />
       )}
@@ -90,6 +80,14 @@ export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedProject(null);
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
+
   const heroGridStyle = {
     backgroundImage: 'linear-gradient(#2563eb 0.5px, transparent 0.5px), linear-gradient(90deg, #2563eb 0.5px, transparent 0.5px)',
     backgroundSize: '80px 80px',
@@ -98,7 +96,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] text-slate-900 font-sans selection:bg-blue-600/10">
+    <div className="min-h-screen bg-[#fafafa] text-slate-900 font-sans selection:bg-blue-600/10 scroll-smooth">
+      <style>{`html { scroll-behavior: smooth; }`}</style>
       
       {/* NAVIGATION - TECHNICAL STYLE */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950 border-b border-white/5 py-4">
@@ -132,7 +131,7 @@ export default function App() {
           </div>
           <img 
             src="/logo-main.png" 
-            className="w-full max-w-4xl mx-auto mb-12 drop-shadow-[0_0_50px_rgba(37,99,235,0.3)] animate-float"
+            className="w-full max-w-4xl mx-auto mb-12 drop-shadow-[0_0_50px_rgba(37,99,235,0.3)]"
             alt="BuiltLogic 3D"
           />
           <p className="text-slate-400 text-[11px] md:text-xs font-black tracking-[0.5em] uppercase max-w-3xl mx-auto leading-loose mb-16">
@@ -236,6 +235,7 @@ export default function App() {
               src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1`}
               className="w-full h-full"
               allowFullScreen
+              title={selectedProject.title}
             />
           </div>
         </div>
