@@ -159,23 +159,18 @@ export default function App() {
         </div>
       </div>
 
-    {/* HERO SECTION */}
-    <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
-        <div 
-          className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
-          style={heroGridStyle} 
-        />
-        
+      {/* HERO SECTION */}
+      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
+        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
-        <img 
+          <img 
             src="/logo-main.png" 
             alt="BuiltLogic 3D" 
-            className="animate-float relative z-30 w-[110%] -ml-[5%] md:ml-auto md:w-[85%] lg:w-[75%] max-w-[1200px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]"          />
-        
+            className="animate-float relative z-30 w-[110%] -ml-[5%] md:ml-auto md:w-[85%] lg:w-[75%] max-w-[1200px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]" 
+          />
           <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90 leading-relaxed">
             Precision 3D Construction Models from Architectural and MEP Drawings
           </p>
-
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="#portfolio" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
               View Portfolio
@@ -187,22 +182,17 @@ export default function App() {
         </div>
       </section>
 
- {/* SERVICES SECTION */}
-<section id="services" className="py-32 px-6 max-w-7xl mx-auto">
-<div className="flex flex-col items-center mb-20 w-full">
-  {/* Top Bracket Line */}
-  <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-  
-  <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
-    Our Services
-  </h2>
-  
-  {/* Bottom Bracket Line */}
-  <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-</div>
+      {/* SERVICES SECTION - BROCHURE-STYLE TITLE */}
+      <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col items-center mb-20 w-full">
+          <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
+          <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
+            Our <span className="text-blue-600">Services</span>
+          </h2>
+          <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
+        </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {/* ... rest of your ServiceCards ... */}    
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ServiceCard icon={Building2} title="Architectural 3D" desc="3D visualization bridges the gap between architectural intent and field execution." />
           <ServiceCard icon={Zap} title="Proactive MEPS Integration" desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." />
           <ServiceCard icon={Play} title="Multi-Format Visualization" desc="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment." />
@@ -212,17 +202,15 @@ export default function App() {
         </div>
       </section>
 
-{/* STRATEGIC ADVANTAGES */}
-<section className="bg-slate-950 py-24 px-6">
+      {/* STRATEGIC ADVANTAGES - BROCHURE-STYLE TITLE */}
+      <section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          
-          {/* BRACKETED HEADER */}
           <div className="flex flex-col items-center mb-16 w-full text-center">
-            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-            <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-white leading-none">
-              Strategic Advantages
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
+              Strategic <span className="text-blue-400">Advantages</span>
             </h2>
-            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
@@ -239,6 +227,7 @@ export default function App() {
               <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Significant Cost Savings</div>
             </div>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
               <BenefitCard key={i} icon={b.icon} title={b.title} desc={b.desc} />
@@ -247,46 +236,37 @@ export default function App() {
         </div>
       </section>
 
-     {/* PORTFOLIO SECTION */}
-<section id="portfolio" className="py-24 bg-slate-50">
-  <div className="max-w-6xl mx-auto px-6 text-center">
-    
-    <div className="flex flex-col items-center mb-16 w-full">
-      {/* Top Bracket Line */}
-      <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-      
-      <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
-        Featured Portfolio
-      </h2>
-      
-      {/* Bottom Bracket Line */}
-      <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-    </div>
+      {/* PORTFOLIO - BROCHURE-STYLE TITLE */}
+      <section id="portfolio" className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <div className="flex flex-col items-center mb-16 w-full">
+            <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
+            <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
+              Featured <span className="text-blue-600">Portfolio</span>
+            </h2>
+            <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
+          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map((project) => (
-        <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
-      ))}
-    </div>
-  </div>
-</section>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <VideoCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* CONNECT & INQUIRY SECTION (Replaces old Inquiry + old Contact) */}
+      {/* CONTACT - BROCHURE-STYLE TITLE */}
       <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
-          
-          {/* HEADER */}
           <div className="flex flex-col items-center mb-16 w-full">
-            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-            <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-white text-center leading-none">
-              Connect with BuiltLogic 3D
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white text-center leading-none">
+              Connect with <span className="text-blue-400">BuiltLogic 3D</span>
             </h2>
-            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            
-            {/* LEFT SIDE: DIRECT CONTACT CHANNELS */}
             <div className="space-y-4">
               <div className="mb-6">
                 <h3 className="text-blue-500 font-black uppercase tracking-widest text-xs mb-2 italic">Direct Channels</h3>
@@ -301,7 +281,6 @@ export default function App() {
                     <p className="text-blue-400 text-sm font-medium">team@builtlogic3d.com</p>
                   </div>
                 </a>
-
                 <a href="tel:3474941068" className="flex items-center gap-6 bg-slate-900 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
                   <Phone className="text-blue-500" size={24} />
                   <div>
@@ -309,7 +288,6 @@ export default function App() {
                     <p className="text-blue-400 text-sm font-medium">(347) 494-1068</p>
                   </div>
                 </a>
-
                 <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="flex items-center gap-6 bg-slate-900 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
                   <Youtube className="text-blue-500" size={24} />
                   <div>
@@ -320,13 +298,11 @@ export default function App() {
               </div>
             </div>
 
-            {/* RIGHT SIDE: THE MESSAGE BOX */}
             <div className="bg-slate-900/50 p-8 rounded-2xl border border-white/10">
               <div className="mb-6">
                 <h3 className="text-white font-black uppercase tracking-widest text-xs mb-1 italic">Submit Inquiry</h3>
                 <p className="text-slate-500 text-[9px] font-bold uppercase tracking-widest leading-relaxed">Include project location and scope for a faster response.</p>
               </div>
-
               <form action="https://formspree.io/f/mkovdyvd" method="POST" className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input type="text" name="name" placeholder="NAME" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
@@ -363,7 +339,7 @@ export default function App() {
         </div>
       </footer>
 
-      {/* MODAL SECTION */}
+      {/* MODAL */}
       {selectedProject && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4" 
@@ -375,7 +351,6 @@ export default function App() {
           >
             <X size={40} />
           </button>
-          
           <div 
             className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden" 
             onClick={e => e.stopPropagation()}
