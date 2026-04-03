@@ -347,30 +347,30 @@ export default function App() {
       </section>
 
 {/* FOOTER */}
-<footer className="bg-slate-950 text-white py-16 border-t border-white/10">
+<footer className="bg-slate-950 text-white py-12 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-            
-            <div className="flex flex-col items-center md:items-start">
-              {/* LOGO - Sized to replace the impact of the previous text */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="text-center md:text-left">
+              
+              {/* LOGO - Doubled to h-32 */}
               <img 
                 src="/logo-main.png" 
                 alt="BuiltLogic 3D" 
-                className="h-16 md:h-20 w-auto object-contain mb-4 brightness-110 drop-shadow-[0_0_15px_rgba(37,99,235,0.2)]" 
+                className="h-32 w-auto object-contain mb-4" 
               />
 
-              <p className="text-slate-400 text-[10px] md:text-xs uppercase tracking-[0.3em] font-black italic">
+              <p className="text-slate-400 text-[10px] mt-1 uppercase tracking-[0.2em] font-bold">
                 Precision Construction Modeling • BIM Coordination
               </p>
             </div>
             
-            <div className="flex flex-col items-center md:items-end text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em] opacity-60">
-              <p>© 2026 BUILTLOGIC 3D, LLC.</p>
-              <p className="mt-1">All Rights Reserved.</p>
+            <div className="flex flex-col items-center md:items-end text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em]">
+              <p>© 2026 BUILTLOGIC 3D, LLC. ALL RIGHTS RESERVED.</p>
             </div>
           </div>
         </div>
       </footer>
+
       {/* MODAL SECTION */}
       {selectedProject && (
         <div 
