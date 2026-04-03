@@ -170,8 +170,7 @@ export default function App() {
         <img 
             src="/logo-main.png" 
             alt="BuiltLogic 3D" 
-            className="animate-float relative z-30 w-[90%] md:w-[85%] lg:w-[75%] max-w-[1125px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
-          />
+            className="animate-float relative z-30 w-[110%] -ml-[5%] md:ml-auto md:w-[85%] lg:w-[75%] max-w-[1200px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]"          />
         
           <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90 leading-relaxed">
             Precision 3D Construction Models from Architectural and MEP Drawings
