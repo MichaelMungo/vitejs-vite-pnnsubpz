@@ -309,12 +309,23 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT SECTION */}
-      <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
+    {/* CONTACT SECTION */}
+    <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-black text-white mb-4 uppercase italic tracking-tighter">
-            Connect with BuiltLogic 3D
-          </h2>
+          
+          {/* UPDATED TITLE BLOCK */}
+          <div className="flex flex-col items-center mb-16 w-full">
+            {/* Top Bracket Line */}
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            
+            <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-white text-center leading-none">
+              Connect with BuiltLogic 3D
+            </h2>
+            
+            {/* Bottom Bracket Line */}
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <a href="mailto:team@builtlogic3d.com" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
               <Mail className="mx-auto mb-6 text-blue-500" size={28} />
