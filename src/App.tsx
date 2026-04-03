@@ -309,61 +309,91 @@ export default function App() {
         </div>
       </section>
 
-    {/* CONTACT SECTION */}
-    <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* CONNECT & INQUIRY SECTION (Replaces old Inquiry + old Contact) */}
+      <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
           
-          {/* UPDATED TITLE BLOCK */}
+          {/* HEADER */}
           <div className="flex flex-col items-center mb-16 w-full">
-            {/* Top Bracket Line */}
             <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-            
             <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-white text-center leading-none">
               Connect with BuiltLogic 3D
             </h2>
-            
-            {/* Bottom Bracket Line */}
             <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <a href="mailto:team@builtlogic3d.com" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
-              <Mail className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Email Us</h3>
-              <p className="text-blue-400 font-medium break-all text-sm">team@builtlogic3d.com</p>
-            </a>
-            <a href="tel:3474941068" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
-              <Phone className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Call Directly</h3>
-              <p className="text-blue-400 font-medium text-sm">(347) 494-1068</p>
-            </a>
-            <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="group bg-slate-900 p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
-              <Youtube className="mx-auto mb-6 text-blue-500" size={28} />
-              <h3 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Watch Strategy</h3>
-              <p className="text-blue-400 font-medium text-sm">YouTube Channel</p>
-            </a>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            
+            {/* LEFT SIDE: DIRECT CONTACT CHANNELS */}
+            <div className="space-y-4">
+              <div className="mb-6">
+                <h3 className="text-blue-500 font-black uppercase tracking-widest text-xs mb-2 italic">Direct Channels</h3>
+                <p className="text-slate-400 text-[10px] uppercase tracking-wider font-bold">Reach our modeling team immediately.</p>
+              </div>
+              
+              <div className="flex flex-col gap-3">
+                <a href="mailto:team@builtlogic3d.com" className="flex items-center gap-6 bg-slate-900 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
+                  <Mail className="text-blue-500" size={24} />
+                  <div>
+                    <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Email Us</h4>
+                    <p className="text-blue-400 text-sm font-medium">team@builtlogic3d.com</p>
+                  </div>
+                </a>
+
+                <a href="tel:3474941068" className="flex items-center gap-6 bg-slate-900 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
+                  <Phone className="text-blue-500" size={24} />
+                  <div>
+                    <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Call Directly</h4>
+                    <p className="text-blue-400 text-sm font-medium">(347) 494-1068</p>
+                  </div>
+                </a>
+
+                <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="flex items-center gap-6 bg-slate-900 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
+                  <Youtube className="text-blue-500" size={24} />
+                  <div>
+                    <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Watch Strategy</h4>
+                    <p className="text-blue-400 text-sm font-medium">YouTube Channel</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT SIDE: THE MESSAGE BOX */}
+            <div className="bg-slate-900/50 p-8 rounded-2xl border border-white/10">
+              <div className="mb-6">
+                <h3 className="text-white font-black uppercase tracking-widest text-xs mb-1 italic">Submit Inquiry</h3>
+                <p className="text-slate-500 text-[9px] font-bold uppercase tracking-widest leading-relaxed">Include project location and scope for a faster response.</p>
+              </div>
+
+              <form action="https://formspree.io/f/mkovdyvd" method="POST" className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input type="text" name="name" placeholder="NAME" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
+                  <input type="email" name="email" placeholder="EMAIL" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
+                </div>
+                <textarea name="message" placeholder="MESSAGE" required rows={5} className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all leading-relaxed"></textarea>
+                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-lg uppercase tracking-[0.3em] text-[11px] transition-all">
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
 
-{/* FOOTER */}
-<footer className="bg-slate-950 text-white py-6 border-t border-white/10">
+      {/* FOOTER */}
+      <footer className="bg-slate-950 text-white py-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
-              
-              {/* LOGO - Large scale but with negative margins to "eat" the empty background space */}
               <img 
                 src="/logo-main.png" 
                 alt="BuiltLogic 3D" 
                 className="h-32 w-auto object-contain -my-10" 
               />
-
               <p className="text-slate-400 text-[10px] mt-1 uppercase tracking-[0.2em] font-bold">
                 Precision Construction Modeling • BIM Coordination
               </p>
             </div>
-            
             <div className="flex flex-col items-center md:items-end text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em]">
               <p>© 2026 BUILTLOGIC 3D, LLC. ALL RIGHTS RESERVED.</p>
             </div>
