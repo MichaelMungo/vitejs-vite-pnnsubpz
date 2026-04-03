@@ -190,21 +190,15 @@ export default function App() {
  {/* SERVICES SECTION */}
 <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
 <div className="flex flex-col items-center mb-20 w-full">
-  {/* Top Bracket: Increased opacity to ensure it's visible */}
+  {/* Top Bracket Line */}
   <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
   
-  {/* The Font: 'font-black' for thickness, 'tracking-[0.4em]' for that wide brochure width */}
-  <h2 className="py-10 text-4xl md:text-5xl font-black uppercase tracking-[0.4em] text-slate-900 text-center leading-none">
+  <h2 className="py-8 text-2xl md:text-3xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
     Our Services
   </h2>
   
-  {/* Bottom Bracket */}
+  {/* Bottom Bracket Line */}
   <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-  
-  {/* Technical Serial Number (Optional - adds to the brochure feel) */}
-  <span className="mt-4 text-[9px] font-mono font-bold tracking-[0.5em] text-blue-600 opacity-70">
-    SECTION_REF // 00.190.04
-  </span>
 </div>
 
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
