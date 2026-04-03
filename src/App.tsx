@@ -202,7 +202,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES - BROCHURE-STYLE TITLE */}
+      {/* STRATEGIC ADVANTAGES - UPDATED 30% CARD */}
       <section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center mb-16 w-full text-center">
@@ -223,8 +223,8 @@ export default function App() {
               <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Faster RFI Resolution</div>
             </div>
             <div className="text-center group">
-              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">$</div>
-              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Significant Cost Savings</div>
+              <div className="text-[92px] font-black text-white leading-none tracking-tighter group-hover:text-blue-400 transition-colors">30<span className="text-4xl align-super font-normal">%</span></div>
+              <div className="text-blue-400 text-sm uppercase tracking-widest font-semibold mt-1">Average Cost Savings</div>
             </div>
           </div>
 
