@@ -159,21 +159,17 @@ export default function App() {
         </div>
       </div>
 
-{/* HERO SECTION */}
-<section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
-        <div 
-          className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
-          style={heroGridStyle} 
-        />
-        
+      {/* HERO SECTION */}
+      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
+        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
         <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
-          <img 
-            src={logo} 
-            alt="BuiltLogic 3D Logo" 
-            className="h-20 md:h-28 w-auto mx-auto mb-8 drop-shadow-[0_0_15px_rgba(244,123,32,0.2)]" 
-          />
+        <img 
+  src={logo} 
+  alt="BuiltLogic 3D" 
+  className="animate-float relative z-30 h-32 md:h-auto md:w-[87.5%] lg:w-[75%] max-w-[1125px] mx-auto w-auto object-contain mb-10 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]" 
+/>
           
-          <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90 leading-relaxed">
+          <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90">
             Precision 3D Construction Models from Architectural and MEP Drawings
           </p>
 
