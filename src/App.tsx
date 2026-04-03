@@ -187,13 +187,27 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES SECTION */}
-      <section id="services" className="py-24 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">Our Services</h2>
-          <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+ {/* SERVICES SECTION */}
+<section id="services" className="py-32 px-6 max-w-7xl mx-auto">
+  <div className="flex flex-col items-center mb-24">
+    {/* Top Fading Bracket */}
+    <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+    
+    <h2 className="py-8 text-4xl md:text-6xl font-black uppercase italic tracking-[0.3em] text-slate-900 text-center leading-none">
+      Our Services
+    </h2>
+    
+    {/* Bottom Fading Bracket */}
+    <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+    
+    {/* Technical Sub-label */}
+    <span className="text-[10px] font-bold tracking-[0.5em] text-blue-600 uppercase mt-4 opacity-80">
+      Core_Competencies_v2.6
+    </span>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* ... rest of your ServiceCards ... */}    
           <ServiceCard icon={Building2} title="Architectural 3D" desc="3D visualization bridges the gap between architectural intent and field execution." />
           <ServiceCard icon={Zap} title="Proactive MEPS Integration" desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." />
           <ServiceCard icon={Play} title="Multi-Format Visualization" desc="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment." />
