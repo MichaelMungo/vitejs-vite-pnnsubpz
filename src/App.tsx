@@ -193,38 +193,83 @@ export default function App() {
   </div>
 </section>
 
-      {/* NEW: MISSION STATEMENT / ABOUT US SECTION */}
-      <section className="bg-slate-950 py-24 px-6 border-b border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col items-center mb-16 w-full text-center">
-            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-            <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
-              Our <span className="text-blue-400">Mission</span>
-            </h2>
-            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-          </div>
+{/* MISSION STATEMENT / ABOUT US SECTION */}
+<section className="bg-slate-950 py-24 px-6 border-b border-white/5">
+  <div className="max-w-4xl mx-auto">
+    <div className="flex flex-col items-center mb-16 w-full text-center">
+      <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
+        Our <span className="text-blue-400">Mission</span>
+      </h2>
+      <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+    </div>
 
-          <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-[15px]">
-            <p className="mb-6">
-              BuiltLogic 3D was born from forty years of grit, grease, and high-stakes management. 
-              Since 1985, I have navigated the complexities of multimillion-dollar commercial projects 
-              from New York to Miami.
-            </p>
-            <p className="mb-6">
-              Through those decades, I discovered a universal truth: <span className="text-orange-400 font-medium">the most expensive mile in construction is the distance between the architect’s desk and the field office.</span>
-            </p>
-            <p className="mb-8">
-              We exist to bridge that gap. By translating traditional architectural drawings into 
-              high-fidelity 3D models, we empower hardworking field teams to build the original intent 
-              the first time. Our mission is to eliminate the cycle of rework and enhance the existing 
-              professionalism of General Contractors through state-of-the-art visualization. 
-              We don’t just model buildings; we support the people who build them.
-            </p>
-          </div>
+    <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-[15px] mb-16">
+      <p className="mb-6">
+        BuiltLogic 3D was born from forty years of grit, grease, and high-stakes management. 
+        Since 1985, I have navigated the complexities of multimillion-dollar commercial projects 
+        from New York to Miami.
+      </p>
+      <p className="mb-6">
+        Through those decades, I discovered a universal truth: <span className="text-orange-400 font-medium">the most expensive mile in construction is the distance between the architect’s desk and the field office.</span>
+      </p>
+      <p className="mb-8">
+        We exist to bridge that gap. By translating traditional architectural drawings into 
+        high-fidelity 3D models, we empower hardworking field teams to build the original intent 
+        the first time. Our mission is to eliminate the cycle of rework and enhance the existing 
+        professionalism of General Contractors through state-of-the-art visualization. 
+        We don’t just model buildings; we support the people who build them.
+      </p>
+    </div>
 
-          {/* Optional: Add the four small icons from your brochure here later if you want */}
+    {/* Isometric Icons Grid - matching your brochure */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="text-center group">
+        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+          <img 
+            src="https://i.postimg.cc/3xK5Zf0K/design-integration-isometric.png" 
+            alt="Design Integration" 
+            className="w-full h-full object-contain"
+          />
         </div>
-      </section>
+        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">DESIGN INTEGRATION</p>
+      </div>
+
+      <div className="text-center group">
+        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+          <img 
+            src="https://i.postimg.cc/0jY5Zf0K/fewer-conflicts-isometric.png" 
+            alt="90% Fewer Conflicts" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">90% FEWER CONFLICTS</p>
+      </div>
+
+      <div className="text-center group">
+        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+          <img 
+            src="https://i.postimg.cc/3xK5Zf0K/eliminate-rework-isometric.png" 
+            alt="Eliminate Rework" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">ELIMINATE REWORK</p>
+      </div>
+
+      <div className="text-center group">
+        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+          <img 
+            src="https://i.postimg.cc/0jY5Zf0K/client-confidence-isometric.png" 
+            alt="Client Confidence" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">CLIENT CONFIDENCE</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* SERVICES SECTION */}
       <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
