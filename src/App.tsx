@@ -346,68 +346,68 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col items-center mb-16 w-full">
-            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-            <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white text-center leading-none">
-              Connect with <span className="text-blue-400">BuiltLogic 3D</span>
-            </h2>
-            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-          </div>
+{/* CONTACT */}
+<section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
+  <div className="max-w-6xl mx-auto">
+    <div className="flex flex-col items-center mb-16 w-full">
+      <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white text-center leading-none">
+        Connect with <span className="text-blue-400">BuiltLogic 3D</span>
+      </h2>
+      <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+    </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-4">
-              <div className="mb-6">
-                <h3 className="text-blue-500 font-black uppercase tracking-widest text-xs mb-2 italic">Direct Channels</h3>
-                <p className="text-slate-400 text-[10px] uppercase tracking-wider font-bold">Reach our modeling team immediately.</p>
-              </div>
-              
-              <div className="flex flex-col gap-3">
-                <a href="mailto:team@builtlogic3d.com" className="flex items-center gap-6 bg-slate-900 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
-                  <Mail className="text-blue-500" size={24} />
-                  <div>
-                    <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Email Us</h4>
-                    <p className="text-blue-400 text-sm font-medium">team@builtlogic3d.com</p>
-                  </div>
-                </a>
-                <a href="tel:3474941068" className="flex items-center gap-6 bg-slate-900 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
-                  <Phone className="text-blue-500" size={24} />
-                  <div>
-                    <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Call Directly</h4>
-                    <p className="text-blue-400 text-sm font-medium">(347) 494-1068</p>
-                  </div>
-                </a>
-                <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="flex items-center gap-6 bg-slate-900 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
-                  <Youtube className="text-blue-500" size={24} />
-                  <div>
-                    <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Watch Strategy</h4>
-                    <p className="text-blue-400 text-sm font-medium">YouTube Channel</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-slate-900/50 p-8 rounded-2xl border border-white/10">
-              <div className="mb-6">
-                <h3 className="text-white font-black uppercase tracking-widest text-xs mb-1 italic">Submit Inquiry</h3>
-                <p className="text-slate-500 text-[9px] font-bold uppercase tracking-widest leading-relaxed">Include project location and scope for a faster response.</p>
-              </div>
-              <form action="https://formspree.io/f/mkovdyvd" method="POST" className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input type="text" name="name" placeholder="NAME" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
-                  <input type="email" name="email" placeholder="EMAIL" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
-                </div>
-                <textarea name="message" placeholder="MESSAGE" required rows={5} className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all leading-relaxed"></textarea>
-                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-lg uppercase tracking-[0.3em] text-[11px] transition-all">
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+      <div className="bg-slate-900/50 p-8 rounded-2xl border border-white/10 flex flex-col">
+        <div className="mb-6">
+          <h3 className="text-blue-500 font-black uppercase tracking-widest text-xs mb-2">Direct Channels</h3>
+          <p className="text-slate-400 text-[10px] uppercase tracking-wider font-bold">Reach our modeling team immediately.</p>
         </div>
-      </section>
+        
+        <div className="flex flex-col gap-3 flex-1">
+          <a href="mailto:team@builtlogic3d.com" className="flex items-center gap-6 bg-slate-950 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
+            <Mail className="text-blue-500" size={24} />
+            <div>
+              <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Email Us</h4>
+              <p className="text-blue-400 text-sm font-medium">team@builtlogic3d.com</p>
+            </div>
+          </a>
+          <a href="tel:3474941068" className="flex items-center gap-6 bg-slate-950 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
+            <Phone className="text-blue-500" size={24} />
+            <div>
+              <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Call Directly</h4>
+              <p className="text-blue-400 text-sm font-medium">(347) 494-1068</p>
+            </div>
+          </a>
+          <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="flex items-center gap-6 bg-slate-950 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
+            <Youtube className="text-blue-500" size={24} />
+            <div>
+              <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Watch Strategy</h4>
+              <p className="text-blue-400 text-sm font-medium">YouTube Channel</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div className="bg-slate-900/50 p-8 rounded-2xl border border-white/10 flex flex-col">
+        <div className="mb-6">
+          <h3 className="text-blue-500 font-black uppercase tracking-widest text-xs mb-1">Submit Inquiry</h3>
+          <p className="text-slate-500 text-[9px] font-bold uppercase tracking-widest leading-relaxed">Include project location and scope for a faster response.</p>
+        </div>
+        <form action="https://formspree.io/f/mkovdyvd" method="POST" className="space-y-4 flex flex-col flex-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" name="name" placeholder="NAME" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
+            <input type="email" name="email" placeholder="EMAIL" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
+          </div>
+          <textarea name="message" placeholder="MESSAGE" required rows={5} className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all leading-relaxed flex-1"></textarea>
+          <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-lg uppercase tracking-[0.3em] text-[11px] transition-all mt-auto">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* FOOTER */}
       <footer className="bg-slate-950 text-white py-6 border-t border-white/10">
