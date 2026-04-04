@@ -193,101 +193,92 @@ export default function App() {
   </div>
 </section>
 
-{/* MISSION STATEMENT / ABOUT US SECTION */}
-<section className="bg-slate-950 py-24 px-6 border-b border-white/5">
-  <div className="max-w-4xl mx-auto">
-    <div className="flex flex-col items-center mb-16 w-full text-center">
-      <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-      <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
-        Our <span className="text-blue-400">Mission</span>
-      </h2>
-      <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-    </div>
+     {/* MISSION STATEMENT / ABOUT US SECTION */}
+     <section className="bg-slate-950 py-24 px-6 border-b border-white/5">
+        <div className="max-w-4xl mx-auto">
+          {/* Section Header with Glass-Fade Title */}
+          <div className="flex flex-col items-center mb-16 w-full text-center">
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] leading-none 
+                           text-transparent bg-clip-text 
+                           bg-gradient-to-t from-blue-500 via-blue-400/80 to-blue-50/0
+                           [text-shadow:0_0_15px_rgba(59,130,246,0.3)]">
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-t from-blue-400 to-blue-50/0">Mission</span>
+            </h2>
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+          </div>
 
-    <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-[15px] mb-16">
-      <p className="mb-6">
-        BuiltLogic 3D was born from forty years of grit, grease, and high-stakes management. 
-        Since 1985, I have navigated the complexities of multimillion-dollar commercial projects 
-        from New York to Miami.
-      </p>
-      <p className="mb-6">
-        Through those decades, I discovered a universal truth: <span className="text-orange-400 font-medium">the most expensive mile in construction is the distance between the architect’s desk and the field office.</span>
-      </p>
-      <p className="mb-8">
-        We exist to bridge that gap. By translating traditional architectural drawings into 
-        high-fidelity 3D models, we empower hardworking field teams to build the original intent 
-        the first time. Our mission is to eliminate the cycle of rework and enhance the existing 
-        professionalism of General Contractors through state-of-the-art visualization. 
-        We don’t just model buildings; we support the people who build them.
-      </p>
-    </div>
+          {/* Statement Text */}
+          <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-[15px] mb-20 text-center md:text-left">
+            <p className="mb-6">
+              BuiltLogic 3D was born from forty years of grit, grease, and high-stakes management. 
+              Since 1985, I have navigated the complexities of multimillion-dollar commercial projects 
+              from New York to Miami.
+            </p>
+            <p className="mb-6">
+              Through those decades, I discovered a universal truth: <span className="text-orange-400 font-medium">the most expensive mile in construction is the distance between the architect’s desk and the field office.</span>
+            </p>
+            <p className="mb-12">
+              We exist to bridge that gap. By translating traditional architectural drawings into 
+              high-fidelity 3D models, we empower hardworking field teams to build the original intent 
+              the first time. Our mission is to eliminate the cycle of rework and enhance the existing 
+              professionalism of General Contractors through state-of-the-art visualization. 
+              We don’t just model buildings; we support the people who build them.
+            </p>
+          </div>
 
-    {/* Isometric Icons Grid - matching your brochure */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div className="text-center group">
-        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
-          <img 
-            src="https://i.postimg.cc/3xK5Zf0K/design-integration-isometric.png" 
-            alt="Design Integration" 
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">DESIGN INTEGRATION</p>
-      </div>
+          {/* Isometric Icons Grid - Sync'd with StackBlitz public/images folder */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            
+            {/* DESIGN INTEGRATION */}
+            <div className="text-center group">
+              <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+                <img 
+                  src="/images/Design Integration.png" 
+                  alt="Design Integration" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <p className="text-blue-400 font-bold uppercase tracking-widest text-[10px]">Design Integration</p>
+            </div>
 
-      <div className="text-center group">
-        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
-          <img 
-            src="https://i.postimg.cc/0jY5Zf0K/fewer-conflicts-isometric.png" 
-            alt="90% Fewer Conflicts" 
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">90% FEWER CONFLICTS</p>
-      </div>
-
-      <div className="text-center group">
-        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
-          <img 
-            src="https://i.postimg.cc/3xK5Zf0K/eliminate-rework-isometric.png" 
-            alt="Eliminate Rework" 
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">ELIMINATE REWORK</p>
-      </div>
-
-      <div className="text-center group">
-        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
-          <img 
-            src="https://i.postimg.cc/0jY5Zf0K/client-confidence-isometric.png" 
-            alt="Client Confidence" 
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">CLIENT CONFIDENCE</p>
-      </div>
-    </div>
+{/* 2. 90% FEWER CONFLICTS */}
+<div className="text-center group">
+  <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+    <img 
+      src="/images/fewer-conflicts.png" 
+      alt="90% Fewer Conflicts" 
+      className="w-full h-full object-contain"
+    />
   </div>
-</section>
+  <p className="text-blue-400 font-bold uppercase tracking-widest text-[10px]">90% Fewer Conflicts</p>
+</div>
 
-      {/* SERVICES SECTION */}
-      <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center mb-20 w-full">
-          <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-          <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
-            Our <span className="text-blue-600">Services</span>
-          </h2>
-          <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-        </div>
+            {/* ELIMINATE REWORK */}
+            <div className="text-center group">
+              <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+                <img 
+                  src="/images/Eliminate Rework.png" 
+                  alt="Eliminate Rework" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <p className="text-blue-400 font-bold uppercase tracking-widest text-[10px]">Eliminate Rework</p>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard icon={Building2} title="Architectural 3D" desc="3D visualization bridges the gap between architectural intent and field execution." />
-          <ServiceCard icon={Zap} title="Proactive MEPS Integration" desc="Discover 'clashes' in a $0 digital environment instead of a $10,000 'oops' on the job." />
-          <ServiceCard icon={Play} title="Multi-Format Visualization" desc="Export your project as high-definition images, step-by-step video sequences, or a fully navigable 3D environment." />
-          <ServiceCard icon={UserCheck} title="White-Label Professionalism" desc="Impress clients with 3D models and videos branded to your company. We provide the high-tech visuals that make your firm look like the most sophisticated team on the bid." />
-          <ServiceCard icon={Database} title="Digital 3-Dimensional As-Builts" desc="Transition from construction to operations with a 1:1 digital twin. We provide a precise 3D 'as-built' model that serves as a permanent, navigable manual." />
-          <ServiceCard icon={ClipboardCheck} title="Precision Procurement" desc="Leverage model accuracy to buy what you need, not what you think you need." />
+            {/* CLIENT CONFIDENCE */}
+            <div className="text-center group">
+              <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+                <img 
+                  src="/images/Client Confidence.png" 
+                  alt="Client Confidence" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <p className="text-blue-400 font-bold uppercase tracking-widest text-[10px]">Client Confidence</p>
+            </div>
+
+          </div>
         </div>
       </section>
 
