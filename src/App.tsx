@@ -126,7 +126,18 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10 scroll-smooth">
-      <style>{`html { scroll-behavior: smooth; }`}</style>
+      <style>{`
+        html { scroll-behavior: smooth; }
+        
+        /* Improved modern system font stack for section titles only */
+        .section-title {
+          font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
+                       "Segoe UI Variable", "Segoe UI", Roboto, "Helvetica Neue", 
+                       Arial, "Noto Sans", sans-serif;
+          font-weight: 700;
+          letter-spacing: -0.025em;
+        }
+      `}</style>
 
       {/* NAVIGATION BAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
@@ -182,11 +193,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - BROCHURE-STYLE TITLE */}
+      {/* SERVICES SECTION */}
       <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col items-center mb-20 w-full">
           <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-          <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
+          <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
             Our <span className="text-blue-600">Services</span>
           </h2>
           <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
@@ -202,12 +213,12 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES - UPDATED 30% CARD */}
+      {/* STRATEGIC ADVANTAGES */}
       <section className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center mb-16 w-full text-center">
             <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-            <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
+            <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
               Strategic <span className="text-blue-400">Advantages</span>
             </h2>
             <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
@@ -236,12 +247,12 @@ export default function App() {
         </div>
       </section>
 
-      {/* PORTFOLIO - BROCHURE-STYLE TITLE */}
+      {/* PORTFOLIO */}
       <section id="portfolio" className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <div className="flex flex-col items-center mb-16 w-full">
             <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
-            <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
+            <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-slate-900 text-center leading-none">
               Featured <span className="text-blue-600">Portfolio</span>
             </h2>
             <div className="w-full max-w-5xl h-[1.5px] bg-gradient-to-r from-transparent via-slate-400 to-transparent" />
@@ -255,12 +266,12 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT - BROCHURE-STYLE TITLE */}
+      {/* CONTACT */}
       <section id="contact" className="bg-slate-950 py-24 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center mb-16 w-full">
             <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-            <h2 className="py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white text-center leading-none">
+            <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white text-center leading-none">
               Connect with <span className="text-blue-400">BuiltLogic 3D</span>
             </h2>
             <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
