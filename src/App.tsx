@@ -193,6 +193,39 @@ export default function App() {
         </div>
       </section>
 
+      {/* NEW: MISSION STATEMENT / ABOUT US SECTION */}
+      <section className="bg-slate-950 py-24 px-6 border-b border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col items-center mb-16 w-full text-center">
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
+              Our <span className="text-blue-400">Mission</span>
+            </h2>
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+          </div>
+
+          <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-[15px]">
+            <p className="mb-6">
+              BuiltLogic 3D was born from forty years of grit, grease, and high-stakes management. 
+              Since 1985, I have navigated the complexities of multimillion-dollar commercial projects 
+              from New York to Miami.
+            </p>
+            <p className="mb-6">
+              Through those decades, I discovered a universal truth: <span className="text-orange-400 font-medium">the most expensive mile in construction is the distance between the architect’s desk and the field office.</span>
+            </p>
+            <p className="mb-8">
+              We exist to bridge that gap. By translating traditional architectural drawings into 
+              high-fidelity 3D models, we empower hardworking field teams to build the original intent 
+              the first time. Our mission is to eliminate the cycle of rework and enhance the existing 
+              professionalism of General Contractors through state-of-the-art visualization. 
+              We don’t just model buildings; we support the people who build them.
+            </p>
+          </div>
+
+          {/* Optional: Add the four small icons from your brochure here later if you want */}
+        </div>
+      </section>
+
       {/* SERVICES SECTION */}
       <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col items-center mb-20 w-full">
@@ -212,6 +245,9 @@ export default function App() {
           <ServiceCard icon={ClipboardCheck} title="Precision Procurement" desc="Leverage model accuracy to buy what you need, not what you think you need." />
         </div>
       </section>
+
+      {/* STRATEGIC ADVANTAGES, PORTFOLIO, CONTACT, FOOTER, MODAL remain the same as before */}
+      {/* (I kept them identical to your last version for cleanliness) */}
 
       {/* STRATEGIC ADVANTAGES */}
       <section className="bg-slate-950 py-24 px-6">
