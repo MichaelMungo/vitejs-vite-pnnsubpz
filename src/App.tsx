@@ -139,7 +139,7 @@ export default function App() {
         }
       `}</style>
 
-      {/* NAVIGATION BAR */}
+      {/* NAVIGATION BAR - Updated with Advantages */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Menu 
@@ -149,6 +149,7 @@ export default function App() {
           />
           <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
             <a href="#services" className="hover:text-white transition-all">Services</a>
+            <a href="#advantages" className="hover:text-white transition-all">Advantages</a>
             <a href="#portfolio" className="hover:text-white transition-all">Portfolio</a>
             <a href="#contact" className="hover:text-white transition-all">Contact</a>
           </div>
@@ -156,7 +157,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* MOBILE DRAWER */}
+      {/* MOBILE DRAWER - Updated with Advantages */}
       <div className={`fixed inset-0 z-[60] bg-slate-950/95 backdrop-blur-xl transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}>
         <div className="flex flex-col h-full p-8">
           <div className="flex justify-end">
@@ -164,112 +165,113 @@ export default function App() {
           </div>
           <div className="flex flex-col gap-8 mt-12 text-2xl font-black text-white uppercase tracking-tighter">
             <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
+            <a href="#advantages" onClick={() => setIsMenuOpen(false)}>Advantages</a>
             <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
             <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
           </div>
         </div>
       </div>
 
-{/* HERO SECTION */}
-<section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
-  <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
-  <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
-    <img 
-      src="/logo-main.png" 
-      alt="BuiltLogic 3D" 
-      className="animate-float relative z-30 w-[110%] -ml-[5%] md:ml-auto md:w-[85%] lg:w-[75%] max-w-[1200px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]" 
-    />
-    <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90 leading-relaxed">
-      Precision 3D Construction Models from Architectural and MEP Drawings
-    </p>
-    <div className="flex flex-wrap gap-4 justify-center">
-      <a href="#portfolio" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
-        View Portfolio
-      </a>
-      <a href="#contact" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
-        Connect With Our Team
-      </a>
-    </div>
-  </div>
-</section>
-
-{/* MISSION STATEMENT / ABOUT US SECTION */}
-<section className="bg-slate-950 py-24 px-6 border-b border-white/5">
-  <div className="max-w-4xl mx-auto">
-    <div className="flex flex-col items-center mb-16 w-full text-center">
-      <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-      <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
-        Our <span className="text-blue-400">Mission</span>
-      </h2>
-      <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-    </div>
-
-    <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-[15px] mb-16">
-      <p className="mb-6">
-        BuiltLogic 3D was born from forty years of grit, grease, and high-stakes management. 
-        Since 1985, I have navigated the complexities of multimillion-dollar commercial projects 
-        from New York to Miami.
-      </p>
-      <p className="mb-6">
-        Through those decades, I discovered a universal truth: <span className="text-orange-400 font-medium">the most expensive mile in construction is the distance between the architect’s desk and the field office.</span>
-      </p>
-      <p className="mb-8">
-        We exist to bridge that gap. By translating traditional architectural drawings into 
-        high-fidelity 3D models, we empower hardworking field teams to build the original intent 
-        the first time. Our mission is to eliminate the cycle of rework and enhance the existing 
-        professionalism of General Contractors through state-of-the-art visualization. 
-        We don’t just model buildings; we support the people who build them.
-      </p>
-    </div>
-
-    {/* Isometric Icons Grid - Using your exact filenames */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div className="text-center group">
-        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
+      {/* HERO SECTION */}
+      <section onMouseMove={handleMouseMove} className="relative min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden pt-24 pb-16 px-6 group">
+        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={heroGridStyle} />
+        <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
           <img 
-            src="/images/Design Integration.png" 
-            alt="Design Integration" 
-            className="w-full h-full object-contain drop-shadow-md"
+            src="/logo-main.png" 
+            alt="BuiltLogic 3D" 
+            className="animate-float relative z-30 w-[110%] -ml-[5%] md:ml-auto md:w-[85%] lg:w-[75%] max-w-[1200px] mx-auto h-auto object-contain mb-10 drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]" 
           />
+          <p className="text-[#60a5fa] text-[10px] md:text-sm font-black tracking-[0.3em] uppercase max-w-4xl mx-auto mb-10 opacity-90 leading-relaxed">
+            Precision 3D Construction Models from Architectural and MEP Drawings
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a href="#portfolio" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
+              View Portfolio
+            </a>
+            <a href="#contact" className="w-64 bg-white/5 text-white py-4 rounded-lg font-bold text-xs uppercase tracking-widest border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all shadow-lg backdrop-blur-sm text-center">
+              Connect With Our Team
+            </a>
+          </div>
         </div>
-        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">DESIGN INTEGRATION</p>
-      </div>
+      </section>
 
-      <div className="text-center group">
-        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
-          <img 
-            src="/images/fewer-conflicts.png" 
-            alt="90% Fewer Conflicts" 
-            className="w-full h-full object-contain drop-shadow-md"
-          />
-        </div>
-        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">90% FEWER CONFLICTS</p>
-      </div>
+      {/* MISSION STATEMENT / ABOUT US SECTION - WITH ISOMETRIC ICONS */}
+      <section className="bg-slate-950 py-24 px-6 border-b border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col items-center mb-16 w-full text-center">
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            <h2 className="section-title py-8 text-3xl md:text-4xl font-black uppercase tracking-[0.15em] text-white leading-none">
+              Our <span className="text-blue-400">Mission</span>
+            </h2>
+            <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+          </div>
 
-      <div className="text-center group">
-        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
-          <img 
-            src="/images/Eliminate Rework.png" 
-            alt="Eliminate Rework" 
-            className="w-full h-full object-contain drop-shadow-md"
-          />
-        </div>
-        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">ELIMINATE REWORK</p>
-      </div>
+          <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-[15px] mb-16">
+            <p className="mb-6">
+              BuiltLogic 3D was born from forty years of grit, grease, and high-stakes management. 
+              Since 1985, I have navigated the complexities of multimillion-dollar commercial projects 
+              from New York to Miami.
+            </p>
+            <p className="mb-6">
+              Through those decades, I discovered a universal truth: <span className="text-orange-400 font-medium">the most expensive mile in construction is the distance between the architect’s desk and the field office.</span>
+            </p>
+            <p className="mb-8">
+              We exist to bridge that gap. By translating traditional architectural drawings into 
+              high-fidelity 3D models, we empower hardworking field teams to build the original intent 
+              the first time. Our mission is to eliminate the cycle of rework and enhance the existing 
+              professionalism of General Contractors through state-of-the-art visualization. 
+              We don’t just model buildings; we support the people who build them.
+            </p>
+          </div>
 
-      <div className="text-center group">
-        <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-all">
-          <img 
-            src="/images/Client Confidence.png" 
-            alt="Client Confidence" 
-            className="w-full h-full object-contain drop-shadow-md"
-          />
+          {/* Isometric Icons Grid with Orange Glow on Hover */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center group">
+              <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-orange-400/50 transition-all group-hover:scale-105">
+                <img 
+                  src="/images/Design Integration.png" 
+                  alt="Design Integration" 
+                  className="w-full h-full object-contain drop-shadow-md group-hover:drop-shadow-[0_0_12px_rgba(249,115,22,0.5)] transition-all"
+                />
+              </div>
+              <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">DESIGN INTEGRATION</p>
+            </div>
+
+            <div className="text-center group">
+              <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-orange-400/50 transition-all group-hover:scale-105">
+                <img 
+                  src="/images/fewer-conflicts.png" 
+                  alt="90% Fewer Conflicts" 
+                  className="w-full h-full object-contain drop-shadow-md group-hover:drop-shadow-[0_0_12px_rgba(249,115,22,0.5)] transition-all"
+                />
+              </div>
+              <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">90% FEWER CONFLICTS</p>
+            </div>
+
+            <div className="text-center group">
+              <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-orange-400/50 transition-all group-hover:scale-105">
+                <img 
+                  src="/images/Eliminate Rework.png" 
+                  alt="Eliminate Rework" 
+                  className="w-full h-full object-contain drop-shadow-md group-hover:drop-shadow-[0_0_12px_rgba(249,115,22,0.5)] transition-all"
+                />
+              </div>
+              <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">ELIMINATE REWORK</p>
+            </div>
+
+            <div className="text-center group">
+              <div className="mx-auto mb-4 w-28 h-28 bg-slate-900/50 rounded-2xl p-4 flex items-center justify-center border border-white/10 group-hover:border-orange-400/50 transition-all group-hover:scale-105">
+                <img 
+                  src="/images/Client Confidence.png" 
+                  alt="Client Confidence" 
+                  className="w-full h-full object-contain drop-shadow-md group-hover:drop-shadow-[0_0_12px_rgba(249,115,22,0.5)] transition-all"
+                />
+              </div>
+              <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">CLIENT CONFIDENCE</p>
+            </div>
+          </div>
         </div>
-        <p className="text-blue-400 font-bold uppercase tracking-widest text-xs">CLIENT CONFIDENCE</p>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* SERVICES SECTION */}
       <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
@@ -291,11 +293,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* STRATEGIC ADVANTAGES, PORTFOLIO, CONTACT, FOOTER, MODAL remain the same as before */}
-      {/* (I kept them identical to your last version for cleanliness) */}
-
-      {/* STRATEGIC ADVANTAGES */}
-      <section className="bg-slate-950 py-24 px-6">
+      {/* STRATEGIC ADVANTAGES - Now linked from nav as "Advantages" */}
+      <section id="advantages" className="bg-slate-950 py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center mb-16 w-full text-center">
             <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
