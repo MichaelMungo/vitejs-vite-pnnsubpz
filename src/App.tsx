@@ -372,13 +372,19 @@ export default function App() {
               <p className="text-blue-400 text-sm font-medium">team@builtlogic3d.com</p>
             </div>
           </a>
-          <a href="tel:3474941068" className="flex items-center gap-6 bg-slate-950 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
+
+          {/* Updated Phone Card with Two Numbers */}
+          <a href="tel:7275204689" className="flex items-center gap-6 bg-slate-950 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
             <Phone className="text-blue-500" size={24} />
             <div>
               <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Call Directly</h4>
-              <p className="text-blue-400 text-sm font-medium">(727) 520-4689   (347) 494-1068</p>
+              <div className="text-blue-400 text-sm font-medium space-y-1">
+                <div>(727) 520-4689</div>
+                <div>(347) 494-1068</div>
+              </div>
             </div>
           </a>
+
           <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="flex items-center gap-6 bg-slate-950 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
             <Youtube className="text-blue-500" size={24} />
             <div>
@@ -389,18 +395,19 @@ export default function App() {
         </div>
       </div>
 
-      <div className="bg-slate-900/50 p-8 rounded-2xl border border-white/10 flex flex-col">
+      {/* Right side inquiry form - unchanged */}
+      <div className="bg-slate-900/50 p-8 rounded-2xl border border-white/10">
         <div className="mb-6">
-          <h3 className="text-blue-500 font-black uppercase tracking-widest text-xs mb-1">Submit Inquiry</h3>
+          <h3 className="text-white font-black uppercase tracking-widest text-xs mb-1 italic">Submit Inquiry</h3>
           <p className="text-slate-500 text-[9px] font-bold uppercase tracking-widest leading-relaxed">Include project location and scope for a faster response.</p>
         </div>
-        <form action="https://formspree.io/f/mkovdyvd" method="POST" className="space-y-4 flex flex-col flex-1">
+        <form action="https://formspree.io/f/mkovdyvd" method="POST" className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input type="text" name="name" placeholder="NAME" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
             <input type="email" name="email" placeholder="EMAIL" required className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all" />
           </div>
-          <textarea name="message" placeholder="MESSAGE" required rows={5} className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all leading-relaxed flex-1"></textarea>
-          <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-lg uppercase tracking-[0.3em] text-[11px] transition-all mt-auto">
+          <textarea name="message" placeholder="MESSAGE" required rows={5} className="w-full p-4 bg-slate-950 rounded-lg border border-white/10 focus:border-blue-500 outline-none text-white text-[11px] font-bold tracking-widest uppercase transition-all leading-relaxed"></textarea>
+          <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-lg uppercase tracking-[0.3em] text-[11px] transition-all">
             Send Message
           </button>
         </form>
