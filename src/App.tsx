@@ -376,7 +376,7 @@ export default function App() {
             <Phone className="text-blue-500" size={24} />
             <div>
               <h4 className="text-white font-bold uppercase tracking-widest text-[10px]">Call Directly</h4>
-              <p className="text-blue-400 text-sm font-medium">(727) 520-4689</p>
+              <p className="text-blue-400 text-sm font-medium">(727) 520-4689   (347) 494-1068</p>
             </div>
           </a>
           <a href="https://youtube.com/@BuiltLogic3D" target="_blank" rel="noreferrer" className="flex items-center gap-6 bg-slate-950 p-6 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group">
